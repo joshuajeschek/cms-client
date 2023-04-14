@@ -7,7 +7,7 @@
       "additionalProperties": {
         "generatorName": "typescript-fetch",
         "skipValidateSpec": true,
-        "output": "./src/lib/strapi",
+        "output": ".",
         "inputSpec": "openapi.json"
       }
     }
