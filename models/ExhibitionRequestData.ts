@@ -58,6 +58,12 @@ export interface ExhibitionRequestData {
   cover?: ArtistLocalizationRequestArtworksInner;
   /**
    *
+   * @type {Date}
+   * @memberof ExhibitionRequestData
+   */
+  launch?: Date;
+  /**
+   *
    * @type {string}
    * @memberof ExhibitionRequestData
    */
@@ -96,6 +102,7 @@ export function ExhibitionRequestDataFromJSONTyped(
     cover: !exists(json, 'cover')
       ? undefined
       : ArtistLocalizationRequestArtworksInnerFromJSON(json['cover']),
+    launch: !exists(json, 'launch') ? undefined : new Date(json['launch']),
     locale: !exists(json, 'locale') ? undefined : json['locale'],
   };
 }
@@ -116,6 +123,7 @@ export function ExhibitionRequestDataToJSON(value?: ExhibitionRequestData | null
         ? undefined
         : (value.artworks as Array<any>).map(ArtistLocalizationRequestArtworksInnerToJSON),
     cover: ArtistLocalizationRequestArtworksInnerToJSON(value.cover),
+    launch: value.launch === undefined ? undefined : value.launch.toISOString().substr(0, 10),
     locale: value.locale,
   };
 }

@@ -79,6 +79,12 @@ export interface ExhibitionListResponseDataItemLocalizedAttributes {
    * @type {Date}
    * @memberof ExhibitionListResponseDataItemLocalizedAttributes
    */
+  launch?: Date;
+  /**
+   *
+   * @type {Date}
+   * @memberof ExhibitionListResponseDataItemLocalizedAttributes
+   */
   createdAt?: Date;
   /**
    *
@@ -152,6 +158,7 @@ export function ExhibitionListResponseDataItemLocalizedAttributesFromJSONTyped(
     cover: !exists(json, 'cover')
       ? undefined
       : ExhibitionLocalizationResponseCoverFromJSON(json['cover']),
+    launch: !exists(json, 'launch') ? undefined : new Date(json['launch']),
     createdAt: !exists(json, 'createdAt') ? undefined : new Date(json['createdAt']),
     updatedAt: !exists(json, 'updatedAt') ? undefined : new Date(json['updatedAt']),
     publishedAt: !exists(json, 'publishedAt') ? undefined : new Date(json['publishedAt']),
@@ -189,6 +196,7 @@ export function ExhibitionListResponseDataItemLocalizedAttributesToJSON(
     handle: value.handle,
     artworks: ArtistLocalizationResponseArtworksToJSON(value.artworks),
     cover: ExhibitionLocalizationResponseCoverToJSON(value.cover),
+    launch: value.launch === undefined ? undefined : value.launch.toISOString().substr(0, 10),
     createdAt: value.createdAt === undefined ? undefined : value.createdAt.toISOString(),
     updatedAt: value.updatedAt === undefined ? undefined : value.updatedAt.toISOString(),
     publishedAt: value.publishedAt === undefined ? undefined : value.publishedAt.toISOString(),
