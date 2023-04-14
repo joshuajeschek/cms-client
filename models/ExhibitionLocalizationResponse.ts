@@ -31,6 +31,12 @@ import {
   ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesLocalizationsFromJSONTyped,
   ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesLocalizationsToJSON,
 } from './ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesLocalizations';
+import type { ExhibitionLocalizationResponseCover } from './ExhibitionLocalizationResponseCover';
+import {
+  ExhibitionLocalizationResponseCoverFromJSON,
+  ExhibitionLocalizationResponseCoverFromJSONTyped,
+  ExhibitionLocalizationResponseCoverToJSON,
+} from './ExhibitionLocalizationResponseCover';
 
 /**
  *
@@ -68,6 +74,12 @@ export interface ExhibitionLocalizationResponse {
    * @memberof ExhibitionLocalizationResponse
    */
   artworks?: ArtistLocalizationResponseArtworks;
+  /**
+   *
+   * @type {ExhibitionLocalizationResponseCover}
+   * @memberof ExhibitionLocalizationResponse
+   */
+  cover?: ExhibitionLocalizationResponseCover;
   /**
    *
    * @type {Date}
@@ -140,6 +152,9 @@ export function ExhibitionLocalizationResponseFromJSONTyped(
     artworks: !exists(json, 'artworks')
       ? undefined
       : ArtistLocalizationResponseArtworksFromJSON(json['artworks']),
+    cover: !exists(json, 'cover')
+      ? undefined
+      : ExhibitionLocalizationResponseCoverFromJSON(json['cover']),
     createdAt: !exists(json, 'createdAt') ? undefined : new Date(json['createdAt']),
     updatedAt: !exists(json, 'updatedAt') ? undefined : new Date(json['updatedAt']),
     publishedAt: !exists(json, 'publishedAt') ? undefined : new Date(json['publishedAt']),
@@ -177,6 +192,7 @@ export function ExhibitionLocalizationResponseToJSON(
     description: value.description,
     handle: value.handle,
     artworks: ArtistLocalizationResponseArtworksToJSON(value.artworks),
+    cover: ExhibitionLocalizationResponseCoverToJSON(value.cover),
     createdAt: value.createdAt === undefined ? undefined : value.createdAt.toISOString(),
     updatedAt: value.updatedAt === undefined ? undefined : value.updatedAt.toISOString(),
     publishedAt: value.publishedAt === undefined ? undefined : value.publishedAt.toISOString(),

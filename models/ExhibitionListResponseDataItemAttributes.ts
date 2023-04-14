@@ -31,6 +31,12 @@ import {
   ExhibitionListResponseDataItemAttributesLocalizationsFromJSONTyped,
   ExhibitionListResponseDataItemAttributesLocalizationsToJSON,
 } from './ExhibitionListResponseDataItemAttributesLocalizations';
+import type { ExhibitionLocalizationResponseCover } from './ExhibitionLocalizationResponseCover';
+import {
+  ExhibitionLocalizationResponseCoverFromJSON,
+  ExhibitionLocalizationResponseCoverFromJSONTyped,
+  ExhibitionLocalizationResponseCoverToJSON,
+} from './ExhibitionLocalizationResponseCover';
 
 /**
  *
@@ -62,6 +68,12 @@ export interface ExhibitionListResponseDataItemAttributes {
    * @memberof ExhibitionListResponseDataItemAttributes
    */
   artworks?: ArtistLocalizationResponseArtworks;
+  /**
+   *
+   * @type {ExhibitionLocalizationResponseCover}
+   * @memberof ExhibitionListResponseDataItemAttributes
+   */
+  cover?: ExhibitionLocalizationResponseCover;
   /**
    *
    * @type {Date}
@@ -135,6 +147,9 @@ export function ExhibitionListResponseDataItemAttributesFromJSONTyped(
     artworks: !exists(json, 'artworks')
       ? undefined
       : ArtistLocalizationResponseArtworksFromJSON(json['artworks']),
+    cover: !exists(json, 'cover')
+      ? undefined
+      : ExhibitionLocalizationResponseCoverFromJSON(json['cover']),
     createdAt: !exists(json, 'createdAt') ? undefined : new Date(json['createdAt']),
     updatedAt: !exists(json, 'updatedAt') ? undefined : new Date(json['updatedAt']),
     publishedAt: !exists(json, 'publishedAt') ? undefined : new Date(json['publishedAt']),
@@ -169,6 +184,7 @@ export function ExhibitionListResponseDataItemAttributesToJSON(
     description: value.description,
     handle: value.handle,
     artworks: ArtistLocalizationResponseArtworksToJSON(value.artworks),
+    cover: ExhibitionLocalizationResponseCoverToJSON(value.cover),
     createdAt: value.createdAt === undefined ? undefined : value.createdAt.toISOString(),
     updatedAt: value.updatedAt === undefined ? undefined : value.updatedAt.toISOString(),
     publishedAt: value.publishedAt === undefined ? undefined : value.publishedAt.toISOString(),

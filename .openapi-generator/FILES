@@ -89,6 +89,7 @@ models/ExhibitionListResponseDataItemLocalized.ts
 models/ExhibitionListResponseDataItemLocalizedAttributes.ts
 models/ExhibitionLocalizationRequest.ts
 models/ExhibitionLocalizationResponse.ts
+models/ExhibitionLocalizationResponseCover.ts
 models/ExhibitionRequest.ts
 models/ExhibitionRequestData.ts
 models/ExhibitionResponse.ts

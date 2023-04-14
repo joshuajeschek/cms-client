@@ -83,6 +83,7 @@ export * from './ExhibitionListResponseDataItemLocalized';
 export * from './ExhibitionListResponseDataItemLocalizedAttributes';
 export * from './ExhibitionLocalizationRequest';
 export * from './ExhibitionLocalizationResponse';
+export * from './ExhibitionLocalizationResponseCover';
 export * from './ExhibitionRequest';
 export * from './ExhibitionRequestData';
 export * from './ExhibitionResponse';

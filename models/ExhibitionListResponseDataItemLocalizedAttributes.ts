@@ -31,6 +31,12 @@ import {
   ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesLocalizationsFromJSONTyped,
   ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesLocalizationsToJSON,
 } from './ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesLocalizations';
+import type { ExhibitionLocalizationResponseCover } from './ExhibitionLocalizationResponseCover';
+import {
+  ExhibitionLocalizationResponseCoverFromJSON,
+  ExhibitionLocalizationResponseCoverFromJSONTyped,
+  ExhibitionLocalizationResponseCoverToJSON,
+} from './ExhibitionLocalizationResponseCover';
 
 /**
  *
@@ -62,6 +68,12 @@ export interface ExhibitionListResponseDataItemLocalizedAttributes {
    * @memberof ExhibitionListResponseDataItemLocalizedAttributes
    */
   artworks?: ArtistLocalizationResponseArtworks;
+  /**
+   *
+   * @type {ExhibitionLocalizationResponseCover}
+   * @memberof ExhibitionListResponseDataItemLocalizedAttributes
+   */
+  cover?: ExhibitionLocalizationResponseCover;
   /**
    *
    * @type {Date}
@@ -137,6 +149,9 @@ export function ExhibitionListResponseDataItemLocalizedAttributesFromJSONTyped(
     artworks: !exists(json, 'artworks')
       ? undefined
       : ArtistLocalizationResponseArtworksFromJSON(json['artworks']),
+    cover: !exists(json, 'cover')
+      ? undefined
+      : ExhibitionLocalizationResponseCoverFromJSON(json['cover']),
     createdAt: !exists(json, 'createdAt') ? undefined : new Date(json['createdAt']),
     updatedAt: !exists(json, 'updatedAt') ? undefined : new Date(json['updatedAt']),
     publishedAt: !exists(json, 'publishedAt') ? undefined : new Date(json['publishedAt']),
@@ -173,6 +188,7 @@ export function ExhibitionListResponseDataItemLocalizedAttributesToJSON(
     description: value.description,
     handle: value.handle,
     artworks: ArtistLocalizationResponseArtworksToJSON(value.artworks),
+    cover: ExhibitionLocalizationResponseCoverToJSON(value.cover),
     createdAt: value.createdAt === undefined ? undefined : value.createdAt.toISOString(),
     updatedAt: value.updatedAt === undefined ? undefined : value.updatedAt.toISOString(),
     publishedAt: value.publishedAt === undefined ? undefined : value.publishedAt.toISOString(),
