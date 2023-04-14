@@ -8,7 +8,7 @@
         "generatorName": "typescript-fetch",
         "skipValidateSpec": true,
         "output": "./src/lib/strapi",
-        "inputSpec": "http://localhost:1337/api/openapi.json"
+        "inputSpec": "openapi.json"
       }
     }
   }
