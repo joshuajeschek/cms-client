@@ -32,9 +32,7 @@ export interface UsersPermissionsPermissionsTreeValue {
    * @memberof UsersPermissionsPermissionsTreeValue
    */
   controllers?: {
-    [key: string]: {
-      [key: string]: UsersPermissionsPermissionsTreeValueControllersValueValue;
-    };
+    [key: string]: { [key: string]: UsersPermissionsPermissionsTreeValueControllersValueValue };
   };
 }
 

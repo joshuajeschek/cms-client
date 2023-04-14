@@ -32,10 +32,7 @@ export function ArtistLocalizationRequestArtworksInnerFromJSONTyped(
   if (json === undefined || json === null) {
     return json;
   }
-  return {
-    ...numberFromJSONTyped(json, true),
-    ...stringFromJSONTyped(json, true),
-  };
+  return { ...numberFromJSONTyped(json, true), ...stringFromJSONTyped(json, true) };
 }
 
 export function ArtistLocalizationRequestArtworksInnerToJSON(

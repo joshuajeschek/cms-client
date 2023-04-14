@@ -1,4 +1,3 @@
-.openapi-generator-ignore
 apis/ArtistApi.ts
 apis/ArtworkApi.ts
 apis/ExhibitionApi.ts

@@ -27,10 +27,7 @@ export function ErrorDataFromJSONTyped(json: any, ignoreDiscriminator: boolean):
   if (json === undefined || json === null) {
     return json;
   }
-  return {
-    ...(Array < any > FromJSONTyped(json, true)),
-    ...objectFromJSONTyped(json, true),
-  };
+  return { ...(Array < any > FromJSONTyped(json, true)), ...objectFromJSONTyped(json, true) };
 }
 
 export function ErrorDataToJSON(value?: ErrorData | null): any {
