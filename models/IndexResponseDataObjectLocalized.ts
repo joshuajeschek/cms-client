@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { IndexListResponseDataItemLocalizedAttributes } from './IndexListResponseDataItemLocalizedAttributes';
+import type { IndexResponseDataObjectLocalizedAttributes } from './IndexResponseDataObjectLocalizedAttributes';
 import {
-  IndexListResponseDataItemLocalizedAttributesFromJSON,
-  IndexListResponseDataItemLocalizedAttributesFromJSONTyped,
-  IndexListResponseDataItemLocalizedAttributesToJSON,
-} from './IndexListResponseDataItemLocalizedAttributes';
+  IndexResponseDataObjectLocalizedAttributesFromJSON,
+  IndexResponseDataObjectLocalizedAttributesFromJSONTyped,
+  IndexResponseDataObjectLocalizedAttributesToJSON,
+} from './IndexResponseDataObjectLocalizedAttributes';
 
 /**
  *
@@ -34,10 +34,10 @@ export interface IndexResponseDataObjectLocalized {
   id?: number;
   /**
    *
-   * @type {IndexListResponseDataItemLocalizedAttributes}
+   * @type {IndexResponseDataObjectLocalizedAttributes}
    * @memberof IndexResponseDataObjectLocalized
    */
-  attributes?: IndexListResponseDataItemLocalizedAttributes;
+  attributes?: IndexResponseDataObjectLocalizedAttributes;
 }
 
 /**
@@ -66,7 +66,7 @@ export function IndexResponseDataObjectLocalizedFromJSONTyped(
     id: !exists(json, 'id') ? undefined : json['id'],
     attributes: !exists(json, 'attributes')
       ? undefined
-      : IndexListResponseDataItemLocalizedAttributesFromJSON(json['attributes']),
+      : IndexResponseDataObjectLocalizedAttributesFromJSON(json['attributes']),
   };
 }
 
@@ -81,6 +81,6 @@ export function IndexResponseDataObjectLocalizedToJSON(
   }
   return {
     id: value.id,
-    attributes: IndexListResponseDataItemLocalizedAttributesToJSON(value.attributes),
+    attributes: IndexResponseDataObjectLocalizedAttributesToJSON(value.attributes),
   };
 }

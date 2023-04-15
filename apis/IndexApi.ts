@@ -14,15 +14,12 @@
 
 import * as runtime from '../runtime';
 import type {
-  IndexListResponse,
   IndexLocalizationRequest,
   IndexLocalizationResponse,
   IndexRequest,
   IndexResponse,
 } from '../models';
 import {
-  IndexListResponseFromJSON,
-  IndexListResponseToJSON,
   IndexLocalizationRequestFromJSON,
   IndexLocalizationRequestToJSON,
   IndexLocalizationResponseFromJSON,
@@ -104,7 +101,7 @@ export class IndexApi extends runtime.BaseAPI {
   async getIndexRaw(
     requestParameters: GetIndexRequest,
     initOverrides?: RequestInit | runtime.InitOverrideFunction
-  ): Promise<runtime.ApiResponse<IndexListResponse>> {
+  ): Promise<runtime.ApiResponse<IndexResponse>> {
     const queryParameters: any = {};
 
     if (requestParameters.sort !== undefined) {
@@ -167,9 +164,7 @@ export class IndexApi extends runtime.BaseAPI {
       initOverrides
     );
 
-    return new runtime.JSONApiResponse(response, (jsonValue) =>
-      IndexListResponseFromJSON(jsonValue)
-    );
+    return new runtime.JSONApiResponse(response, (jsonValue) => IndexResponseFromJSON(jsonValue));
   }
 
   /**
@@ -177,7 +172,7 @@ export class IndexApi extends runtime.BaseAPI {
   async getIndex(
     requestParameters: GetIndexRequest = {},
     initOverrides?: RequestInit | runtime.InitOverrideFunction
-  ): Promise<IndexListResponse> {
+  ): Promise<IndexResponse> {
     const response = await this.getIndexRaw(requestParameters, initOverrides);
     return await response.value();
   }
