@@ -98,6 +98,7 @@ models/ExhibitionResponseDataObject.ts
 models/ExhibitionResponseDataObjectAttributes.ts
 models/ExhibitionResponseDataObjectAttributesLocalizations.ts
 models/ExhibitionResponseDataObjectLocalized.ts
+models/GetArtistsPopulateParameter.ts
 models/IndexLocalizationRequest.ts
 models/IndexLocalizationResponse.ts
 models/IndexLocalizationResponseExhibitions.ts

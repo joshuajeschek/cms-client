@@ -91,6 +91,7 @@ export * from './ExhibitionResponseDataObject';
 export * from './ExhibitionResponseDataObjectAttributes';
 export * from './ExhibitionResponseDataObjectAttributesLocalizations';
 export * from './ExhibitionResponseDataObjectLocalized';
+export * from './GetArtistsPopulateParameter';
 export * from './IndexLocalizationRequest';
 export * from './IndexLocalizationResponse';
 export * from './IndexLocalizationResponseExhibitions';

@@ -14,12 +14,15 @@
 
 import * as runtime from '../runtime';
 import type {
+  GetArtistsPopulateParameter,
   IndexLocalizationRequest,
   IndexLocalizationResponse,
   IndexRequest,
   IndexResponse,
 } from '../models';
 import {
+  GetArtistsPopulateParameterFromJSON,
+  GetArtistsPopulateParameterToJSON,
   IndexLocalizationRequestFromJSON,
   IndexLocalizationRequestToJSON,
   IndexLocalizationResponseFromJSON,
@@ -38,7 +41,7 @@ export interface GetIndexRequest {
   paginationStart?: number;
   paginationLimit?: number;
   fields?: string;
-  populate?: string;
+  populate?: GetArtistsPopulateParameter;
   filters?: object;
   locale?: string;
 }
