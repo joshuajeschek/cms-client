@@ -13,6 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesCreatedBy } from './ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesCreatedBy';
+import {
+  ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesCreatedByFromJSON,
+  ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesCreatedByFromJSONTyped,
+  ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesCreatedByToJSON,
+} from './ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesCreatedBy';
 import type { ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesCreatedByDataAttributesRolesDataInnerAttributesPermissionsDataInnerAttributesRole } from './ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesCreatedByDataAttributesRolesDataInnerAttributesPermissionsDataInnerAttributesRole';
 import {
   ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesCreatedByDataAttributesRolesDataInnerAttributesPermissionsDataInnerAttributesRoleFromJSON,
@@ -25,109 +31,107 @@ import {
   ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesLocalizationsFromJSONTyped,
   ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesLocalizationsToJSON,
 } from './ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesLocalizations';
-import type { IndexLocalizationResponseExhibitions } from './IndexLocalizationResponseExhibitions';
-import {
-  IndexLocalizationResponseExhibitionsFromJSON,
-  IndexLocalizationResponseExhibitionsFromJSONTyped,
-  IndexLocalizationResponseExhibitionsToJSON,
-} from './IndexLocalizationResponseExhibitions';
-import type { IndexLocalizationResponseUpdate } from './IndexLocalizationResponseUpdate';
-import {
-  IndexLocalizationResponseUpdateFromJSON,
-  IndexLocalizationResponseUpdateFromJSONTyped,
-  IndexLocalizationResponseUpdateToJSON,
-} from './IndexLocalizationResponseUpdate';
 
 /**
  *
  * @export
- * @interface IndexResponseDataObjectLocalizedAttributes
+ * @interface UpdateListResponseDataItemLocalizedAttributes
  */
-export interface IndexResponseDataObjectLocalizedAttributes {
+export interface UpdateListResponseDataItemLocalizedAttributes {
   /**
    *
-   * @type {IndexLocalizationResponseExhibitions}
-   * @memberof IndexResponseDataObjectLocalizedAttributes
+   * @type {string}
+   * @memberof UpdateListResponseDataItemLocalizedAttributes
    */
-  exhibitions?: IndexLocalizationResponseExhibitions;
+  title?: string;
   /**
    *
-   * @type {IndexLocalizationResponseUpdate}
-   * @memberof IndexResponseDataObjectLocalizedAttributes
+   * @type {string}
+   * @memberof UpdateListResponseDataItemLocalizedAttributes
    */
-  update?: IndexLocalizationResponseUpdate;
+  content?: string;
   /**
    *
    * @type {Date}
-   * @memberof IndexResponseDataObjectLocalizedAttributes
+   * @memberof UpdateListResponseDataItemLocalizedAttributes
+   */
+  datetime?: Date;
+  /**
+   *
+   * @type {Date}
+   * @memberof UpdateListResponseDataItemLocalizedAttributes
    */
   createdAt?: Date;
   /**
    *
    * @type {Date}
-   * @memberof IndexResponseDataObjectLocalizedAttributes
+   * @memberof UpdateListResponseDataItemLocalizedAttributes
    */
   updatedAt?: Date;
   /**
    *
-   * @type {ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesCreatedByDataAttributesRolesDataInnerAttributesPermissionsDataInnerAttributesRole}
-   * @memberof IndexResponseDataObjectLocalizedAttributes
+   * @type {Date}
+   * @memberof UpdateListResponseDataItemLocalizedAttributes
    */
-  createdBy?: ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesCreatedByDataAttributesRolesDataInnerAttributesPermissionsDataInnerAttributesRole;
+  publishedAt?: Date;
+  /**
+   *
+   * @type {ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesCreatedBy}
+   * @memberof UpdateListResponseDataItemLocalizedAttributes
+   */
+  createdBy?: ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesCreatedBy;
   /**
    *
    * @type {ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesCreatedByDataAttributesRolesDataInnerAttributesPermissionsDataInnerAttributesRole}
-   * @memberof IndexResponseDataObjectLocalizedAttributes
+   * @memberof UpdateListResponseDataItemLocalizedAttributes
    */
   updatedBy?: ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesCreatedByDataAttributesRolesDataInnerAttributesPermissionsDataInnerAttributesRole;
   /**
    *
    * @type {ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesLocalizations}
-   * @memberof IndexResponseDataObjectLocalizedAttributes
+   * @memberof UpdateListResponseDataItemLocalizedAttributes
    */
   localizations?: ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesLocalizations;
   /**
    *
    * @type {string}
-   * @memberof IndexResponseDataObjectLocalizedAttributes
+   * @memberof UpdateListResponseDataItemLocalizedAttributes
    */
   locale?: string;
 }
 
 /**
- * Check if a given object implements the IndexResponseDataObjectLocalizedAttributes interface.
+ * Check if a given object implements the UpdateListResponseDataItemLocalizedAttributes interface.
  */
-export function instanceOfIndexResponseDataObjectLocalizedAttributes(value: object): boolean {
+export function instanceOfUpdateListResponseDataItemLocalizedAttributes(value: object): boolean {
   let isInstance = true;
 
   return isInstance;
 }
 
-export function IndexResponseDataObjectLocalizedAttributesFromJSON(
+export function UpdateListResponseDataItemLocalizedAttributesFromJSON(
   json: any
-): IndexResponseDataObjectLocalizedAttributes {
-  return IndexResponseDataObjectLocalizedAttributesFromJSONTyped(json, false);
+): UpdateListResponseDataItemLocalizedAttributes {
+  return UpdateListResponseDataItemLocalizedAttributesFromJSONTyped(json, false);
 }
 
-export function IndexResponseDataObjectLocalizedAttributesFromJSONTyped(
+export function UpdateListResponseDataItemLocalizedAttributesFromJSONTyped(
   json: any,
   ignoreDiscriminator: boolean
-): IndexResponseDataObjectLocalizedAttributes {
+): UpdateListResponseDataItemLocalizedAttributes {
   if (json === undefined || json === null) {
     return json;
   }
   return {
-    exhibitions: !exists(json, 'exhibitions')
-      ? undefined
-      : IndexLocalizationResponseExhibitionsFromJSON(json['exhibitions']),
-    update: !exists(json, 'update')
-      ? undefined
-      : IndexLocalizationResponseUpdateFromJSON(json['update']),
+    title: !exists(json, 'title') ? undefined : json['title'],
+    content: !exists(json, 'content') ? undefined : json['content'],
+    datetime: !exists(json, 'datetime') ? undefined : new Date(json['datetime']),
     createdAt: !exists(json, 'createdAt') ? undefined : new Date(json['createdAt']),
     updatedAt: !exists(json, 'updatedAt') ? undefined : new Date(json['updatedAt']),
+    publishedAt: !exists(json, 'publishedAt') ? undefined : new Date(json['publishedAt']),
     createdBy: !exists(json, 'createdBy')
       ? undefined
-      : ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesCreatedByDataAttributesRolesDataInnerAttributesPermissionsDataInnerAttributesRoleFromJSON(
+      : ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesCreatedByFromJSON(
           json['createdBy']
         ),
     updatedBy: !exists(json, 'updatedBy')
@@ -144,8 +148,8 @@ export function IndexResponseDataObjectLocalizedAttributesFromJSONTyped(
   };
 }
 
-export function IndexResponseDataObjectLocalizedAttributesToJSON(
-  value?: IndexResponseDataObjectLocalizedAttributes | null
+export function UpdateListResponseDataItemLocalizedAttributesToJSON(
+  value?: UpdateListResponseDataItemLocalizedAttributes | null
 ): any {
   if (value === undefined) {
     return undefined;
@@ -154,12 +158,14 @@ export function IndexResponseDataObjectLocalizedAttributesToJSON(
     return null;
   }
   return {
-    exhibitions: IndexLocalizationResponseExhibitionsToJSON(value.exhibitions),
-    update: IndexLocalizationResponseUpdateToJSON(value.update),
+    title: value.title,
+    content: value.content,
+    datetime: value.datetime === undefined ? undefined : value.datetime.toISOString(),
     createdAt: value.createdAt === undefined ? undefined : value.createdAt.toISOString(),
     updatedAt: value.updatedAt === undefined ? undefined : value.updatedAt.toISOString(),
+    publishedAt: value.publishedAt === undefined ? undefined : value.publishedAt.toISOString(),
     createdBy:
-      ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesCreatedByDataAttributesRolesDataInnerAttributesPermissionsDataInnerAttributesRoleToJSON(
+      ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesCreatedByToJSON(
         value.createdBy
       ),
     updatedBy:

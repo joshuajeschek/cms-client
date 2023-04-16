@@ -34,6 +34,12 @@ export interface IndexLocalizationRequest {
   exhibitions?: Array<ArtistLocalizationRequestArtworksInner>;
   /**
    *
+   * @type {ArtistLocalizationRequestArtworksInner}
+   * @memberof IndexLocalizationRequest
+   */
+  update?: ArtistLocalizationRequestArtworksInner;
+  /**
+   *
    * @type {string}
    * @memberof IndexLocalizationRequest
    */
@@ -65,6 +71,9 @@ export function IndexLocalizationRequestFromJSONTyped(
     exhibitions: !exists(json, 'exhibitions')
       ? undefined
       : (json['exhibitions'] as Array<any>).map(ArtistLocalizationRequestArtworksInnerFromJSON),
+    update: !exists(json, 'update')
+      ? undefined
+      : ArtistLocalizationRequestArtworksInnerFromJSON(json['update']),
     locale: json['locale'],
   };
 }
@@ -81,6 +90,7 @@ export function IndexLocalizationRequestToJSON(value?: IndexLocalizationRequest 
       value.exhibitions === undefined
         ? undefined
         : (value.exhibitions as Array<any>).map(ArtistLocalizationRequestArtworksInnerToJSON),
+    update: ArtistLocalizationRequestArtworksInnerToJSON(value.update),
     locale: value.locale,
   };
 }

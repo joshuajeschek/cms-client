@@ -31,6 +31,12 @@ import {
   IndexLocalizationResponseExhibitionsFromJSONTyped,
   IndexLocalizationResponseExhibitionsToJSON,
 } from './IndexLocalizationResponseExhibitions';
+import type { IndexLocalizationResponseUpdate } from './IndexLocalizationResponseUpdate';
+import {
+  IndexLocalizationResponseUpdateFromJSON,
+  IndexLocalizationResponseUpdateFromJSONTyped,
+  IndexLocalizationResponseUpdateToJSON,
+} from './IndexLocalizationResponseUpdate';
 
 /**
  *
@@ -50,6 +56,12 @@ export interface IndexLocalizationResponse {
    * @memberof IndexLocalizationResponse
    */
   exhibitions?: IndexLocalizationResponseExhibitions;
+  /**
+   *
+   * @type {IndexLocalizationResponseUpdate}
+   * @memberof IndexLocalizationResponse
+   */
+  update?: IndexLocalizationResponseUpdate;
   /**
    *
    * @type {Date}
@@ -113,6 +125,9 @@ export function IndexLocalizationResponseFromJSONTyped(
     exhibitions: !exists(json, 'exhibitions')
       ? undefined
       : IndexLocalizationResponseExhibitionsFromJSON(json['exhibitions']),
+    update: !exists(json, 'update')
+      ? undefined
+      : IndexLocalizationResponseUpdateFromJSON(json['update']),
     createdAt: !exists(json, 'createdAt') ? undefined : new Date(json['createdAt']),
     updatedAt: !exists(json, 'updatedAt') ? undefined : new Date(json['updatedAt']),
     createdBy: !exists(json, 'createdBy')
@@ -144,6 +159,7 @@ export function IndexLocalizationResponseToJSON(value?: IndexLocalizationRespons
   return {
     id: value.id,
     exhibitions: IndexLocalizationResponseExhibitionsToJSON(value.exhibitions),
+    update: IndexLocalizationResponseUpdateToJSON(value.update),
     createdAt: value.createdAt === undefined ? undefined : value.createdAt.toISOString(),
     updatedAt: value.updatedAt === undefined ? undefined : value.updatedAt.toISOString(),
     createdBy:

@@ -13,121 +13,125 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesCreatedBy } from './ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesCreatedBy';
+import {
+  ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesCreatedByFromJSON,
+  ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesCreatedByFromJSONTyped,
+  ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesCreatedByToJSON,
+} from './ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesCreatedBy';
 import type { ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesCreatedByDataAttributesRolesDataInnerAttributesPermissionsDataInnerAttributesRole } from './ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesCreatedByDataAttributesRolesDataInnerAttributesPermissionsDataInnerAttributesRole';
 import {
   ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesCreatedByDataAttributesRolesDataInnerAttributesPermissionsDataInnerAttributesRoleFromJSON,
   ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesCreatedByDataAttributesRolesDataInnerAttributesPermissionsDataInnerAttributesRoleFromJSONTyped,
   ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesCreatedByDataAttributesRolesDataInnerAttributesPermissionsDataInnerAttributesRoleToJSON,
 } from './ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesCreatedByDataAttributesRolesDataInnerAttributesPermissionsDataInnerAttributesRole';
-import type { IndexLocalizationResponseExhibitions } from './IndexLocalizationResponseExhibitions';
+import type { UpdateResponseDataObjectAttributesLocalizations } from './UpdateResponseDataObjectAttributesLocalizations';
 import {
-  IndexLocalizationResponseExhibitionsFromJSON,
-  IndexLocalizationResponseExhibitionsFromJSONTyped,
-  IndexLocalizationResponseExhibitionsToJSON,
-} from './IndexLocalizationResponseExhibitions';
-import type { IndexLocalizationResponseUpdate } from './IndexLocalizationResponseUpdate';
-import {
-  IndexLocalizationResponseUpdateFromJSON,
-  IndexLocalizationResponseUpdateFromJSONTyped,
-  IndexLocalizationResponseUpdateToJSON,
-} from './IndexLocalizationResponseUpdate';
-import type { IndexResponseDataObjectAttributesLocalizations } from './IndexResponseDataObjectAttributesLocalizations';
-import {
-  IndexResponseDataObjectAttributesLocalizationsFromJSON,
-  IndexResponseDataObjectAttributesLocalizationsFromJSONTyped,
-  IndexResponseDataObjectAttributesLocalizationsToJSON,
-} from './IndexResponseDataObjectAttributesLocalizations';
+  UpdateResponseDataObjectAttributesLocalizationsFromJSON,
+  UpdateResponseDataObjectAttributesLocalizationsFromJSONTyped,
+  UpdateResponseDataObjectAttributesLocalizationsToJSON,
+} from './UpdateResponseDataObjectAttributesLocalizations';
 
 /**
  *
  * @export
- * @interface IndexResponseDataObjectAttributes
+ * @interface UpdateResponseDataObjectAttributes
  */
-export interface IndexResponseDataObjectAttributes {
+export interface UpdateResponseDataObjectAttributes {
   /**
    *
-   * @type {IndexLocalizationResponseExhibitions}
-   * @memberof IndexResponseDataObjectAttributes
+   * @type {string}
+   * @memberof UpdateResponseDataObjectAttributes
    */
-  exhibitions?: IndexLocalizationResponseExhibitions;
+  title?: string;
   /**
    *
-   * @type {IndexLocalizationResponseUpdate}
-   * @memberof IndexResponseDataObjectAttributes
+   * @type {string}
+   * @memberof UpdateResponseDataObjectAttributes
    */
-  update?: IndexLocalizationResponseUpdate;
+  content?: string;
   /**
    *
    * @type {Date}
-   * @memberof IndexResponseDataObjectAttributes
+   * @memberof UpdateResponseDataObjectAttributes
+   */
+  datetime?: Date;
+  /**
+   *
+   * @type {Date}
+   * @memberof UpdateResponseDataObjectAttributes
    */
   createdAt?: Date;
   /**
    *
    * @type {Date}
-   * @memberof IndexResponseDataObjectAttributes
+   * @memberof UpdateResponseDataObjectAttributes
    */
   updatedAt?: Date;
   /**
    *
-   * @type {ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesCreatedByDataAttributesRolesDataInnerAttributesPermissionsDataInnerAttributesRole}
-   * @memberof IndexResponseDataObjectAttributes
+   * @type {Date}
+   * @memberof UpdateResponseDataObjectAttributes
    */
-  createdBy?: ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesCreatedByDataAttributesRolesDataInnerAttributesPermissionsDataInnerAttributesRole;
+  publishedAt?: Date;
+  /**
+   *
+   * @type {ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesCreatedBy}
+   * @memberof UpdateResponseDataObjectAttributes
+   */
+  createdBy?: ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesCreatedBy;
   /**
    *
    * @type {ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesCreatedByDataAttributesRolesDataInnerAttributesPermissionsDataInnerAttributesRole}
-   * @memberof IndexResponseDataObjectAttributes
+   * @memberof UpdateResponseDataObjectAttributes
    */
   updatedBy?: ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesCreatedByDataAttributesRolesDataInnerAttributesPermissionsDataInnerAttributesRole;
   /**
    *
-   * @type {IndexResponseDataObjectAttributesLocalizations}
-   * @memberof IndexResponseDataObjectAttributes
+   * @type {UpdateResponseDataObjectAttributesLocalizations}
+   * @memberof UpdateResponseDataObjectAttributes
    */
-  localizations?: IndexResponseDataObjectAttributesLocalizations;
+  localizations?: UpdateResponseDataObjectAttributesLocalizations;
   /**
    *
    * @type {string}
-   * @memberof IndexResponseDataObjectAttributes
+   * @memberof UpdateResponseDataObjectAttributes
    */
   locale?: string;
 }
 
 /**
- * Check if a given object implements the IndexResponseDataObjectAttributes interface.
+ * Check if a given object implements the UpdateResponseDataObjectAttributes interface.
  */
-export function instanceOfIndexResponseDataObjectAttributes(value: object): boolean {
+export function instanceOfUpdateResponseDataObjectAttributes(value: object): boolean {
   let isInstance = true;
 
   return isInstance;
 }
 
-export function IndexResponseDataObjectAttributesFromJSON(
+export function UpdateResponseDataObjectAttributesFromJSON(
   json: any
-): IndexResponseDataObjectAttributes {
-  return IndexResponseDataObjectAttributesFromJSONTyped(json, false);
+): UpdateResponseDataObjectAttributes {
+  return UpdateResponseDataObjectAttributesFromJSONTyped(json, false);
 }
 
-export function IndexResponseDataObjectAttributesFromJSONTyped(
+export function UpdateResponseDataObjectAttributesFromJSONTyped(
   json: any,
   ignoreDiscriminator: boolean
-): IndexResponseDataObjectAttributes {
+): UpdateResponseDataObjectAttributes {
   if (json === undefined || json === null) {
     return json;
   }
   return {
-    exhibitions: !exists(json, 'exhibitions')
-      ? undefined
-      : IndexLocalizationResponseExhibitionsFromJSON(json['exhibitions']),
-    update: !exists(json, 'update')
-      ? undefined
-      : IndexLocalizationResponseUpdateFromJSON(json['update']),
+    title: !exists(json, 'title') ? undefined : json['title'],
+    content: !exists(json, 'content') ? undefined : json['content'],
+    datetime: !exists(json, 'datetime') ? undefined : new Date(json['datetime']),
     createdAt: !exists(json, 'createdAt') ? undefined : new Date(json['createdAt']),
     updatedAt: !exists(json, 'updatedAt') ? undefined : new Date(json['updatedAt']),
+    publishedAt: !exists(json, 'publishedAt') ? undefined : new Date(json['publishedAt']),
     createdBy: !exists(json, 'createdBy')
       ? undefined
-      : ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesCreatedByDataAttributesRolesDataInnerAttributesPermissionsDataInnerAttributesRoleFromJSON(
+      : ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesCreatedByFromJSON(
           json['createdBy']
         ),
     updatedBy: !exists(json, 'updatedBy')
@@ -137,13 +141,13 @@ export function IndexResponseDataObjectAttributesFromJSONTyped(
         ),
     localizations: !exists(json, 'localizations')
       ? undefined
-      : IndexResponseDataObjectAttributesLocalizationsFromJSON(json['localizations']),
+      : UpdateResponseDataObjectAttributesLocalizationsFromJSON(json['localizations']),
     locale: !exists(json, 'locale') ? undefined : json['locale'],
   };
 }
 
-export function IndexResponseDataObjectAttributesToJSON(
-  value?: IndexResponseDataObjectAttributes | null
+export function UpdateResponseDataObjectAttributesToJSON(
+  value?: UpdateResponseDataObjectAttributes | null
 ): any {
   if (value === undefined) {
     return undefined;
@@ -152,19 +156,21 @@ export function IndexResponseDataObjectAttributesToJSON(
     return null;
   }
   return {
-    exhibitions: IndexLocalizationResponseExhibitionsToJSON(value.exhibitions),
-    update: IndexLocalizationResponseUpdateToJSON(value.update),
+    title: value.title,
+    content: value.content,
+    datetime: value.datetime === undefined ? undefined : value.datetime.toISOString(),
     createdAt: value.createdAt === undefined ? undefined : value.createdAt.toISOString(),
     updatedAt: value.updatedAt === undefined ? undefined : value.updatedAt.toISOString(),
+    publishedAt: value.publishedAt === undefined ? undefined : value.publishedAt.toISOString(),
     createdBy:
-      ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesCreatedByDataAttributesRolesDataInnerAttributesPermissionsDataInnerAttributesRoleToJSON(
+      ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesCreatedByToJSON(
         value.createdBy
       ),
     updatedBy:
       ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesCreatedByDataAttributesRolesDataInnerAttributesPermissionsDataInnerAttributesRoleToJSON(
         value.updatedBy
       ),
-    localizations: IndexResponseDataObjectAttributesLocalizationsToJSON(value.localizations),
+    localizations: UpdateResponseDataObjectAttributesLocalizationsToJSON(value.localizations),
     locale: value.locale,
   };
 }
