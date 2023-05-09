@@ -82,6 +82,12 @@ export interface ArtworkListResponseDataItemAttributes {
   originalTitle?: string;
   /**
    *
+   * @type {string}
+   * @memberof ArtworkListResponseDataItemAttributes
+   */
+  handle?: string;
+  /**
+   *
    * @type {Date}
    * @memberof ArtworkListResponseDataItemAttributes
    */
@@ -157,6 +163,7 @@ export function ArtworkListResponseDataItemAttributesFromJSONTyped(
       : ArtistLocalizationResponseArtworksDataInnerAttributesMediaFromJSON(json['media']),
     creationDate: !exists(json, 'creationDate') ? undefined : new Date(json['creationDate']),
     originalTitle: !exists(json, 'originalTitle') ? undefined : json['originalTitle'],
+    handle: !exists(json, 'handle') ? undefined : json['handle'],
     createdAt: !exists(json, 'createdAt') ? undefined : new Date(json['createdAt']),
     updatedAt: !exists(json, 'updatedAt') ? undefined : new Date(json['updatedAt']),
     publishedAt: !exists(json, 'publishedAt') ? undefined : new Date(json['publishedAt']),
@@ -194,6 +201,7 @@ export function ArtworkListResponseDataItemAttributesToJSON(
     creationDate:
       value.creationDate === undefined ? undefined : value.creationDate.toISOString().substr(0, 10),
     originalTitle: value.originalTitle,
+    handle: value.handle,
     createdAt: value.createdAt === undefined ? undefined : value.createdAt.toISOString(),
     updatedAt: value.updatedAt === undefined ? undefined : value.updatedAt.toISOString(),
     publishedAt: value.publishedAt === undefined ? undefined : value.publishedAt.toISOString(),
