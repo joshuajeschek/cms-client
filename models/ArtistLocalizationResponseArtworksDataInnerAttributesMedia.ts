@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ArtistLocalizationResponseArtworksDataInnerAttributesMediaDataInner } from './ArtistLocalizationResponseArtworksDataInnerAttributesMediaDataInner';
+import type { ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureData } from './ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureData';
 import {
-  ArtistLocalizationResponseArtworksDataInnerAttributesMediaDataInnerFromJSON,
-  ArtistLocalizationResponseArtworksDataInnerAttributesMediaDataInnerFromJSONTyped,
-  ArtistLocalizationResponseArtworksDataInnerAttributesMediaDataInnerToJSON,
-} from './ArtistLocalizationResponseArtworksDataInnerAttributesMediaDataInner';
+  ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataFromJSON,
+  ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataFromJSONTyped,
+  ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataToJSON,
+} from './ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureData';
 
 /**
  *
@@ -28,10 +28,10 @@ import {
 export interface ArtistLocalizationResponseArtworksDataInnerAttributesMedia {
   /**
    *
-   * @type {Array<ArtistLocalizationResponseArtworksDataInnerAttributesMediaDataInner>}
+   * @type {Array<ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureData>}
    * @memberof ArtistLocalizationResponseArtworksDataInnerAttributesMedia
    */
-  data?: Array<ArtistLocalizationResponseArtworksDataInnerAttributesMediaDataInner>;
+  data?: Array<ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureData>;
 }
 
 /**
@@ -62,7 +62,7 @@ export function ArtistLocalizationResponseArtworksDataInnerAttributesMediaFromJS
     data: !exists(json, 'data')
       ? undefined
       : (json['data'] as Array<any>).map(
-          ArtistLocalizationResponseArtworksDataInnerAttributesMediaDataInnerFromJSON
+          ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataFromJSON
         ),
   };
 }
@@ -81,7 +81,7 @@ export function ArtistLocalizationResponseArtworksDataInnerAttributesMediaToJSON
       value.data === undefined
         ? undefined
         : (value.data as Array<any>).map(
-            ArtistLocalizationResponseArtworksDataInnerAttributesMediaDataInnerToJSON
+            ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataToJSON
           ),
   };
 }

@@ -52,6 +52,12 @@ export interface ArtistRequestData {
   artworks?: Array<ArtistLocalizationRequestArtworksInner>;
   /**
    *
+   * @type {ArtistLocalizationRequestArtworksInner}
+   * @memberof ArtistRequestData
+   */
+  picture?: ArtistLocalizationRequestArtworksInner;
+  /**
+   *
    * @type {string}
    * @memberof ArtistRequestData
    */
@@ -87,6 +93,9 @@ export function ArtistRequestDataFromJSONTyped(
     artworks: !exists(json, 'artworks')
       ? undefined
       : (json['artworks'] as Array<any>).map(ArtistLocalizationRequestArtworksInnerFromJSON),
+    picture: !exists(json, 'picture')
+      ? undefined
+      : ArtistLocalizationRequestArtworksInnerFromJSON(json['picture']),
     locale: !exists(json, 'locale') ? undefined : json['locale'],
   };
 }
@@ -106,6 +115,7 @@ export function ArtistRequestDataToJSON(value?: ArtistRequestData | null): any {
       value.artworks === undefined
         ? undefined
         : (value.artworks as Array<any>).map(ArtistLocalizationRequestArtworksInnerToJSON),
+    picture: ArtistLocalizationRequestArtworksInnerToJSON(value.picture),
     locale: value.locale,
   };
 }

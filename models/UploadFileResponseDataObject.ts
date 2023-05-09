@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ArtistLocalizationResponseArtworksDataInnerAttributesMediaDataInnerAttributes } from './ArtistLocalizationResponseArtworksDataInnerAttributesMediaDataInnerAttributes';
+import type { ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributes } from './ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributes';
 import {
-  ArtistLocalizationResponseArtworksDataInnerAttributesMediaDataInnerAttributesFromJSON,
-  ArtistLocalizationResponseArtworksDataInnerAttributesMediaDataInnerAttributesFromJSONTyped,
-  ArtistLocalizationResponseArtworksDataInnerAttributesMediaDataInnerAttributesToJSON,
-} from './ArtistLocalizationResponseArtworksDataInnerAttributesMediaDataInnerAttributes';
+  ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributesFromJSON,
+  ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributesFromJSONTyped,
+  ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributesToJSON,
+} from './ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributes';
 
 /**
  *
@@ -34,10 +34,10 @@ export interface UploadFileResponseDataObject {
   id?: number;
   /**
    *
-   * @type {ArtistLocalizationResponseArtworksDataInnerAttributesMediaDataInnerAttributes}
+   * @type {ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributes}
    * @memberof UploadFileResponseDataObject
    */
-  attributes?: ArtistLocalizationResponseArtworksDataInnerAttributesMediaDataInnerAttributes;
+  attributes?: ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributes;
 }
 
 /**
@@ -64,7 +64,7 @@ export function UploadFileResponseDataObjectFromJSONTyped(
     id: !exists(json, 'id') ? undefined : json['id'],
     attributes: !exists(json, 'attributes')
       ? undefined
-      : ArtistLocalizationResponseArtworksDataInnerAttributesMediaDataInnerAttributesFromJSON(
+      : ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributesFromJSON(
           json['attributes']
         ),
   };
@@ -81,8 +81,9 @@ export function UploadFileResponseDataObjectToJSON(
   }
   return {
     id: value.id,
-    attributes: ArtistLocalizationResponseArtworksDataInnerAttributesMediaDataInnerAttributesToJSON(
-      value.attributes
-    ),
+    attributes:
+      ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributesToJSON(
+        value.attributes
+      ),
   };
 }

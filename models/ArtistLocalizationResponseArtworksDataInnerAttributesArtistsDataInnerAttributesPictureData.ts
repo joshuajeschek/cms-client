@@ -23,40 +23,47 @@ import {
 /**
  *
  * @export
- * @interface UploadFileListResponseDataItem
+ * @interface ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureData
  */
-export interface UploadFileListResponseDataItem {
+export interface ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureData {
   /**
    *
    * @type {number}
-   * @memberof UploadFileListResponseDataItem
+   * @memberof ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureData
    */
   id?: number;
   /**
    *
    * @type {ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributes}
-   * @memberof UploadFileListResponseDataItem
+   * @memberof ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureData
    */
   attributes?: ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributes;
 }
 
 /**
- * Check if a given object implements the UploadFileListResponseDataItem interface.
+ * Check if a given object implements the ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureData interface.
  */
-export function instanceOfUploadFileListResponseDataItem(value: object): boolean {
+export function instanceOfArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureData(
+  value: object
+): boolean {
   let isInstance = true;
 
   return isInstance;
 }
 
-export function UploadFileListResponseDataItemFromJSON(json: any): UploadFileListResponseDataItem {
-  return UploadFileListResponseDataItemFromJSONTyped(json, false);
+export function ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataFromJSON(
+  json: any
+): ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureData {
+  return ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataFromJSONTyped(
+    json,
+    false
+  );
 }
 
-export function UploadFileListResponseDataItemFromJSONTyped(
+export function ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataFromJSONTyped(
   json: any,
   ignoreDiscriminator: boolean
-): UploadFileListResponseDataItem {
+): ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureData {
   if (json === undefined || json === null) {
     return json;
   }
@@ -70,8 +77,8 @@ export function UploadFileListResponseDataItemFromJSONTyped(
   };
 }
 
-export function UploadFileListResponseDataItemToJSON(
-  value?: UploadFileListResponseDataItem | null
+export function ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataToJSON(
+  value?: ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureData | null
 ): any {
   if (value === undefined) {
     return undefined;
