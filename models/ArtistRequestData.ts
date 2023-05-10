@@ -19,12 +19,12 @@ import {
   ArtistLocalizationRequestArtworksInnerFromJSONTyped,
   ArtistLocalizationRequestArtworksInnerToJSON,
 } from './ArtistLocalizationRequestArtworksInner';
-import type { ContactContactInformationComponent } from './ContactContactInformationComponent';
+import type { ContactLinkComponent } from './ContactLinkComponent';
 import {
-  ContactContactInformationComponentFromJSON,
-  ContactContactInformationComponentFromJSONTyped,
-  ContactContactInformationComponentToJSON,
-} from './ContactContactInformationComponent';
+  ContactLinkComponentFromJSON,
+  ContactLinkComponentFromJSONTyped,
+  ContactLinkComponentToJSON,
+} from './ContactLinkComponent';
 
 /**
  *
@@ -64,16 +64,16 @@ export interface ArtistRequestData {
   picture?: ArtistLocalizationRequestArtworksInner;
   /**
    *
-   * @type {Array<ContactContactInformationComponent>}
-   * @memberof ArtistRequestData
-   */
-  contact?: Array<ContactContactInformationComponent>;
-  /**
-   *
    * @type {Date}
    * @memberof ArtistRequestData
    */
   birthday?: Date;
+  /**
+   *
+   * @type {Array<ContactLinkComponent>}
+   * @memberof ArtistRequestData
+   */
+  contact?: Array<ContactLinkComponent>;
   /**
    *
    * @type {string}
@@ -114,10 +114,10 @@ export function ArtistRequestDataFromJSONTyped(
     picture: !exists(json, 'picture')
       ? undefined
       : ArtistLocalizationRequestArtworksInnerFromJSON(json['picture']),
+    birthday: !exists(json, 'birthday') ? undefined : new Date(json['birthday']),
     contact: !exists(json, 'contact')
       ? undefined
-      : (json['contact'] as Array<any>).map(ContactContactInformationComponentFromJSON),
-    birthday: !exists(json, 'birthday') ? undefined : new Date(json['birthday']),
+      : (json['contact'] as Array<any>).map(ContactLinkComponentFromJSON),
     locale: !exists(json, 'locale') ? undefined : json['locale'],
   };
 }
@@ -138,11 +138,11 @@ export function ArtistRequestDataToJSON(value?: ArtistRequestData | null): any {
         ? undefined
         : (value.artworks as Array<any>).map(ArtistLocalizationRequestArtworksInnerToJSON),
     picture: ArtistLocalizationRequestArtworksInnerToJSON(value.picture),
+    birthday: value.birthday === undefined ? undefined : value.birthday.toISOString().substr(0, 10),
     contact:
       value.contact === undefined
         ? undefined
-        : (value.contact as Array<any>).map(ContactContactInformationComponentToJSON),
-    birthday: value.birthday === undefined ? undefined : value.birthday.toISOString().substr(0, 10),
+        : (value.contact as Array<any>).map(ContactLinkComponentToJSON),
     locale: value.locale,
   };
 }

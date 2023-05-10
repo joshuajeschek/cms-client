@@ -30,13 +30,13 @@ export interface ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDat
    * @type {string}
    * @memberof ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesContactInner
    */
-  platform?: ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesContactInnerPlatformEnum;
+  handle?: string;
   /**
    *
    * @type {string}
    * @memberof ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesContactInner
    */
-  handle?: string;
+  platform?: ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesContactInnerPlatformEnum;
 }
 
 /**
@@ -89,8 +89,8 @@ export function ArtistLocalizationResponseArtworksDataInnerAttributesArtistsData
   }
   return {
     id: !exists(json, 'id') ? undefined : json['id'],
-    platform: !exists(json, 'platform') ? undefined : json['platform'],
     handle: !exists(json, 'handle') ? undefined : json['handle'],
+    platform: !exists(json, 'platform') ? undefined : json['platform'],
   };
 }
 
@@ -105,7 +105,7 @@ export function ArtistLocalizationResponseArtworksDataInnerAttributesArtistsData
   }
   return {
     id: value.id,
-    platform: value.platform,
     handle: value.handle,
+    platform: value.platform,
   };
 }

@@ -75,7 +75,7 @@ export * from './AuthLocalPostRequest';
 export * from './AuthLocalRegisterPostRequest';
 export * from './AuthResetPasswordPostRequest';
 export * from './AuthSendEmailConfirmationPost200Response';
-export * from './ContactContactInformationComponent';
+export * from './ContactLinkComponent';
 export * from './ErrorData';
 export * from './ErrorError';
 export * from './ExhibitionListResponse';

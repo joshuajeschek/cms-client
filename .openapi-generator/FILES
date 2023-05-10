@@ -83,7 +83,7 @@ models/AuthLocalPostRequest.ts
 models/AuthLocalRegisterPostRequest.ts
 models/AuthResetPasswordPostRequest.ts
 models/AuthSendEmailConfirmationPost200Response.ts
-models/ContactContactInformationComponent.ts
+models/ContactLinkComponent.ts
 models/ErrorData.ts
 models/ErrorError.ts
 models/ExhibitionListResponse.ts
