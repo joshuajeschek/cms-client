@@ -13,139 +13,121 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ArtistLocalizationResponseArtworksDataInnerAttributesArtists } from './ArtistLocalizationResponseArtworksDataInnerAttributesArtists';
-import {
-  ArtistLocalizationResponseArtworksDataInnerAttributesArtistsFromJSON,
-  ArtistLocalizationResponseArtworksDataInnerAttributesArtistsFromJSONTyped,
-  ArtistLocalizationResponseArtworksDataInnerAttributesArtistsToJSON,
-} from './ArtistLocalizationResponseArtworksDataInnerAttributesArtists';
 import type { ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesLocalizations } from './ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesLocalizations';
 import {
   ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesLocalizationsFromJSON,
   ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesLocalizationsFromJSONTyped,
   ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesLocalizationsToJSON,
 } from './ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesLocalizations';
+import type { ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPicture } from './ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPicture';
+import {
+  ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureFromJSON,
+  ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureFromJSONTyped,
+  ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureToJSON,
+} from './ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPicture';
 import type { ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributesFolderDataAttributesParent } from './ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributesFolderDataAttributesParent';
 import {
   ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributesFolderDataAttributesParentFromJSON,
   ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributesFolderDataAttributesParentFromJSONTyped,
   ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributesFolderDataAttributesParentToJSON,
 } from './ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributesFolderDataAttributesParent';
-import type { ArtistLocalizationResponseArtworksDataInnerAttributesExhibitions } from './ArtistLocalizationResponseArtworksDataInnerAttributesExhibitions';
+import type { IndexLocalizationResponseExhibitionsDataInnerAttributesArtworks } from './IndexLocalizationResponseExhibitionsDataInnerAttributesArtworks';
 import {
-  ArtistLocalizationResponseArtworksDataInnerAttributesExhibitionsFromJSON,
-  ArtistLocalizationResponseArtworksDataInnerAttributesExhibitionsFromJSONTyped,
-  ArtistLocalizationResponseArtworksDataInnerAttributesExhibitionsToJSON,
-} from './ArtistLocalizationResponseArtworksDataInnerAttributesExhibitions';
-import type { ArtistLocalizationResponseArtworksDataInnerAttributesMedia } from './ArtistLocalizationResponseArtworksDataInnerAttributesMedia';
-import {
-  ArtistLocalizationResponseArtworksDataInnerAttributesMediaFromJSON,
-  ArtistLocalizationResponseArtworksDataInnerAttributesMediaFromJSONTyped,
-  ArtistLocalizationResponseArtworksDataInnerAttributesMediaToJSON,
-} from './ArtistLocalizationResponseArtworksDataInnerAttributesMedia';
+  IndexLocalizationResponseExhibitionsDataInnerAttributesArtworksFromJSON,
+  IndexLocalizationResponseExhibitionsDataInnerAttributesArtworksFromJSONTyped,
+  IndexLocalizationResponseExhibitionsDataInnerAttributesArtworksToJSON,
+} from './IndexLocalizationResponseExhibitionsDataInnerAttributesArtworks';
 
 /**
  *
  * @export
- * @interface ArtistLocalizationResponseArtworksDataInnerAttributes
+ * @interface IndexLocalizationResponseExhibitionsDataInnerAttributes
  */
-export interface ArtistLocalizationResponseArtworksDataInnerAttributes {
+export interface IndexLocalizationResponseExhibitionsDataInnerAttributes {
   /**
    *
    * @type {string}
-   * @memberof ArtistLocalizationResponseArtworksDataInnerAttributes
+   * @memberof IndexLocalizationResponseExhibitionsDataInnerAttributes
    */
   title?: string;
   /**
    *
    * @type {string}
-   * @memberof ArtistLocalizationResponseArtworksDataInnerAttributes
+   * @memberof IndexLocalizationResponseExhibitionsDataInnerAttributes
    */
   description?: string;
   /**
    *
-   * @type {ArtistLocalizationResponseArtworksDataInnerAttributesArtists}
-   * @memberof ArtistLocalizationResponseArtworksDataInnerAttributes
-   */
-  artists?: ArtistLocalizationResponseArtworksDataInnerAttributesArtists;
-  /**
-   *
-   * @type {ArtistLocalizationResponseArtworksDataInnerAttributesMedia}
-   * @memberof ArtistLocalizationResponseArtworksDataInnerAttributes
-   */
-  media?: ArtistLocalizationResponseArtworksDataInnerAttributesMedia;
-  /**
-   *
-   * @type {Date}
-   * @memberof ArtistLocalizationResponseArtworksDataInnerAttributes
-   */
-  creationDate?: Date;
-  /**
-   *
    * @type {string}
-   * @memberof ArtistLocalizationResponseArtworksDataInnerAttributes
-   */
-  originalTitle?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof ArtistLocalizationResponseArtworksDataInnerAttributes
+   * @memberof IndexLocalizationResponseExhibitionsDataInnerAttributes
    */
   handle?: string;
   /**
    *
-   * @type {ArtistLocalizationResponseArtworksDataInnerAttributesExhibitions}
-   * @memberof ArtistLocalizationResponseArtworksDataInnerAttributes
+   * @type {IndexLocalizationResponseExhibitionsDataInnerAttributesArtworks}
+   * @memberof IndexLocalizationResponseExhibitionsDataInnerAttributes
    */
-  exhibitions?: ArtistLocalizationResponseArtworksDataInnerAttributesExhibitions;
+  artworks?: IndexLocalizationResponseExhibitionsDataInnerAttributesArtworks;
+  /**
+   *
+   * @type {ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPicture}
+   * @memberof IndexLocalizationResponseExhibitionsDataInnerAttributes
+   */
+  cover?: ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPicture;
   /**
    *
    * @type {Date}
-   * @memberof ArtistLocalizationResponseArtworksDataInnerAttributes
+   * @memberof IndexLocalizationResponseExhibitionsDataInnerAttributes
+   */
+  launch?: Date;
+  /**
+   *
+   * @type {Date}
+   * @memberof IndexLocalizationResponseExhibitionsDataInnerAttributes
    */
   createdAt?: Date;
   /**
    *
    * @type {Date}
-   * @memberof ArtistLocalizationResponseArtworksDataInnerAttributes
+   * @memberof IndexLocalizationResponseExhibitionsDataInnerAttributes
    */
   updatedAt?: Date;
   /**
    *
    * @type {Date}
-   * @memberof ArtistLocalizationResponseArtworksDataInnerAttributes
+   * @memberof IndexLocalizationResponseExhibitionsDataInnerAttributes
    */
   publishedAt?: Date;
   /**
    *
    * @type {ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributesFolderDataAttributesParent}
-   * @memberof ArtistLocalizationResponseArtworksDataInnerAttributes
+   * @memberof IndexLocalizationResponseExhibitionsDataInnerAttributes
    */
   createdBy?: ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributesFolderDataAttributesParent;
   /**
    *
    * @type {ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributesFolderDataAttributesParent}
-   * @memberof ArtistLocalizationResponseArtworksDataInnerAttributes
+   * @memberof IndexLocalizationResponseExhibitionsDataInnerAttributes
    */
   updatedBy?: ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributesFolderDataAttributesParent;
   /**
    *
    * @type {ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesLocalizations}
-   * @memberof ArtistLocalizationResponseArtworksDataInnerAttributes
+   * @memberof IndexLocalizationResponseExhibitionsDataInnerAttributes
    */
   localizations?: ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesLocalizations;
   /**
    *
    * @type {string}
-   * @memberof ArtistLocalizationResponseArtworksDataInnerAttributes
+   * @memberof IndexLocalizationResponseExhibitionsDataInnerAttributes
    */
   locale?: string;
 }
 
 /**
- * Check if a given object implements the ArtistLocalizationResponseArtworksDataInnerAttributes interface.
+ * Check if a given object implements the IndexLocalizationResponseExhibitionsDataInnerAttributes interface.
  */
-export function instanceOfArtistLocalizationResponseArtworksDataInnerAttributes(
+export function instanceOfIndexLocalizationResponseExhibitionsDataInnerAttributes(
   value: object
 ): boolean {
   let isInstance = true;
@@ -153,36 +135,32 @@ export function instanceOfArtistLocalizationResponseArtworksDataInnerAttributes(
   return isInstance;
 }
 
-export function ArtistLocalizationResponseArtworksDataInnerAttributesFromJSON(
+export function IndexLocalizationResponseExhibitionsDataInnerAttributesFromJSON(
   json: any
-): ArtistLocalizationResponseArtworksDataInnerAttributes {
-  return ArtistLocalizationResponseArtworksDataInnerAttributesFromJSONTyped(json, false);
+): IndexLocalizationResponseExhibitionsDataInnerAttributes {
+  return IndexLocalizationResponseExhibitionsDataInnerAttributesFromJSONTyped(json, false);
 }
 
-export function ArtistLocalizationResponseArtworksDataInnerAttributesFromJSONTyped(
+export function IndexLocalizationResponseExhibitionsDataInnerAttributesFromJSONTyped(
   json: any,
   ignoreDiscriminator: boolean
-): ArtistLocalizationResponseArtworksDataInnerAttributes {
+): IndexLocalizationResponseExhibitionsDataInnerAttributes {
   if (json === undefined || json === null) {
     return json;
   }
   return {
     title: !exists(json, 'title') ? undefined : json['title'],
     description: !exists(json, 'description') ? undefined : json['description'],
-    artists: !exists(json, 'artists')
-      ? undefined
-      : ArtistLocalizationResponseArtworksDataInnerAttributesArtistsFromJSON(json['artists']),
-    media: !exists(json, 'media')
-      ? undefined
-      : ArtistLocalizationResponseArtworksDataInnerAttributesMediaFromJSON(json['media']),
-    creationDate: !exists(json, 'creationDate') ? undefined : new Date(json['creationDate']),
-    originalTitle: !exists(json, 'originalTitle') ? undefined : json['originalTitle'],
     handle: !exists(json, 'handle') ? undefined : json['handle'],
-    exhibitions: !exists(json, 'exhibitions')
+    artworks: !exists(json, 'artworks')
       ? undefined
-      : ArtistLocalizationResponseArtworksDataInnerAttributesExhibitionsFromJSON(
-          json['exhibitions']
+      : IndexLocalizationResponseExhibitionsDataInnerAttributesArtworksFromJSON(json['artworks']),
+    cover: !exists(json, 'cover')
+      ? undefined
+      : ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureFromJSON(
+          json['cover']
         ),
+    launch: !exists(json, 'launch') ? undefined : new Date(json['launch']),
     createdAt: !exists(json, 'createdAt') ? undefined : new Date(json['createdAt']),
     updatedAt: !exists(json, 'updatedAt') ? undefined : new Date(json['updatedAt']),
     publishedAt: !exists(json, 'publishedAt') ? undefined : new Date(json['publishedAt']),
@@ -205,8 +183,8 @@ export function ArtistLocalizationResponseArtworksDataInnerAttributesFromJSONTyp
   };
 }
 
-export function ArtistLocalizationResponseArtworksDataInnerAttributesToJSON(
-  value?: ArtistLocalizationResponseArtworksDataInnerAttributes | null
+export function IndexLocalizationResponseExhibitionsDataInnerAttributesToJSON(
+  value?: IndexLocalizationResponseExhibitionsDataInnerAttributes | null
 ): any {
   if (value === undefined) {
     return undefined;
@@ -217,15 +195,13 @@ export function ArtistLocalizationResponseArtworksDataInnerAttributesToJSON(
   return {
     title: value.title,
     description: value.description,
-    artists: ArtistLocalizationResponseArtworksDataInnerAttributesArtistsToJSON(value.artists),
-    media: ArtistLocalizationResponseArtworksDataInnerAttributesMediaToJSON(value.media),
-    creationDate:
-      value.creationDate === undefined ? undefined : value.creationDate.toISOString().substr(0, 10),
-    originalTitle: value.originalTitle,
     handle: value.handle,
-    exhibitions: ArtistLocalizationResponseArtworksDataInnerAttributesExhibitionsToJSON(
-      value.exhibitions
-    ),
+    artworks: IndexLocalizationResponseExhibitionsDataInnerAttributesArtworksToJSON(value.artworks),
+    cover:
+      ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureToJSON(
+        value.cover
+      ),
+    launch: value.launch === undefined ? undefined : value.launch.toISOString().substr(0, 10),
     createdAt: value.createdAt === undefined ? undefined : value.createdAt.toISOString(),
     updatedAt: value.updatedAt === undefined ? undefined : value.updatedAt.toISOString(),
     publishedAt: value.publishedAt === undefined ? undefined : value.publishedAt.toISOString(),

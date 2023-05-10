@@ -13,6 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesArtworks } from './ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesArtworks';
+import {
+  ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesArtworksFromJSON,
+  ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesArtworksFromJSONTyped,
+  ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesArtworksToJSON,
+} from './ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesArtworks';
 import type { ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesLocalizations } from './ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesLocalizations';
 import {
   ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesLocalizationsFromJSON,
@@ -94,6 +100,12 @@ export interface ArtworkLocalizationResponse {
   handle?: string;
   /**
    *
+   * @type {ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesArtworks}
+   * @memberof ArtworkLocalizationResponse
+   */
+  exhibitions?: ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesArtworks;
+  /**
+   *
    * @type {Date}
    * @memberof ArtworkLocalizationResponse
    */
@@ -169,6 +181,11 @@ export function ArtworkLocalizationResponseFromJSONTyped(
     creationDate: !exists(json, 'creationDate') ? undefined : new Date(json['creationDate']),
     originalTitle: !exists(json, 'originalTitle') ? undefined : json['originalTitle'],
     handle: !exists(json, 'handle') ? undefined : json['handle'],
+    exhibitions: !exists(json, 'exhibitions')
+      ? undefined
+      : ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesArtworksFromJSON(
+          json['exhibitions']
+        ),
     createdAt: !exists(json, 'createdAt') ? undefined : new Date(json['createdAt']),
     updatedAt: !exists(json, 'updatedAt') ? undefined : new Date(json['updatedAt']),
     publishedAt: !exists(json, 'publishedAt') ? undefined : new Date(json['publishedAt']),
@@ -208,6 +225,10 @@ export function ArtworkLocalizationResponseToJSON(value?: ArtworkLocalizationRes
       value.creationDate === undefined ? undefined : value.creationDate.toISOString().substr(0, 10),
     originalTitle: value.originalTitle,
     handle: value.handle,
+    exhibitions:
+      ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesArtworksToJSON(
+        value.exhibitions
+      ),
     createdAt: value.createdAt === undefined ? undefined : value.createdAt.toISOString(),
     updatedAt: value.updatedAt === undefined ? undefined : value.updatedAt.toISOString(),
     publishedAt: value.publishedAt === undefined ? undefined : value.publishedAt.toISOString(),

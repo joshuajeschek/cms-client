@@ -70,6 +70,12 @@ export interface ArtworkLocalizationRequest {
   handle: string;
   /**
    *
+   * @type {Array<ArtistLocalizationRequestArtworksInner>}
+   * @memberof ArtworkLocalizationRequest
+   */
+  exhibitions?: Array<ArtistLocalizationRequestArtworksInner>;
+  /**
+   *
    * @type {string}
    * @memberof ArtworkLocalizationRequest
    */
@@ -111,6 +117,9 @@ export function ArtworkLocalizationRequestFromJSONTyped(
     creationDate: !exists(json, 'creationDate') ? undefined : new Date(json['creationDate']),
     originalTitle: !exists(json, 'originalTitle') ? undefined : json['originalTitle'],
     handle: json['handle'],
+    exhibitions: !exists(json, 'exhibitions')
+      ? undefined
+      : (json['exhibitions'] as Array<any>).map(ArtistLocalizationRequestArtworksInnerFromJSON),
     locale: json['locale'],
   };
 }
@@ -137,6 +146,10 @@ export function ArtworkLocalizationRequestToJSON(value?: ArtworkLocalizationRequ
       value.creationDate === undefined ? undefined : value.creationDate.toISOString().substr(0, 10),
     originalTitle: value.originalTitle,
     handle: value.handle,
+    exhibitions:
+      value.exhibitions === undefined
+        ? undefined
+        : (value.exhibitions as Array<any>).map(ArtistLocalizationRequestArtworksInnerToJSON),
     locale: value.locale,
   };
 }

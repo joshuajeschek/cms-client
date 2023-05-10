@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ExhibitionListResponseDataItemLocalizedAttributes } from './ExhibitionListResponseDataItemLocalizedAttributes';
+import type { IndexLocalizationResponseExhibitionsDataInnerAttributes } from './IndexLocalizationResponseExhibitionsDataInnerAttributes';
 import {
-  ExhibitionListResponseDataItemLocalizedAttributesFromJSON,
-  ExhibitionListResponseDataItemLocalizedAttributesFromJSONTyped,
-  ExhibitionListResponseDataItemLocalizedAttributesToJSON,
-} from './ExhibitionListResponseDataItemLocalizedAttributes';
+  IndexLocalizationResponseExhibitionsDataInnerAttributesFromJSON,
+  IndexLocalizationResponseExhibitionsDataInnerAttributesFromJSONTyped,
+  IndexLocalizationResponseExhibitionsDataInnerAttributesToJSON,
+} from './IndexLocalizationResponseExhibitionsDataInnerAttributes';
 
 /**
  *
@@ -34,10 +34,10 @@ export interface IndexLocalizationResponseExhibitionsDataInner {
   id?: number;
   /**
    *
-   * @type {ExhibitionListResponseDataItemLocalizedAttributes}
+   * @type {IndexLocalizationResponseExhibitionsDataInnerAttributes}
    * @memberof IndexLocalizationResponseExhibitionsDataInner
    */
-  attributes?: ExhibitionListResponseDataItemLocalizedAttributes;
+  attributes?: IndexLocalizationResponseExhibitionsDataInnerAttributes;
 }
 
 /**
@@ -66,7 +66,7 @@ export function IndexLocalizationResponseExhibitionsDataInnerFromJSONTyped(
     id: !exists(json, 'id') ? undefined : json['id'],
     attributes: !exists(json, 'attributes')
       ? undefined
-      : ExhibitionListResponseDataItemLocalizedAttributesFromJSON(json['attributes']),
+      : IndexLocalizationResponseExhibitionsDataInnerAttributesFromJSON(json['attributes']),
   };
 }
 
@@ -81,6 +81,6 @@ export function IndexLocalizationResponseExhibitionsDataInnerToJSON(
   }
   return {
     id: value.id,
-    attributes: ExhibitionListResponseDataItemLocalizedAttributesToJSON(value.attributes),
+    attributes: IndexLocalizationResponseExhibitionsDataInnerAttributesToJSON(value.attributes),
   };
 }

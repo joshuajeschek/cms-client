@@ -19,6 +19,12 @@ import {
   ArtistLocalizationResponseArtworksDataInnerAttributesArtistsFromJSONTyped,
   ArtistLocalizationResponseArtworksDataInnerAttributesArtistsToJSON,
 } from './ArtistLocalizationResponseArtworksDataInnerAttributesArtists';
+import type { ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesArtworks } from './ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesArtworks';
+import {
+  ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesArtworksFromJSON,
+  ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesArtworksFromJSONTyped,
+  ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesArtworksToJSON,
+} from './ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesArtworks';
 import type { ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesLocalizations } from './ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesLocalizations';
 import {
   ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesLocalizationsFromJSON,
@@ -31,12 +37,6 @@ import {
   ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributesFolderDataAttributesParentFromJSONTyped,
   ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributesFolderDataAttributesParentToJSON,
 } from './ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributesFolderDataAttributesParent';
-import type { ArtistLocalizationResponseArtworksDataInnerAttributesExhibitions } from './ArtistLocalizationResponseArtworksDataInnerAttributesExhibitions';
-import {
-  ArtistLocalizationResponseArtworksDataInnerAttributesExhibitionsFromJSON,
-  ArtistLocalizationResponseArtworksDataInnerAttributesExhibitionsFromJSONTyped,
-  ArtistLocalizationResponseArtworksDataInnerAttributesExhibitionsToJSON,
-} from './ArtistLocalizationResponseArtworksDataInnerAttributesExhibitions';
 import type { ArtistLocalizationResponseArtworksDataInnerAttributesMedia } from './ArtistLocalizationResponseArtworksDataInnerAttributesMedia';
 import {
   ArtistLocalizationResponseArtworksDataInnerAttributesMediaFromJSON,
@@ -47,105 +47,105 @@ import {
 /**
  *
  * @export
- * @interface ArtistLocalizationResponseArtworksDataInnerAttributes
+ * @interface IndexLocalizationResponseExhibitionsDataInnerAttributesArtworksDataInnerAttributes
  */
-export interface ArtistLocalizationResponseArtworksDataInnerAttributes {
+export interface IndexLocalizationResponseExhibitionsDataInnerAttributesArtworksDataInnerAttributes {
   /**
    *
    * @type {string}
-   * @memberof ArtistLocalizationResponseArtworksDataInnerAttributes
+   * @memberof IndexLocalizationResponseExhibitionsDataInnerAttributesArtworksDataInnerAttributes
    */
   title?: string;
   /**
    *
    * @type {string}
-   * @memberof ArtistLocalizationResponseArtworksDataInnerAttributes
+   * @memberof IndexLocalizationResponseExhibitionsDataInnerAttributesArtworksDataInnerAttributes
    */
   description?: string;
   /**
    *
    * @type {ArtistLocalizationResponseArtworksDataInnerAttributesArtists}
-   * @memberof ArtistLocalizationResponseArtworksDataInnerAttributes
+   * @memberof IndexLocalizationResponseExhibitionsDataInnerAttributesArtworksDataInnerAttributes
    */
   artists?: ArtistLocalizationResponseArtworksDataInnerAttributesArtists;
   /**
    *
    * @type {ArtistLocalizationResponseArtworksDataInnerAttributesMedia}
-   * @memberof ArtistLocalizationResponseArtworksDataInnerAttributes
+   * @memberof IndexLocalizationResponseExhibitionsDataInnerAttributesArtworksDataInnerAttributes
    */
   media?: ArtistLocalizationResponseArtworksDataInnerAttributesMedia;
   /**
    *
    * @type {Date}
-   * @memberof ArtistLocalizationResponseArtworksDataInnerAttributes
+   * @memberof IndexLocalizationResponseExhibitionsDataInnerAttributesArtworksDataInnerAttributes
    */
   creationDate?: Date;
   /**
    *
    * @type {string}
-   * @memberof ArtistLocalizationResponseArtworksDataInnerAttributes
+   * @memberof IndexLocalizationResponseExhibitionsDataInnerAttributesArtworksDataInnerAttributes
    */
   originalTitle?: string;
   /**
    *
    * @type {string}
-   * @memberof ArtistLocalizationResponseArtworksDataInnerAttributes
+   * @memberof IndexLocalizationResponseExhibitionsDataInnerAttributesArtworksDataInnerAttributes
    */
   handle?: string;
   /**
    *
-   * @type {ArtistLocalizationResponseArtworksDataInnerAttributesExhibitions}
-   * @memberof ArtistLocalizationResponseArtworksDataInnerAttributes
+   * @type {ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesArtworks}
+   * @memberof IndexLocalizationResponseExhibitionsDataInnerAttributesArtworksDataInnerAttributes
    */
-  exhibitions?: ArtistLocalizationResponseArtworksDataInnerAttributesExhibitions;
+  exhibitions?: ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesArtworks;
   /**
    *
    * @type {Date}
-   * @memberof ArtistLocalizationResponseArtworksDataInnerAttributes
+   * @memberof IndexLocalizationResponseExhibitionsDataInnerAttributesArtworksDataInnerAttributes
    */
   createdAt?: Date;
   /**
    *
    * @type {Date}
-   * @memberof ArtistLocalizationResponseArtworksDataInnerAttributes
+   * @memberof IndexLocalizationResponseExhibitionsDataInnerAttributesArtworksDataInnerAttributes
    */
   updatedAt?: Date;
   /**
    *
    * @type {Date}
-   * @memberof ArtistLocalizationResponseArtworksDataInnerAttributes
+   * @memberof IndexLocalizationResponseExhibitionsDataInnerAttributesArtworksDataInnerAttributes
    */
   publishedAt?: Date;
   /**
    *
    * @type {ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributesFolderDataAttributesParent}
-   * @memberof ArtistLocalizationResponseArtworksDataInnerAttributes
+   * @memberof IndexLocalizationResponseExhibitionsDataInnerAttributesArtworksDataInnerAttributes
    */
   createdBy?: ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributesFolderDataAttributesParent;
   /**
    *
    * @type {ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributesFolderDataAttributesParent}
-   * @memberof ArtistLocalizationResponseArtworksDataInnerAttributes
+   * @memberof IndexLocalizationResponseExhibitionsDataInnerAttributesArtworksDataInnerAttributes
    */
   updatedBy?: ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributesFolderDataAttributesParent;
   /**
    *
    * @type {ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesLocalizations}
-   * @memberof ArtistLocalizationResponseArtworksDataInnerAttributes
+   * @memberof IndexLocalizationResponseExhibitionsDataInnerAttributesArtworksDataInnerAttributes
    */
   localizations?: ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesLocalizations;
   /**
    *
    * @type {string}
-   * @memberof ArtistLocalizationResponseArtworksDataInnerAttributes
+   * @memberof IndexLocalizationResponseExhibitionsDataInnerAttributesArtworksDataInnerAttributes
    */
   locale?: string;
 }
 
 /**
- * Check if a given object implements the ArtistLocalizationResponseArtworksDataInnerAttributes interface.
+ * Check if a given object implements the IndexLocalizationResponseExhibitionsDataInnerAttributesArtworksDataInnerAttributes interface.
  */
-export function instanceOfArtistLocalizationResponseArtworksDataInnerAttributes(
+export function instanceOfIndexLocalizationResponseExhibitionsDataInnerAttributesArtworksDataInnerAttributes(
   value: object
 ): boolean {
   let isInstance = true;
@@ -153,16 +153,19 @@ export function instanceOfArtistLocalizationResponseArtworksDataInnerAttributes(
   return isInstance;
 }
 
-export function ArtistLocalizationResponseArtworksDataInnerAttributesFromJSON(
+export function IndexLocalizationResponseExhibitionsDataInnerAttributesArtworksDataInnerAttributesFromJSON(
   json: any
-): ArtistLocalizationResponseArtworksDataInnerAttributes {
-  return ArtistLocalizationResponseArtworksDataInnerAttributesFromJSONTyped(json, false);
+): IndexLocalizationResponseExhibitionsDataInnerAttributesArtworksDataInnerAttributes {
+  return IndexLocalizationResponseExhibitionsDataInnerAttributesArtworksDataInnerAttributesFromJSONTyped(
+    json,
+    false
+  );
 }
 
-export function ArtistLocalizationResponseArtworksDataInnerAttributesFromJSONTyped(
+export function IndexLocalizationResponseExhibitionsDataInnerAttributesArtworksDataInnerAttributesFromJSONTyped(
   json: any,
   ignoreDiscriminator: boolean
-): ArtistLocalizationResponseArtworksDataInnerAttributes {
+): IndexLocalizationResponseExhibitionsDataInnerAttributesArtworksDataInnerAttributes {
   if (json === undefined || json === null) {
     return json;
   }
@@ -180,7 +183,7 @@ export function ArtistLocalizationResponseArtworksDataInnerAttributesFromJSONTyp
     handle: !exists(json, 'handle') ? undefined : json['handle'],
     exhibitions: !exists(json, 'exhibitions')
       ? undefined
-      : ArtistLocalizationResponseArtworksDataInnerAttributesExhibitionsFromJSON(
+      : ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesArtworksFromJSON(
           json['exhibitions']
         ),
     createdAt: !exists(json, 'createdAt') ? undefined : new Date(json['createdAt']),
@@ -205,8 +208,8 @@ export function ArtistLocalizationResponseArtworksDataInnerAttributesFromJSONTyp
   };
 }
 
-export function ArtistLocalizationResponseArtworksDataInnerAttributesToJSON(
-  value?: ArtistLocalizationResponseArtworksDataInnerAttributes | null
+export function IndexLocalizationResponseExhibitionsDataInnerAttributesArtworksDataInnerAttributesToJSON(
+  value?: IndexLocalizationResponseExhibitionsDataInnerAttributesArtworksDataInnerAttributes | null
 ): any {
   if (value === undefined) {
     return undefined;
@@ -223,9 +226,10 @@ export function ArtistLocalizationResponseArtworksDataInnerAttributesToJSON(
       value.creationDate === undefined ? undefined : value.creationDate.toISOString().substr(0, 10),
     originalTitle: value.originalTitle,
     handle: value.handle,
-    exhibitions: ArtistLocalizationResponseArtworksDataInnerAttributesExhibitionsToJSON(
-      value.exhibitions
-    ),
+    exhibitions:
+      ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesArtworksToJSON(
+        value.exhibitions
+      ),
     createdAt: value.createdAt === undefined ? undefined : value.createdAt.toISOString(),
     updatedAt: value.updatedAt === undefined ? undefined : value.updatedAt.toISOString(),
     publishedAt: value.publishedAt === undefined ? undefined : value.publishedAt.toISOString(),

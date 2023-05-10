@@ -70,6 +70,12 @@ export interface ArtworkRequestData {
   handle: string;
   /**
    *
+   * @type {Array<ArtistLocalizationRequestArtworksInner>}
+   * @memberof ArtworkRequestData
+   */
+  exhibitions?: Array<ArtistLocalizationRequestArtworksInner>;
+  /**
+   *
    * @type {string}
    * @memberof ArtworkRequestData
    */
@@ -110,6 +116,9 @@ export function ArtworkRequestDataFromJSONTyped(
     creationDate: !exists(json, 'creationDate') ? undefined : new Date(json['creationDate']),
     originalTitle: !exists(json, 'originalTitle') ? undefined : json['originalTitle'],
     handle: json['handle'],
+    exhibitions: !exists(json, 'exhibitions')
+      ? undefined
+      : (json['exhibitions'] as Array<any>).map(ArtistLocalizationRequestArtworksInnerFromJSON),
     locale: !exists(json, 'locale') ? undefined : json['locale'],
   };
 }
@@ -136,6 +145,10 @@ export function ArtworkRequestDataToJSON(value?: ArtworkRequestData | null): any
       value.creationDate === undefined ? undefined : value.creationDate.toISOString().substr(0, 10),
     originalTitle: value.originalTitle,
     handle: value.handle,
+    exhibitions:
+      value.exhibitions === undefined
+        ? undefined
+        : (value.exhibitions as Array<any>).map(ArtistLocalizationRequestArtworksInnerToJSON),
     locale: value.locale,
   };
 }
