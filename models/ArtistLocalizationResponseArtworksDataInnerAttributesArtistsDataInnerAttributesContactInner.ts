@@ -50,15 +50,12 @@ export const ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInn
     Youtube: 'youtube',
     Instagram: 'instagram',
     Tiktok: 'tiktok',
-    Linkedin: 'linkedin',
     Snapchat: 'snapchat',
-    Pinterest: 'pinterest',
     Twitter: 'twitter',
     Reddit: 'reddit',
     Discord: 'discord',
     Twitch: 'twitch',
-    StackExchange: 'stack-exchange',
-    Goodreads: 'goodreads',
+    Github: 'github',
   } as const;
 export type ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesContactInnerPlatformEnum =
   (typeof ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesContactInnerPlatformEnum)[keyof typeof ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesContactInnerPlatformEnum];
