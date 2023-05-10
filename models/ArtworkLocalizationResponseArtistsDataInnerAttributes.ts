@@ -13,6 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesContactInner } from './ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesContactInner';
+import {
+  ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesContactInnerFromJSON,
+  ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesContactInnerFromJSONTyped,
+  ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesContactInnerToJSON,
+} from './ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesContactInner';
 import type { ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesLocalizations } from './ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesLocalizations';
 import {
   ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesLocalizationsFromJSON,
@@ -74,6 +80,18 @@ export interface ArtworkLocalizationResponseArtistsDataInnerAttributes {
    * @memberof ArtworkLocalizationResponseArtistsDataInnerAttributes
    */
   picture?: ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPicture;
+  /**
+   *
+   * @type {Array<ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesContactInner>}
+   * @memberof ArtworkLocalizationResponseArtistsDataInnerAttributes
+   */
+  contact?: Array<ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesContactInner>;
+  /**
+   *
+   * @type {Date}
+   * @memberof ArtworkLocalizationResponseArtistsDataInnerAttributes
+   */
+  birthday?: Date;
   /**
    *
    * @type {Date}
@@ -154,6 +172,12 @@ export function ArtworkLocalizationResponseArtistsDataInnerAttributesFromJSONTyp
       : ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureFromJSON(
           json['picture']
         ),
+    contact: !exists(json, 'contact')
+      ? undefined
+      : (json['contact'] as Array<any>).map(
+          ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesContactInnerFromJSON
+        ),
+    birthday: !exists(json, 'birthday') ? undefined : new Date(json['birthday']),
     createdAt: !exists(json, 'createdAt') ? undefined : new Date(json['createdAt']),
     updatedAt: !exists(json, 'updatedAt') ? undefined : new Date(json['updatedAt']),
     publishedAt: !exists(json, 'publishedAt') ? undefined : new Date(json['publishedAt']),
@@ -194,6 +218,13 @@ export function ArtworkLocalizationResponseArtistsDataInnerAttributesToJSON(
       ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureToJSON(
         value.picture
       ),
+    contact:
+      value.contact === undefined
+        ? undefined
+        : (value.contact as Array<any>).map(
+            ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesContactInnerToJSON
+          ),
+    birthday: value.birthday === undefined ? undefined : value.birthday.toISOString().substr(0, 10),
     createdAt: value.createdAt === undefined ? undefined : value.createdAt.toISOString(),
     updatedAt: value.updatedAt === undefined ? undefined : value.updatedAt.toISOString(),
     publishedAt: value.publishedAt === undefined ? undefined : value.publishedAt.toISOString(),

@@ -19,6 +19,12 @@ import {
   ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesArtworksFromJSONTyped,
   ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesArtworksToJSON,
 } from './ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesArtworks';
+import type { ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesContactInner } from './ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesContactInner';
+import {
+  ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesContactInnerFromJSON,
+  ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesContactInnerFromJSONTyped,
+  ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesContactInnerToJSON,
+} from './ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesContactInner';
 import type { ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesLocalizations } from './ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesLocalizations';
 import {
   ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesLocalizationsFromJSON,
@@ -80,6 +86,18 @@ export interface ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDat
    * @memberof ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributes
    */
   picture?: ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPicture;
+  /**
+   *
+   * @type {Array<ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesContactInner>}
+   * @memberof ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributes
+   */
+  contact?: Array<ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesContactInner>;
+  /**
+   *
+   * @type {Date}
+   * @memberof ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributes
+   */
+  birthday?: Date;
   /**
    *
    * @type {Date}
@@ -165,6 +183,12 @@ export function ArtistLocalizationResponseArtworksDataInnerAttributesArtistsData
       : ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureFromJSON(
           json['picture']
         ),
+    contact: !exists(json, 'contact')
+      ? undefined
+      : (json['contact'] as Array<any>).map(
+          ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesContactInnerFromJSON
+        ),
+    birthday: !exists(json, 'birthday') ? undefined : new Date(json['birthday']),
     createdAt: !exists(json, 'createdAt') ? undefined : new Date(json['createdAt']),
     updatedAt: !exists(json, 'updatedAt') ? undefined : new Date(json['updatedAt']),
     publishedAt: !exists(json, 'publishedAt') ? undefined : new Date(json['publishedAt']),
@@ -208,6 +232,13 @@ export function ArtistLocalizationResponseArtworksDataInnerAttributesArtistsData
       ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureToJSON(
         value.picture
       ),
+    contact:
+      value.contact === undefined
+        ? undefined
+        : (value.contact as Array<any>).map(
+            ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesContactInnerToJSON
+          ),
+    birthday: value.birthday === undefined ? undefined : value.birthday.toISOString().substr(0, 10),
     createdAt: value.createdAt === undefined ? undefined : value.createdAt.toISOString(),
     updatedAt: value.updatedAt === undefined ? undefined : value.updatedAt.toISOString(),
     publishedAt: value.publishedAt === undefined ? undefined : value.publishedAt.toISOString(),

@@ -19,6 +19,7 @@ export * from './ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDat
 export * from './ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributes';
 export * from './ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesArtworks';
 export * from './ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesArtworksDataInner';
+export * from './ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesContactInner';
 export * from './ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesLocalizations';
 export * from './ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPicture';
 export * from './ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureData';
@@ -74,6 +75,7 @@ export * from './AuthLocalPostRequest';
 export * from './AuthLocalRegisterPostRequest';
 export * from './AuthResetPasswordPostRequest';
 export * from './AuthSendEmailConfirmationPost200Response';
+export * from './ContactContactInformationComponent';
 export * from './ErrorData';
 export * from './ErrorError';
 export * from './ExhibitionListResponse';

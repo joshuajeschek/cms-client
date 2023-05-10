@@ -37,6 +37,12 @@ import {
   ArtistResponseDataObjectAttributesLocalizationsFromJSONTyped,
   ArtistResponseDataObjectAttributesLocalizationsToJSON,
 } from './ArtistResponseDataObjectAttributesLocalizations';
+import type { ContactContactInformationComponent } from './ContactContactInformationComponent';
+import {
+  ContactContactInformationComponentFromJSON,
+  ContactContactInformationComponentFromJSONTyped,
+  ContactContactInformationComponentToJSON,
+} from './ContactContactInformationComponent';
 
 /**
  *
@@ -74,6 +80,18 @@ export interface ArtistResponseDataObjectAttributes {
    * @memberof ArtistResponseDataObjectAttributes
    */
   picture?: ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPicture;
+  /**
+   *
+   * @type {Array<ContactContactInformationComponent>}
+   * @memberof ArtistResponseDataObjectAttributes
+   */
+  contact?: Array<ContactContactInformationComponent>;
+  /**
+   *
+   * @type {Date}
+   * @memberof ArtistResponseDataObjectAttributes
+   */
+  birthday?: Date;
   /**
    *
    * @type {Date}
@@ -152,6 +170,10 @@ export function ArtistResponseDataObjectAttributesFromJSONTyped(
       : ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureFromJSON(
           json['picture']
         ),
+    contact: !exists(json, 'contact')
+      ? undefined
+      : (json['contact'] as Array<any>).map(ContactContactInformationComponentFromJSON),
+    birthday: !exists(json, 'birthday') ? undefined : new Date(json['birthday']),
     createdAt: !exists(json, 'createdAt') ? undefined : new Date(json['createdAt']),
     updatedAt: !exists(json, 'updatedAt') ? undefined : new Date(json['updatedAt']),
     publishedAt: !exists(json, 'publishedAt') ? undefined : new Date(json['publishedAt']),
@@ -190,6 +212,11 @@ export function ArtistResponseDataObjectAttributesToJSON(
       ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureToJSON(
         value.picture
       ),
+    contact:
+      value.contact === undefined
+        ? undefined
+        : (value.contact as Array<any>).map(ContactContactInformationComponentToJSON),
+    birthday: value.birthday === undefined ? undefined : value.birthday.toISOString().substr(0, 10),
     createdAt: value.createdAt === undefined ? undefined : value.createdAt.toISOString(),
     updatedAt: value.updatedAt === undefined ? undefined : value.updatedAt.toISOString(),
     publishedAt: value.publishedAt === undefined ? undefined : value.publishedAt.toISOString(),

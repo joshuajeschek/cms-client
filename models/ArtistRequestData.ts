@@ -19,6 +19,12 @@ import {
   ArtistLocalizationRequestArtworksInnerFromJSONTyped,
   ArtistLocalizationRequestArtworksInnerToJSON,
 } from './ArtistLocalizationRequestArtworksInner';
+import type { ContactContactInformationComponent } from './ContactContactInformationComponent';
+import {
+  ContactContactInformationComponentFromJSON,
+  ContactContactInformationComponentFromJSONTyped,
+  ContactContactInformationComponentToJSON,
+} from './ContactContactInformationComponent';
 
 /**
  *
@@ -56,6 +62,18 @@ export interface ArtistRequestData {
    * @memberof ArtistRequestData
    */
   picture?: ArtistLocalizationRequestArtworksInner;
+  /**
+   *
+   * @type {Array<ContactContactInformationComponent>}
+   * @memberof ArtistRequestData
+   */
+  contact?: Array<ContactContactInformationComponent>;
+  /**
+   *
+   * @type {Date}
+   * @memberof ArtistRequestData
+   */
+  birthday?: Date;
   /**
    *
    * @type {string}
@@ -96,6 +114,10 @@ export function ArtistRequestDataFromJSONTyped(
     picture: !exists(json, 'picture')
       ? undefined
       : ArtistLocalizationRequestArtworksInnerFromJSON(json['picture']),
+    contact: !exists(json, 'contact')
+      ? undefined
+      : (json['contact'] as Array<any>).map(ContactContactInformationComponentFromJSON),
+    birthday: !exists(json, 'birthday') ? undefined : new Date(json['birthday']),
     locale: !exists(json, 'locale') ? undefined : json['locale'],
   };
 }
@@ -116,6 +138,11 @@ export function ArtistRequestDataToJSON(value?: ArtistRequestData | null): any {
         ? undefined
         : (value.artworks as Array<any>).map(ArtistLocalizationRequestArtworksInnerToJSON),
     picture: ArtistLocalizationRequestArtworksInnerToJSON(value.picture),
+    contact:
+      value.contact === undefined
+        ? undefined
+        : (value.contact as Array<any>).map(ContactContactInformationComponentToJSON),
+    birthday: value.birthday === undefined ? undefined : value.birthday.toISOString().substr(0, 10),
     locale: value.locale,
   };
 }
