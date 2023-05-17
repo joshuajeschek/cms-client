@@ -19,6 +19,7 @@ import type {
   ExhibitionLocalizationResponse,
   ExhibitionRequest,
   ExhibitionResponse,
+  GetAboutPopulateParameter,
 } from '../models';
 import {
   ExhibitionListResponseFromJSON,
@@ -31,6 +32,8 @@ import {
   ExhibitionRequestToJSON,
   ExhibitionResponseFromJSON,
   ExhibitionResponseToJSON,
+  GetAboutPopulateParameterFromJSON,
+  GetAboutPopulateParameterToJSON,
 } from '../models';
 
 export interface DeleteExhibitionsIdRequest {
@@ -45,7 +48,7 @@ export interface GetExhibitionsRequest {
   paginationStart?: number;
   paginationLimit?: number;
   fields?: string;
-  populate?: string;
+  populate?: GetAboutPopulateParameter;
   filters?: object;
   locale?: string;
 }

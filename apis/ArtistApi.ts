@@ -19,6 +19,7 @@ import type {
   ArtistLocalizationResponse,
   ArtistRequest,
   ArtistResponse,
+  GetAboutPopulateParameter,
 } from '../models';
 import {
   ArtistListResponseFromJSON,
@@ -31,6 +32,8 @@ import {
   ArtistRequestToJSON,
   ArtistResponseFromJSON,
   ArtistResponseToJSON,
+  GetAboutPopulateParameterFromJSON,
+  GetAboutPopulateParameterToJSON,
 } from '../models';
 
 export interface DeleteArtistsIdRequest {
@@ -45,7 +48,7 @@ export interface GetArtistsRequest {
   paginationStart?: number;
   paginationLimit?: number;
   fields?: string;
-  populate?: string;
+  populate?: GetAboutPopulateParameter;
   filters?: object;
   locale?: string;
 }

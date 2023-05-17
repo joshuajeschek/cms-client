@@ -14,12 +14,15 @@
 
 import * as runtime from '../runtime';
 import type {
+  GetAboutPopulateParameter,
   IndexLocalizationRequest,
   IndexLocalizationResponse,
   IndexRequest,
   IndexResponse,
 } from '../models';
 import {
+  GetAboutPopulateParameterFromJSON,
+  GetAboutPopulateParameterToJSON,
   IndexLocalizationRequestFromJSON,
   IndexLocalizationRequestToJSON,
   IndexLocalizationResponseFromJSON,
@@ -38,7 +41,7 @@ export interface GetIndexRequest {
   paginationStart?: number;
   paginationLimit?: number;
   fields?: string;
-  populate?: string;
+  populate?: GetAboutPopulateParameter;
   filters?: object;
   locale?: string;
 }

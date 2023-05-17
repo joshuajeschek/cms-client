@@ -107,6 +107,7 @@ models/ExhibitionRequestData.ts
 models/ExhibitionResponse.ts
 models/ExhibitionResponseDataObject.ts
 models/ExhibitionResponseDataObjectLocalized.ts
+models/GetAboutPopulateParameter.ts
 models/IndexExhibitions.ts
 models/IndexExhibitionsDataInner.ts
 models/IndexExhibitionsDataInnerAttributes.ts

@@ -98,6 +98,7 @@ export * from './ExhibitionRequestData';
 export * from './ExhibitionResponse';
 export * from './ExhibitionResponseDataObject';
 export * from './ExhibitionResponseDataObjectLocalized';
+export * from './GetAboutPopulateParameter';
 export * from './IndexExhibitions';
 export * from './IndexExhibitionsDataInner';
 export * from './IndexExhibitionsDataInnerAttributes';

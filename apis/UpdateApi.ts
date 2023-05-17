@@ -14,6 +14,7 @@
 
 import * as runtime from '../runtime';
 import type {
+  GetAboutPopulateParameter,
   UpdateListResponse,
   UpdateLocalizationRequest,
   UpdateLocalizationResponse,
@@ -21,6 +22,8 @@ import type {
   UpdateResponse,
 } from '../models';
 import {
+  GetAboutPopulateParameterFromJSON,
+  GetAboutPopulateParameterToJSON,
   UpdateListResponseFromJSON,
   UpdateListResponseToJSON,
   UpdateLocalizationRequestFromJSON,
@@ -45,7 +48,7 @@ export interface GetUpdatesRequest {
   paginationStart?: number;
   paginationLimit?: number;
   fields?: string;
-  populate?: string;
+  populate?: GetAboutPopulateParameter;
   filters?: object;
   locale?: string;
 }

@@ -18,6 +18,7 @@ import type {
   AboutLocalizationResponse,
   AboutRequest,
   AboutResponse,
+  GetAboutPopulateParameter,
 } from '../models';
 import {
   AboutLocalizationRequestFromJSON,
@@ -28,6 +29,8 @@ import {
   AboutRequestToJSON,
   AboutResponseFromJSON,
   AboutResponseToJSON,
+  GetAboutPopulateParameterFromJSON,
+  GetAboutPopulateParameterToJSON,
 } from '../models';
 
 export interface GetAboutRequest {
@@ -38,7 +41,7 @@ export interface GetAboutRequest {
   paginationStart?: number;
   paginationLimit?: number;
   fields?: string;
-  populate?: string;
+  populate?: GetAboutPopulateParameter;
   filters?: object;
   locale?: string;
 }
