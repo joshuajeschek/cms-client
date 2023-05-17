@@ -13,12 +13,8 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ArtistListResponseDataItemAttributes } from './ArtistListResponseDataItemAttributes';
-import {
-  ArtistListResponseDataItemAttributesFromJSON,
-  ArtistListResponseDataItemAttributesFromJSONTyped,
-  ArtistListResponseDataItemAttributesToJSON,
-} from './ArtistListResponseDataItemAttributes';
+import type { Artist } from './Artist';
+import { ArtistFromJSON, ArtistFromJSONTyped, ArtistToJSON } from './Artist';
 
 /**
  *
@@ -34,10 +30,10 @@ export interface ArtistListResponseDataItem {
   id?: number;
   /**
    *
-   * @type {ArtistListResponseDataItemAttributes}
+   * @type {Artist}
    * @memberof ArtistListResponseDataItem
    */
-  attributes?: ArtistListResponseDataItemAttributes;
+  attributes?: Artist;
 }
 
 /**
@@ -62,9 +58,7 @@ export function ArtistListResponseDataItemFromJSONTyped(
   }
   return {
     id: !exists(json, 'id') ? undefined : json['id'],
-    attributes: !exists(json, 'attributes')
-      ? undefined
-      : ArtistListResponseDataItemAttributesFromJSON(json['attributes']),
+    attributes: !exists(json, 'attributes') ? undefined : ArtistFromJSON(json['attributes']),
   };
 }
 
@@ -77,6 +71,6 @@ export function ArtistListResponseDataItemToJSON(value?: ArtistListResponseDataI
   }
   return {
     id: value.id,
-    attributes: ArtistListResponseDataItemAttributesToJSON(value.attributes),
+    attributes: ArtistToJSON(value.attributes),
   };
 }

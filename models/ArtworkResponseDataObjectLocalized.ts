@@ -13,12 +13,8 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ArtworkListResponseDataItemLocalizedAttributes } from './ArtworkListResponseDataItemLocalizedAttributes';
-import {
-  ArtworkListResponseDataItemLocalizedAttributesFromJSON,
-  ArtworkListResponseDataItemLocalizedAttributesFromJSONTyped,
-  ArtworkListResponseDataItemLocalizedAttributesToJSON,
-} from './ArtworkListResponseDataItemLocalizedAttributes';
+import type { Artwork } from './Artwork';
+import { ArtworkFromJSON, ArtworkFromJSONTyped, ArtworkToJSON } from './Artwork';
 
 /**
  *
@@ -34,10 +30,10 @@ export interface ArtworkResponseDataObjectLocalized {
   id?: number;
   /**
    *
-   * @type {ArtworkListResponseDataItemLocalizedAttributes}
+   * @type {Artwork}
    * @memberof ArtworkResponseDataObjectLocalized
    */
-  attributes?: ArtworkListResponseDataItemLocalizedAttributes;
+  attributes?: Artwork;
 }
 
 /**
@@ -64,9 +60,7 @@ export function ArtworkResponseDataObjectLocalizedFromJSONTyped(
   }
   return {
     id: !exists(json, 'id') ? undefined : json['id'],
-    attributes: !exists(json, 'attributes')
-      ? undefined
-      : ArtworkListResponseDataItemLocalizedAttributesFromJSON(json['attributes']),
+    attributes: !exists(json, 'attributes') ? undefined : ArtworkFromJSON(json['attributes']),
   };
 }
 
@@ -81,6 +75,6 @@ export function ArtworkResponseDataObjectLocalizedToJSON(
   }
   return {
     id: value.id,
-    attributes: ArtworkListResponseDataItemLocalizedAttributesToJSON(value.attributes),
+    attributes: ArtworkToJSON(value.attributes),
   };
 }

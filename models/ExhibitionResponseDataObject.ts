@@ -13,12 +13,8 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ExhibitionResponseDataObjectAttributes } from './ExhibitionResponseDataObjectAttributes';
-import {
-  ExhibitionResponseDataObjectAttributesFromJSON,
-  ExhibitionResponseDataObjectAttributesFromJSONTyped,
-  ExhibitionResponseDataObjectAttributesToJSON,
-} from './ExhibitionResponseDataObjectAttributes';
+import type { Exhibition } from './Exhibition';
+import { ExhibitionFromJSON, ExhibitionFromJSONTyped, ExhibitionToJSON } from './Exhibition';
 
 /**
  *
@@ -34,10 +30,10 @@ export interface ExhibitionResponseDataObject {
   id?: number;
   /**
    *
-   * @type {ExhibitionResponseDataObjectAttributes}
+   * @type {Exhibition}
    * @memberof ExhibitionResponseDataObject
    */
-  attributes?: ExhibitionResponseDataObjectAttributes;
+  attributes?: Exhibition;
 }
 
 /**
@@ -62,9 +58,7 @@ export function ExhibitionResponseDataObjectFromJSONTyped(
   }
   return {
     id: !exists(json, 'id') ? undefined : json['id'],
-    attributes: !exists(json, 'attributes')
-      ? undefined
-      : ExhibitionResponseDataObjectAttributesFromJSON(json['attributes']),
+    attributes: !exists(json, 'attributes') ? undefined : ExhibitionFromJSON(json['attributes']),
   };
 }
 
@@ -79,6 +73,6 @@ export function ExhibitionResponseDataObjectToJSON(
   }
   return {
     id: value.id,
-    attributes: ExhibitionResponseDataObjectAttributesToJSON(value.attributes),
+    attributes: ExhibitionToJSON(value.attributes),
   };
 }

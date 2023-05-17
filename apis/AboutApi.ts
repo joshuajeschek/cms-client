@@ -18,7 +18,6 @@ import type {
   AboutLocalizationResponse,
   AboutRequest,
   AboutResponse,
-  GetAboutPopulateParameter,
 } from '../models';
 import {
   AboutLocalizationRequestFromJSON,
@@ -29,8 +28,6 @@ import {
   AboutRequestToJSON,
   AboutResponseFromJSON,
   AboutResponseToJSON,
-  GetAboutPopulateParameterFromJSON,
-  GetAboutPopulateParameterToJSON,
 } from '../models';
 
 export interface GetAboutRequest {
@@ -41,7 +38,7 @@ export interface GetAboutRequest {
   paginationStart?: number;
   paginationLimit?: number;
   fields?: string;
-  populate?: GetAboutPopulateParameter;
+  populate?: string;
   filters?: object;
   locale?: string;
 }
@@ -67,14 +64,6 @@ export class AboutApi extends runtime.BaseAPI {
 
     const headerParameters: runtime.HTTPHeaders = {};
 
-    if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token('bearerAuth', []);
-
-      if (tokenString) {
-        headerParameters['Authorization'] = `Bearer ${tokenString}`;
-      }
-    }
     const response = await this.request(
       {
         path: `/about`,
@@ -149,14 +138,6 @@ export class AboutApi extends runtime.BaseAPI {
 
     const headerParameters: runtime.HTTPHeaders = {};
 
-    if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token('bearerAuth', []);
-
-      if (tokenString) {
-        headerParameters['Authorization'] = `Bearer ${tokenString}`;
-      }
-    }
     const response = await this.request(
       {
         path: `/about`,
@@ -202,14 +183,6 @@ export class AboutApi extends runtime.BaseAPI {
 
     headerParameters['Content-Type'] = 'application/json';
 
-    if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token('bearerAuth', []);
-
-      if (tokenString) {
-        headerParameters['Authorization'] = `Bearer ${tokenString}`;
-      }
-    }
     const response = await this.request(
       {
         path: `/about/localizations`,
@@ -255,14 +228,6 @@ export class AboutApi extends runtime.BaseAPI {
 
     headerParameters['Content-Type'] = 'application/json';
 
-    if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token('bearerAuth', []);
-
-      if (tokenString) {
-        headerParameters['Authorization'] = `Bearer ${tokenString}`;
-      }
-    }
     const response = await this.request(
       {
         path: `/about`,

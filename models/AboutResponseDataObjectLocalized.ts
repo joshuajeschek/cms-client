@@ -13,12 +13,8 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { AboutResponseDataObjectLocalizedAttributes } from './AboutResponseDataObjectLocalizedAttributes';
-import {
-  AboutResponseDataObjectLocalizedAttributesFromJSON,
-  AboutResponseDataObjectLocalizedAttributesFromJSONTyped,
-  AboutResponseDataObjectLocalizedAttributesToJSON,
-} from './AboutResponseDataObjectLocalizedAttributes';
+import type { About } from './About';
+import { AboutFromJSON, AboutFromJSONTyped, AboutToJSON } from './About';
 
 /**
  *
@@ -34,10 +30,10 @@ export interface AboutResponseDataObjectLocalized {
   id?: number;
   /**
    *
-   * @type {AboutResponseDataObjectLocalizedAttributes}
+   * @type {About}
    * @memberof AboutResponseDataObjectLocalized
    */
-  attributes?: AboutResponseDataObjectLocalizedAttributes;
+  attributes?: About;
 }
 
 /**
@@ -64,9 +60,7 @@ export function AboutResponseDataObjectLocalizedFromJSONTyped(
   }
   return {
     id: !exists(json, 'id') ? undefined : json['id'],
-    attributes: !exists(json, 'attributes')
-      ? undefined
-      : AboutResponseDataObjectLocalizedAttributesFromJSON(json['attributes']),
+    attributes: !exists(json, 'attributes') ? undefined : AboutFromJSON(json['attributes']),
   };
 }
 
@@ -81,6 +75,6 @@ export function AboutResponseDataObjectLocalizedToJSON(
   }
   return {
     id: value.id,
-    attributes: AboutResponseDataObjectLocalizedAttributesToJSON(value.attributes),
+    attributes: AboutToJSON(value.attributes),
   };
 }

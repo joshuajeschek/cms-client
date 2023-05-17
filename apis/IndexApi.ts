@@ -14,15 +14,12 @@
 
 import * as runtime from '../runtime';
 import type {
-  GetAboutPopulateParameter,
   IndexLocalizationRequest,
   IndexLocalizationResponse,
   IndexRequest,
   IndexResponse,
 } from '../models';
 import {
-  GetAboutPopulateParameterFromJSON,
-  GetAboutPopulateParameterToJSON,
   IndexLocalizationRequestFromJSON,
   IndexLocalizationRequestToJSON,
   IndexLocalizationResponseFromJSON,
@@ -41,7 +38,7 @@ export interface GetIndexRequest {
   paginationStart?: number;
   paginationLimit?: number;
   fields?: string;
-  populate?: GetAboutPopulateParameter;
+  populate?: string;
   filters?: object;
   locale?: string;
 }
@@ -67,14 +64,6 @@ export class IndexApi extends runtime.BaseAPI {
 
     const headerParameters: runtime.HTTPHeaders = {};
 
-    if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token('bearerAuth', []);
-
-      if (tokenString) {
-        headerParameters['Authorization'] = `Bearer ${tokenString}`;
-      }
-    }
     const response = await this.request(
       {
         path: `/index`,
@@ -149,14 +138,6 @@ export class IndexApi extends runtime.BaseAPI {
 
     const headerParameters: runtime.HTTPHeaders = {};
 
-    if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token('bearerAuth', []);
-
-      if (tokenString) {
-        headerParameters['Authorization'] = `Bearer ${tokenString}`;
-      }
-    }
     const response = await this.request(
       {
         path: `/index`,
@@ -202,14 +183,6 @@ export class IndexApi extends runtime.BaseAPI {
 
     headerParameters['Content-Type'] = 'application/json';
 
-    if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token('bearerAuth', []);
-
-      if (tokenString) {
-        headerParameters['Authorization'] = `Bearer ${tokenString}`;
-      }
-    }
     const response = await this.request(
       {
         path: `/index/localizations`,
@@ -255,14 +228,6 @@ export class IndexApi extends runtime.BaseAPI {
 
     headerParameters['Content-Type'] = 'application/json';
 
-    if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token('bearerAuth', []);
-
-      if (tokenString) {
-        headerParameters['Authorization'] = `Bearer ${tokenString}`;
-      }
-    }
     const response = await this.request(
       {
         path: `/index`,

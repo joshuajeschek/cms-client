@@ -13,12 +13,8 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ExhibitionListResponseDataItemLocalizedAttributes } from './ExhibitionListResponseDataItemLocalizedAttributes';
-import {
-  ExhibitionListResponseDataItemLocalizedAttributesFromJSON,
-  ExhibitionListResponseDataItemLocalizedAttributesFromJSONTyped,
-  ExhibitionListResponseDataItemLocalizedAttributesToJSON,
-} from './ExhibitionListResponseDataItemLocalizedAttributes';
+import type { Exhibition } from './Exhibition';
+import { ExhibitionFromJSON, ExhibitionFromJSONTyped, ExhibitionToJSON } from './Exhibition';
 
 /**
  *
@@ -34,10 +30,10 @@ export interface ExhibitionResponseDataObjectLocalized {
   id?: number;
   /**
    *
-   * @type {ExhibitionListResponseDataItemLocalizedAttributes}
+   * @type {Exhibition}
    * @memberof ExhibitionResponseDataObjectLocalized
    */
-  attributes?: ExhibitionListResponseDataItemLocalizedAttributes;
+  attributes?: Exhibition;
 }
 
 /**
@@ -64,9 +60,7 @@ export function ExhibitionResponseDataObjectLocalizedFromJSONTyped(
   }
   return {
     id: !exists(json, 'id') ? undefined : json['id'],
-    attributes: !exists(json, 'attributes')
-      ? undefined
-      : ExhibitionListResponseDataItemLocalizedAttributesFromJSON(json['attributes']),
+    attributes: !exists(json, 'attributes') ? undefined : ExhibitionFromJSON(json['attributes']),
   };
 }
 
@@ -81,6 +75,6 @@ export function ExhibitionResponseDataObjectLocalizedToJSON(
   }
   return {
     id: value.id,
-    attributes: ExhibitionListResponseDataItemLocalizedAttributesToJSON(value.attributes),
+    attributes: ExhibitionToJSON(value.attributes),
   };
 }

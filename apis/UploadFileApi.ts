@@ -13,39 +13,23 @@
  */
 
 import * as runtime from '../runtime';
-import type {
-  GetAboutPopulateParameter,
-  UploadFileListResponse,
-  UploadFileResponse,
-} from '../models';
-import {
-  GetAboutPopulateParameterFromJSON,
-  GetAboutPopulateParameterToJSON,
-  UploadFileListResponseFromJSON,
-  UploadFileListResponseToJSON,
-  UploadFileResponseFromJSON,
-  UploadFileResponseToJSON,
-} from '../models';
+import type { UploadFile } from '../models';
+import { UploadFileFromJSON, UploadFileToJSON } from '../models';
 
-export interface DeleteUploadFilesIdRequest {
-  id: number;
+export interface UploadFilesIdDeleteRequest {
+  id: string;
 }
 
-export interface GetUploadFilesRequest {
-  sort?: string;
-  paginationWithCount?: boolean;
-  paginationPage?: number;
-  paginationPageSize?: number;
-  paginationStart?: number;
-  paginationLimit?: number;
-  fields?: string;
-  populate?: GetAboutPopulateParameter;
-  filters?: object;
-  locale?: string;
+export interface UploadFilesIdGetRequest {
+  id: string;
 }
 
-export interface GetUploadFilesIdRequest {
-  id: number;
+export interface UploadPostRequest {
+  files: Array<Blob>;
+  path?: string;
+  refId?: string;
+  ref?: string;
+  field?: string;
 }
 
 /**
@@ -54,14 +38,45 @@ export interface GetUploadFilesIdRequest {
 export class UploadFileApi extends runtime.BaseAPI {
   /**
    */
-  async deleteUploadFilesIdRaw(
-    requestParameters: DeleteUploadFilesIdRequest,
+  async uploadFilesGetRaw(
     initOverrides?: RequestInit | runtime.InitOverrideFunction
-  ): Promise<runtime.ApiResponse<number>> {
+  ): Promise<runtime.ApiResponse<Array<UploadFile>>> {
+    const queryParameters: any = {};
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    const response = await this.request(
+      {
+        path: `/upload/files`,
+        method: 'GET',
+        headers: headerParameters,
+        query: queryParameters,
+      },
+      initOverrides
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(UploadFileFromJSON));
+  }
+
+  /**
+   */
+  async uploadFilesGet(
+    initOverrides?: RequestInit | runtime.InitOverrideFunction
+  ): Promise<Array<UploadFile>> {
+    const response = await this.uploadFilesGetRaw(initOverrides);
+    return await response.value();
+  }
+
+  /**
+   */
+  async uploadFilesIdDeleteRaw(
+    requestParameters: UploadFilesIdDeleteRequest,
+    initOverrides?: RequestInit | runtime.InitOverrideFunction
+  ): Promise<runtime.ApiResponse<UploadFile>> {
     if (requestParameters.id === null || requestParameters.id === undefined) {
       throw new runtime.RequiredError(
         'id',
-        'Required parameter requestParameters.id was null or undefined when calling deleteUploadFilesId.'
+        'Required parameter requestParameters.id was null or undefined when calling uploadFilesIdDelete.'
       );
     }
 
@@ -69,14 +84,6 @@ export class UploadFileApi extends runtime.BaseAPI {
 
     const headerParameters: runtime.HTTPHeaders = {};
 
-    if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token('bearerAuth', []);
-
-      if (tokenString) {
-        headerParameters['Authorization'] = `Bearer ${tokenString}`;
-      }
-    }
     const response = await this.request(
       {
         path: `/upload/files/{id}`.replace(
@@ -90,116 +97,29 @@ export class UploadFileApi extends runtime.BaseAPI {
       initOverrides
     );
 
-    if (this.isJsonMime(response.headers.get('content-type'))) {
-      return new runtime.JSONApiResponse<number>(response);
-    } else {
-      return new runtime.TextApiResponse(response) as any;
-    }
+    return new runtime.JSONApiResponse(response, (jsonValue) => UploadFileFromJSON(jsonValue));
   }
 
   /**
    */
-  async deleteUploadFilesId(
-    requestParameters: DeleteUploadFilesIdRequest,
+  async uploadFilesIdDelete(
+    requestParameters: UploadFilesIdDeleteRequest,
     initOverrides?: RequestInit | runtime.InitOverrideFunction
-  ): Promise<number> {
-    const response = await this.deleteUploadFilesIdRaw(requestParameters, initOverrides);
+  ): Promise<UploadFile> {
+    const response = await this.uploadFilesIdDeleteRaw(requestParameters, initOverrides);
     return await response.value();
   }
 
   /**
    */
-  async getUploadFilesRaw(
-    requestParameters: GetUploadFilesRequest,
+  async uploadFilesIdGetRaw(
+    requestParameters: UploadFilesIdGetRequest,
     initOverrides?: RequestInit | runtime.InitOverrideFunction
-  ): Promise<runtime.ApiResponse<UploadFileListResponse>> {
-    const queryParameters: any = {};
-
-    if (requestParameters.sort !== undefined) {
-      queryParameters['sort'] = requestParameters.sort;
-    }
-
-    if (requestParameters.paginationWithCount !== undefined) {
-      queryParameters['pagination[withCount]'] = requestParameters.paginationWithCount;
-    }
-
-    if (requestParameters.paginationPage !== undefined) {
-      queryParameters['pagination[page]'] = requestParameters.paginationPage;
-    }
-
-    if (requestParameters.paginationPageSize !== undefined) {
-      queryParameters['pagination[pageSize]'] = requestParameters.paginationPageSize;
-    }
-
-    if (requestParameters.paginationStart !== undefined) {
-      queryParameters['pagination[start]'] = requestParameters.paginationStart;
-    }
-
-    if (requestParameters.paginationLimit !== undefined) {
-      queryParameters['pagination[limit]'] = requestParameters.paginationLimit;
-    }
-
-    if (requestParameters.fields !== undefined) {
-      queryParameters['fields'] = requestParameters.fields;
-    }
-
-    if (requestParameters.populate !== undefined) {
-      queryParameters['populate'] = requestParameters.populate;
-    }
-
-    if (requestParameters.filters !== undefined) {
-      queryParameters['filters'] = requestParameters.filters;
-    }
-
-    if (requestParameters.locale !== undefined) {
-      queryParameters['locale'] = requestParameters.locale;
-    }
-
-    const headerParameters: runtime.HTTPHeaders = {};
-
-    if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token('bearerAuth', []);
-
-      if (tokenString) {
-        headerParameters['Authorization'] = `Bearer ${tokenString}`;
-      }
-    }
-    const response = await this.request(
-      {
-        path: `/upload/files`,
-        method: 'GET',
-        headers: headerParameters,
-        query: queryParameters,
-      },
-      initOverrides
-    );
-
-    return new runtime.JSONApiResponse(response, (jsonValue) =>
-      UploadFileListResponseFromJSON(jsonValue)
-    );
-  }
-
-  /**
-   */
-  async getUploadFiles(
-    requestParameters: GetUploadFilesRequest = {},
-    initOverrides?: RequestInit | runtime.InitOverrideFunction
-  ): Promise<UploadFileListResponse> {
-    const response = await this.getUploadFilesRaw(requestParameters, initOverrides);
-    return await response.value();
-  }
-
-  /**
-   */
-  async getUploadFilesIdRaw(
-    requestParameters: GetUploadFilesIdRequest,
-    initOverrides?: RequestInit | runtime.InitOverrideFunction
-  ): Promise<runtime.ApiResponse<UploadFileResponse>> {
+  ): Promise<runtime.ApiResponse<UploadFile>> {
     if (requestParameters.id === null || requestParameters.id === undefined) {
       throw new runtime.RequiredError(
         'id',
-        'Required parameter requestParameters.id was null or undefined when calling getUploadFilesId.'
+        'Required parameter requestParameters.id was null or undefined when calling uploadFilesIdGet.'
       );
     }
 
@@ -207,14 +127,6 @@ export class UploadFileApi extends runtime.BaseAPI {
 
     const headerParameters: runtime.HTTPHeaders = {};
 
-    if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token('bearerAuth', []);
-
-      if (tokenString) {
-        headerParameters['Authorization'] = `Bearer ${tokenString}`;
-      }
-    }
     const response = await this.request(
       {
         path: `/upload/files/{id}`.replace(
@@ -228,18 +140,97 @@ export class UploadFileApi extends runtime.BaseAPI {
       initOverrides
     );
 
-    return new runtime.JSONApiResponse(response, (jsonValue) =>
-      UploadFileResponseFromJSON(jsonValue)
-    );
+    return new runtime.JSONApiResponse(response, (jsonValue) => UploadFileFromJSON(jsonValue));
   }
 
   /**
    */
-  async getUploadFilesId(
-    requestParameters: GetUploadFilesIdRequest,
+  async uploadFilesIdGet(
+    requestParameters: UploadFilesIdGetRequest,
     initOverrides?: RequestInit | runtime.InitOverrideFunction
-  ): Promise<UploadFileResponse> {
-    const response = await this.getUploadFilesIdRaw(requestParameters, initOverrides);
+  ): Promise<UploadFile> {
+    const response = await this.uploadFilesIdGetRaw(requestParameters, initOverrides);
+    return await response.value();
+  }
+
+  /**
+   * Upload files
+   *
+   */
+  async uploadPostRaw(
+    requestParameters: UploadPostRequest,
+    initOverrides?: RequestInit | runtime.InitOverrideFunction
+  ): Promise<runtime.ApiResponse<Array<UploadFile>>> {
+    if (requestParameters.files === null || requestParameters.files === undefined) {
+      throw new runtime.RequiredError(
+        'files',
+        'Required parameter requestParameters.files was null or undefined when calling uploadPost.'
+      );
+    }
+
+    const queryParameters: any = {};
+
+    const headerParameters: runtime.HTTPHeaders = {};
+
+    const consumes: runtime.Consume[] = [{ contentType: 'multipart/form-data' }];
+    // @ts-ignore: canConsumeForm may be unused
+    const canConsumeForm = runtime.canConsumeForm(consumes);
+
+    let formParams: { append(param: string, value: any): any };
+    let useForm = false;
+    // use FormData to transmit files using content-type "multipart/form-data"
+    useForm = canConsumeForm;
+    if (useForm) {
+      formParams = new FormData();
+    } else {
+      formParams = new URLSearchParams();
+    }
+
+    if (requestParameters.path !== undefined) {
+      formParams.append('path', requestParameters.path as any);
+    }
+
+    if (requestParameters.refId !== undefined) {
+      formParams.append('refId', requestParameters.refId as any);
+    }
+
+    if (requestParameters.ref !== undefined) {
+      formParams.append('ref', requestParameters.ref as any);
+    }
+
+    if (requestParameters.field !== undefined) {
+      formParams.append('field', requestParameters.field as any);
+    }
+
+    if (requestParameters.files) {
+      requestParameters.files.forEach((element) => {
+        formParams.append('files', element as any);
+      });
+    }
+
+    const response = await this.request(
+      {
+        path: `/upload`,
+        method: 'POST',
+        headers: headerParameters,
+        query: queryParameters,
+        body: formParams,
+      },
+      initOverrides
+    );
+
+    return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(UploadFileFromJSON));
+  }
+
+  /**
+   * Upload files
+   *
+   */
+  async uploadPost(
+    requestParameters: UploadPostRequest,
+    initOverrides?: RequestInit | runtime.InitOverrideFunction
+  ): Promise<Array<UploadFile>> {
+    const response = await this.uploadPostRaw(requestParameters, initOverrides);
     return await response.value();
   }
 }

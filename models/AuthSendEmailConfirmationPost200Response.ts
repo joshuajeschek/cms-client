@@ -27,7 +27,7 @@ export interface AuthSendEmailConfirmationPost200Response {
   email?: string;
   /**
    *
-   * @type {boolean}
+   * @type {string}
    * @memberof AuthSendEmailConfirmationPost200Response
    */
   sent?: AuthSendEmailConfirmationPost200ResponseSentEnum;
@@ -37,7 +37,7 @@ export interface AuthSendEmailConfirmationPost200Response {
  * @export
  */
 export const AuthSendEmailConfirmationPost200ResponseSentEnum = {
-  True: true,
+  True: 'true',
 } as const;
 export type AuthSendEmailConfirmationPost200ResponseSentEnum =
   (typeof AuthSendEmailConfirmationPost200ResponseSentEnum)[keyof typeof AuthSendEmailConfirmationPost200ResponseSentEnum];

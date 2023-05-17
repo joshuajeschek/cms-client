@@ -13,36 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { AboutLocalizationResponseImage } from './AboutLocalizationResponseImage';
+import type { AboutResponseDataObjectLocalized } from './AboutResponseDataObjectLocalized';
 import {
-  AboutLocalizationResponseImageFromJSON,
-  AboutLocalizationResponseImageFromJSONTyped,
-  AboutLocalizationResponseImageToJSON,
-} from './AboutLocalizationResponseImage';
-import type { AboutLocalizationResponseImageDataAttributesFolderDataAttributesFilesDataInnerAttributesCreatedBy } from './AboutLocalizationResponseImageDataAttributesFolderDataAttributesFilesDataInnerAttributesCreatedBy';
-import {
-  AboutLocalizationResponseImageDataAttributesFolderDataAttributesFilesDataInnerAttributesCreatedByFromJSON,
-  AboutLocalizationResponseImageDataAttributesFolderDataAttributesFilesDataInnerAttributesCreatedByFromJSONTyped,
-  AboutLocalizationResponseImageDataAttributesFolderDataAttributesFilesDataInnerAttributesCreatedByToJSON,
-} from './AboutLocalizationResponseImageDataAttributesFolderDataAttributesFilesDataInnerAttributesCreatedBy';
-import type { AboutLocalizationResponseImageDataAttributesFolderDataAttributesParent } from './AboutLocalizationResponseImageDataAttributesFolderDataAttributesParent';
-import {
-  AboutLocalizationResponseImageDataAttributesFolderDataAttributesParentFromJSON,
-  AboutLocalizationResponseImageDataAttributesFolderDataAttributesParentFromJSONTyped,
-  AboutLocalizationResponseImageDataAttributesFolderDataAttributesParentToJSON,
-} from './AboutLocalizationResponseImageDataAttributesFolderDataAttributesParent';
-import type { AboutLocalizationResponseLocalizations } from './AboutLocalizationResponseLocalizations';
-import {
-  AboutLocalizationResponseLocalizationsFromJSON,
-  AboutLocalizationResponseLocalizationsFromJSONTyped,
-  AboutLocalizationResponseLocalizationsToJSON,
-} from './AboutLocalizationResponseLocalizations';
-import type { ContactLinkComponent } from './ContactLinkComponent';
-import {
-  ContactLinkComponentFromJSON,
-  ContactLinkComponentFromJSONTyped,
-  ContactLinkComponentToJSON,
-} from './ContactLinkComponent';
+  AboutResponseDataObjectLocalizedFromJSON,
+  AboutResponseDataObjectLocalizedFromJSONTyped,
+  AboutResponseDataObjectLocalizedToJSON,
+} from './AboutResponseDataObjectLocalized';
 
 /**
  *
@@ -52,70 +28,16 @@ import {
 export interface AboutLocalizationResponse {
   /**
    *
-   * @type {number}
+   * @type {AboutResponseDataObjectLocalized}
    * @memberof AboutLocalizationResponse
    */
-  id?: number;
+  data?: AboutResponseDataObjectLocalized;
   /**
    *
-   * @type {string}
+   * @type {object}
    * @memberof AboutLocalizationResponse
    */
-  title?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof AboutLocalizationResponse
-   */
-  content?: string;
-  /**
-   *
-   * @type {AboutLocalizationResponseImage}
-   * @memberof AboutLocalizationResponse
-   */
-  image?: AboutLocalizationResponseImage;
-  /**
-   *
-   * @type {Array<ContactLinkComponent>}
-   * @memberof AboutLocalizationResponse
-   */
-  links?: Array<ContactLinkComponent>;
-  /**
-   *
-   * @type {Date}
-   * @memberof AboutLocalizationResponse
-   */
-  createdAt?: Date;
-  /**
-   *
-   * @type {Date}
-   * @memberof AboutLocalizationResponse
-   */
-  updatedAt?: Date;
-  /**
-   *
-   * @type {AboutLocalizationResponseImageDataAttributesFolderDataAttributesFilesDataInnerAttributesCreatedBy}
-   * @memberof AboutLocalizationResponse
-   */
-  createdBy?: AboutLocalizationResponseImageDataAttributesFolderDataAttributesFilesDataInnerAttributesCreatedBy;
-  /**
-   *
-   * @type {AboutLocalizationResponseImageDataAttributesFolderDataAttributesParent}
-   * @memberof AboutLocalizationResponse
-   */
-  updatedBy?: AboutLocalizationResponseImageDataAttributesFolderDataAttributesParent;
-  /**
-   *
-   * @type {AboutLocalizationResponseLocalizations}
-   * @memberof AboutLocalizationResponse
-   */
-  localizations?: AboutLocalizationResponseLocalizations;
-  /**
-   *
-   * @type {string}
-   * @memberof AboutLocalizationResponse
-   */
-  locale?: string;
+  meta?: object;
 }
 
 /**
@@ -139,31 +61,10 @@ export function AboutLocalizationResponseFromJSONTyped(
     return json;
   }
   return {
-    id: !exists(json, 'id') ? undefined : json['id'],
-    title: !exists(json, 'title') ? undefined : json['title'],
-    content: !exists(json, 'content') ? undefined : json['content'],
-    image: !exists(json, 'image')
+    data: !exists(json, 'data')
       ? undefined
-      : AboutLocalizationResponseImageFromJSON(json['image']),
-    links: !exists(json, 'links')
-      ? undefined
-      : (json['links'] as Array<any>).map(ContactLinkComponentFromJSON),
-    createdAt: !exists(json, 'createdAt') ? undefined : new Date(json['createdAt']),
-    updatedAt: !exists(json, 'updatedAt') ? undefined : new Date(json['updatedAt']),
-    createdBy: !exists(json, 'createdBy')
-      ? undefined
-      : AboutLocalizationResponseImageDataAttributesFolderDataAttributesFilesDataInnerAttributesCreatedByFromJSON(
-          json['createdBy']
-        ),
-    updatedBy: !exists(json, 'updatedBy')
-      ? undefined
-      : AboutLocalizationResponseImageDataAttributesFolderDataAttributesParentFromJSON(
-          json['updatedBy']
-        ),
-    localizations: !exists(json, 'localizations')
-      ? undefined
-      : AboutLocalizationResponseLocalizationsFromJSON(json['localizations']),
-    locale: !exists(json, 'locale') ? undefined : json['locale'],
+      : AboutResponseDataObjectLocalizedFromJSON(json['data']),
+    meta: !exists(json, 'meta') ? undefined : json['meta'],
   };
 }
 
@@ -175,24 +76,7 @@ export function AboutLocalizationResponseToJSON(value?: AboutLocalizationRespons
     return null;
   }
   return {
-    id: value.id,
-    title: value.title,
-    content: value.content,
-    image: AboutLocalizationResponseImageToJSON(value.image),
-    links:
-      value.links === undefined
-        ? undefined
-        : (value.links as Array<any>).map(ContactLinkComponentToJSON),
-    createdAt: value.createdAt === undefined ? undefined : value.createdAt.toISOString(),
-    updatedAt: value.updatedAt === undefined ? undefined : value.updatedAt.toISOString(),
-    createdBy:
-      AboutLocalizationResponseImageDataAttributesFolderDataAttributesFilesDataInnerAttributesCreatedByToJSON(
-        value.createdBy
-      ),
-    updatedBy: AboutLocalizationResponseImageDataAttributesFolderDataAttributesParentToJSON(
-      value.updatedBy
-    ),
-    localizations: AboutLocalizationResponseLocalizationsToJSON(value.localizations),
-    locale: value.locale,
+    data: AboutResponseDataObjectLocalizedToJSON(value.data),
+    meta: value.meta,
   };
 }

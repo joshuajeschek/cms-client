@@ -15,17 +15,19 @@
 import * as runtime from '../runtime';
 import type {
   AuthChangePasswordPostRequest,
+  AuthForgotPasswordPost200Response,
   AuthForgotPasswordPostRequest,
   AuthLocalPostRequest,
   AuthLocalRegisterPostRequest,
   AuthResetPasswordPostRequest,
   AuthSendEmailConfirmationPost200Response,
-  UsersPermissionsRolesPost200Response,
   UsersPermissionsUserRegistration,
 } from '../models';
 import {
   AuthChangePasswordPostRequestFromJSON,
   AuthChangePasswordPostRequestToJSON,
+  AuthForgotPasswordPost200ResponseFromJSON,
+  AuthForgotPasswordPost200ResponseToJSON,
   AuthForgotPasswordPostRequestFromJSON,
   AuthForgotPasswordPostRequestToJSON,
   AuthLocalPostRequestFromJSON,
@@ -36,8 +38,6 @@ import {
   AuthResetPasswordPostRequestToJSON,
   AuthSendEmailConfirmationPost200ResponseFromJSON,
   AuthSendEmailConfirmationPost200ResponseToJSON,
-  UsersPermissionsRolesPost200ResponseFromJSON,
-  UsersPermissionsRolesPost200ResponseToJSON,
   UsersPermissionsUserRegistrationFromJSON,
   UsersPermissionsUserRegistrationToJSON,
 } from '../models';
@@ -74,6 +74,10 @@ export interface AuthSendEmailConfirmationPostRequest {
   authForgotPasswordPostRequest: AuthForgotPasswordPostRequest;
 }
 
+export interface ConnectProviderGetRequest {
+  provider: string;
+}
+
 /**
  *
  */
@@ -101,14 +105,6 @@ export class UsersPermissionsAuthApi extends runtime.BaseAPI {
 
     headerParameters['Content-Type'] = 'application/json';
 
-    if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token('bearerAuth', []);
-
-      if (tokenString) {
-        headerParameters['Authorization'] = `Bearer ${tokenString}`;
-      }
-    }
     const response = await this.request(
       {
         path: `/auth/change-password`,
@@ -151,14 +147,6 @@ export class UsersPermissionsAuthApi extends runtime.BaseAPI {
 
     const headerParameters: runtime.HTTPHeaders = {};
 
-    if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token('bearerAuth', []);
-
-      if (tokenString) {
-        headerParameters['Authorization'] = `Bearer ${tokenString}`;
-      }
-    }
     const response = await this.request(
       {
         path: `/auth/email-confirmation`,
@@ -193,7 +181,7 @@ export class UsersPermissionsAuthApi extends runtime.BaseAPI {
   async authForgotPasswordPostRaw(
     requestParameters: AuthForgotPasswordPostOperationRequest,
     initOverrides?: RequestInit | runtime.InitOverrideFunction
-  ): Promise<runtime.ApiResponse<UsersPermissionsRolesPost200Response>> {
+  ): Promise<runtime.ApiResponse<AuthForgotPasswordPost200Response>> {
     if (
       requestParameters.authForgotPasswordPostRequest === null ||
       requestParameters.authForgotPasswordPostRequest === undefined
@@ -210,14 +198,6 @@ export class UsersPermissionsAuthApi extends runtime.BaseAPI {
 
     headerParameters['Content-Type'] = 'application/json';
 
-    if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token('bearerAuth', []);
-
-      if (tokenString) {
-        headerParameters['Authorization'] = `Bearer ${tokenString}`;
-      }
-    }
     const response = await this.request(
       {
         path: `/auth/forgot-password`,
@@ -230,7 +210,7 @@ export class UsersPermissionsAuthApi extends runtime.BaseAPI {
     );
 
     return new runtime.JSONApiResponse(response, (jsonValue) =>
-      UsersPermissionsRolesPost200ResponseFromJSON(jsonValue)
+      AuthForgotPasswordPost200ResponseFromJSON(jsonValue)
     );
   }
 
@@ -240,7 +220,7 @@ export class UsersPermissionsAuthApi extends runtime.BaseAPI {
   async authForgotPasswordPost(
     requestParameters: AuthForgotPasswordPostOperationRequest,
     initOverrides?: RequestInit | runtime.InitOverrideFunction
-  ): Promise<UsersPermissionsRolesPost200Response> {
+  ): Promise<AuthForgotPasswordPost200Response> {
     const response = await this.authForgotPasswordPostRaw(requestParameters, initOverrides);
     return await response.value();
   }
@@ -269,14 +249,6 @@ export class UsersPermissionsAuthApi extends runtime.BaseAPI {
 
     headerParameters['Content-Type'] = 'application/json';
 
-    if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token('bearerAuth', []);
-
-      if (tokenString) {
-        headerParameters['Authorization'] = `Bearer ${tokenString}`;
-      }
-    }
     const response = await this.request(
       {
         path: `/auth/local`,
@@ -329,14 +301,6 @@ export class UsersPermissionsAuthApi extends runtime.BaseAPI {
 
     headerParameters['Content-Type'] = 'application/json';
 
-    if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token('bearerAuth', []);
-
-      if (tokenString) {
-        headerParameters['Authorization'] = `Bearer ${tokenString}`;
-      }
-    }
     const response = await this.request(
       {
         path: `/auth/local/register`,
@@ -383,14 +347,6 @@ export class UsersPermissionsAuthApi extends runtime.BaseAPI {
 
     const headerParameters: runtime.HTTPHeaders = {};
 
-    if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token('bearerAuth', []);
-
-      if (tokenString) {
-        headerParameters['Authorization'] = `Bearer ${tokenString}`;
-      }
-    }
     const response = await this.request(
       {
         path: `/auth/{provider}/callback`.replace(
@@ -443,14 +399,6 @@ export class UsersPermissionsAuthApi extends runtime.BaseAPI {
 
     headerParameters['Content-Type'] = 'application/json';
 
-    if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token('bearerAuth', []);
-
-      if (tokenString) {
-        headerParameters['Authorization'] = `Bearer ${tokenString}`;
-      }
-    }
     const response = await this.request(
       {
         path: `/auth/reset-password`,
@@ -501,14 +449,6 @@ export class UsersPermissionsAuthApi extends runtime.BaseAPI {
 
     headerParameters['Content-Type'] = 'application/json';
 
-    if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token('bearerAuth', []);
-
-      if (tokenString) {
-        headerParameters['Authorization'] = `Bearer ${tokenString}`;
-      }
-    }
     const response = await this.request(
       {
         path: `/auth/send-email-confirmation`,
@@ -540,24 +480,27 @@ export class UsersPermissionsAuthApi extends runtime.BaseAPI {
    * Redirects to provider login before being redirect to /auth/{provider}/callback
    * Login with a provider
    */
-  async connectGetRaw(
+  async connectProviderGetRaw(
+    requestParameters: ConnectProviderGetRequest,
     initOverrides?: RequestInit | runtime.InitOverrideFunction
   ): Promise<runtime.ApiResponse<Error>> {
+    if (requestParameters.provider === null || requestParameters.provider === undefined) {
+      throw new runtime.RequiredError(
+        'provider',
+        'Required parameter requestParameters.provider was null or undefined when calling connectProviderGet.'
+      );
+    }
+
     const queryParameters: any = {};
 
     const headerParameters: runtime.HTTPHeaders = {};
 
-    if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token('bearerAuth', []);
-
-      if (tokenString) {
-        headerParameters['Authorization'] = `Bearer ${tokenString}`;
-      }
-    }
     const response = await this.request(
       {
-        path: `/connect/(.*)`,
+        path: `/connect/{provider}`.replace(
+          `{${'provider'}}`,
+          encodeURIComponent(String(requestParameters.provider))
+        ),
         method: 'GET',
         headers: headerParameters,
         query: queryParameters,
@@ -576,8 +519,11 @@ export class UsersPermissionsAuthApi extends runtime.BaseAPI {
    * Redirects to provider login before being redirect to /auth/{provider}/callback
    * Login with a provider
    */
-  async connectGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Error> {
-    const response = await this.connectGetRaw(initOverrides);
+  async connectProviderGet(
+    requestParameters: ConnectProviderGetRequest,
+    initOverrides?: RequestInit | runtime.InitOverrideFunction
+  ): Promise<Error> {
+    const response = await this.connectProviderGetRaw(requestParameters, initOverrides);
     return await response.value();
   }
 }

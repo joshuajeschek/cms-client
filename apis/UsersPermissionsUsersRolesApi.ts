@@ -14,17 +14,19 @@
 
 import * as runtime from '../runtime';
 import type {
+  AuthForgotPasswordPost200Response,
   UsersIdDelete200Response,
   UsersPermissionsPermissionsGet200Response,
   UsersPermissionsRolesGet200Response,
   UsersPermissionsRolesIdGet200Response,
-  UsersPermissionsRolesPost200Response,
   UsersPermissionsRolesPostRequest,
   UsersPermissionsUser,
   UsersPost201Response,
   UsersPostRequest,
 } from '../models';
 import {
+  AuthForgotPasswordPost200ResponseFromJSON,
+  AuthForgotPasswordPost200ResponseToJSON,
   UsersIdDelete200ResponseFromJSON,
   UsersIdDelete200ResponseToJSON,
   UsersPermissionsPermissionsGet200ResponseFromJSON,
@@ -33,8 +35,6 @@ import {
   UsersPermissionsRolesGet200ResponseToJSON,
   UsersPermissionsRolesIdGet200ResponseFromJSON,
   UsersPermissionsRolesIdGet200ResponseToJSON,
-  UsersPermissionsRolesPost200ResponseFromJSON,
-  UsersPermissionsRolesPost200ResponseToJSON,
   UsersPermissionsRolesPostRequestFromJSON,
   UsersPermissionsRolesPostRequestToJSON,
   UsersPermissionsUserFromJSON,
@@ -93,14 +93,6 @@ export class UsersPermissionsUsersRolesApi extends runtime.BaseAPI {
 
     const headerParameters: runtime.HTTPHeaders = {};
 
-    if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token('bearerAuth', []);
-
-      if (tokenString) {
-        headerParameters['Authorization'] = `Bearer ${tokenString}`;
-      }
-    }
     const response = await this.request(
       {
         path: `/users/count`,
@@ -136,14 +128,6 @@ export class UsersPermissionsUsersRolesApi extends runtime.BaseAPI {
 
     const headerParameters: runtime.HTTPHeaders = {};
 
-    if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token('bearerAuth', []);
-
-      if (tokenString) {
-        headerParameters['Authorization'] = `Bearer ${tokenString}`;
-      }
-    }
     const response = await this.request(
       {
         path: `/users`,
@@ -187,14 +171,6 @@ export class UsersPermissionsUsersRolesApi extends runtime.BaseAPI {
 
     const headerParameters: runtime.HTTPHeaders = {};
 
-    if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token('bearerAuth', []);
-
-      if (tokenString) {
-        headerParameters['Authorization'] = `Bearer ${tokenString}`;
-      }
-    }
     const response = await this.request(
       {
         path: `/users/{id}`.replace(`{${'id'}}`, encodeURIComponent(String(requestParameters.id))),
@@ -239,14 +215,6 @@ export class UsersPermissionsUsersRolesApi extends runtime.BaseAPI {
 
     const headerParameters: runtime.HTTPHeaders = {};
 
-    if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token('bearerAuth', []);
-
-      if (tokenString) {
-        headerParameters['Authorization'] = `Bearer ${tokenString}`;
-      }
-    }
     const response = await this.request(
       {
         path: `/users/{id}`.replace(`{${'id'}}`, encodeURIComponent(String(requestParameters.id))),
@@ -303,14 +271,6 @@ export class UsersPermissionsUsersRolesApi extends runtime.BaseAPI {
 
     headerParameters['Content-Type'] = 'application/json';
 
-    if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token('bearerAuth', []);
-
-      if (tokenString) {
-        headerParameters['Authorization'] = `Bearer ${tokenString}`;
-      }
-    }
     const response = await this.request(
       {
         path: `/users/{id}`.replace(`{${'id'}}`, encodeURIComponent(String(requestParameters.id))),
@@ -348,14 +308,6 @@ export class UsersPermissionsUsersRolesApi extends runtime.BaseAPI {
 
     const headerParameters: runtime.HTTPHeaders = {};
 
-    if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token('bearerAuth', []);
-
-      if (tokenString) {
-        headerParameters['Authorization'] = `Bearer ${tokenString}`;
-      }
-    }
     const response = await this.request(
       {
         path: `/users/me`,
@@ -391,14 +343,6 @@ export class UsersPermissionsUsersRolesApi extends runtime.BaseAPI {
 
     const headerParameters: runtime.HTTPHeaders = {};
 
-    if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token('bearerAuth', []);
-
-      if (tokenString) {
-        headerParameters['Authorization'] = `Bearer ${tokenString}`;
-      }
-    }
     const response = await this.request(
       {
         path: `/users-permissions/permissions`,
@@ -434,14 +378,6 @@ export class UsersPermissionsUsersRolesApi extends runtime.BaseAPI {
 
     const headerParameters: runtime.HTTPHeaders = {};
 
-    if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token('bearerAuth', []);
-
-      if (tokenString) {
-        headerParameters['Authorization'] = `Bearer ${tokenString}`;
-      }
-    }
     const response = await this.request(
       {
         path: `/users-permissions/roles`,
@@ -485,14 +421,6 @@ export class UsersPermissionsUsersRolesApi extends runtime.BaseAPI {
 
     const headerParameters: runtime.HTTPHeaders = {};
 
-    if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token('bearerAuth', []);
-
-      if (tokenString) {
-        headerParameters['Authorization'] = `Bearer ${tokenString}`;
-      }
-    }
     const response = await this.request(
       {
         path: `/users-permissions/roles/{id}`.replace(
@@ -528,7 +456,7 @@ export class UsersPermissionsUsersRolesApi extends runtime.BaseAPI {
   async usersPermissionsRolesPostRaw(
     requestParameters: UsersPermissionsRolesPostOperationRequest,
     initOverrides?: RequestInit | runtime.InitOverrideFunction
-  ): Promise<runtime.ApiResponse<UsersPermissionsRolesPost200Response>> {
+  ): Promise<runtime.ApiResponse<AuthForgotPasswordPost200Response>> {
     if (
       requestParameters.usersPermissionsRolesPostRequest === null ||
       requestParameters.usersPermissionsRolesPostRequest === undefined
@@ -545,14 +473,6 @@ export class UsersPermissionsUsersRolesApi extends runtime.BaseAPI {
 
     headerParameters['Content-Type'] = 'application/json';
 
-    if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token('bearerAuth', []);
-
-      if (tokenString) {
-        headerParameters['Authorization'] = `Bearer ${tokenString}`;
-      }
-    }
     const response = await this.request(
       {
         path: `/users-permissions/roles`,
@@ -567,7 +487,7 @@ export class UsersPermissionsUsersRolesApi extends runtime.BaseAPI {
     );
 
     return new runtime.JSONApiResponse(response, (jsonValue) =>
-      UsersPermissionsRolesPost200ResponseFromJSON(jsonValue)
+      AuthForgotPasswordPost200ResponseFromJSON(jsonValue)
     );
   }
 
@@ -577,7 +497,7 @@ export class UsersPermissionsUsersRolesApi extends runtime.BaseAPI {
   async usersPermissionsRolesPost(
     requestParameters: UsersPermissionsRolesPostOperationRequest,
     initOverrides?: RequestInit | runtime.InitOverrideFunction
-  ): Promise<UsersPermissionsRolesPost200Response> {
+  ): Promise<AuthForgotPasswordPost200Response> {
     const response = await this.usersPermissionsRolesPostRaw(requestParameters, initOverrides);
     return await response.value();
   }
@@ -588,7 +508,7 @@ export class UsersPermissionsUsersRolesApi extends runtime.BaseAPI {
   async usersPermissionsRolesRoleDeleteRaw(
     requestParameters: UsersPermissionsRolesRoleDeleteRequest,
     initOverrides?: RequestInit | runtime.InitOverrideFunction
-  ): Promise<runtime.ApiResponse<UsersPermissionsRolesPost200Response>> {
+  ): Promise<runtime.ApiResponse<AuthForgotPasswordPost200Response>> {
     if (requestParameters.role === null || requestParameters.role === undefined) {
       throw new runtime.RequiredError(
         'role',
@@ -600,14 +520,6 @@ export class UsersPermissionsUsersRolesApi extends runtime.BaseAPI {
 
     const headerParameters: runtime.HTTPHeaders = {};
 
-    if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token('bearerAuth', []);
-
-      if (tokenString) {
-        headerParameters['Authorization'] = `Bearer ${tokenString}`;
-      }
-    }
     const response = await this.request(
       {
         path: `/users-permissions/roles/{role}`.replace(
@@ -622,7 +534,7 @@ export class UsersPermissionsUsersRolesApi extends runtime.BaseAPI {
     );
 
     return new runtime.JSONApiResponse(response, (jsonValue) =>
-      UsersPermissionsRolesPost200ResponseFromJSON(jsonValue)
+      AuthForgotPasswordPost200ResponseFromJSON(jsonValue)
     );
   }
 
@@ -632,7 +544,7 @@ export class UsersPermissionsUsersRolesApi extends runtime.BaseAPI {
   async usersPermissionsRolesRoleDelete(
     requestParameters: UsersPermissionsRolesRoleDeleteRequest,
     initOverrides?: RequestInit | runtime.InitOverrideFunction
-  ): Promise<UsersPermissionsRolesPost200Response> {
+  ): Promise<AuthForgotPasswordPost200Response> {
     const response = await this.usersPermissionsRolesRoleDeleteRaw(
       requestParameters,
       initOverrides
@@ -646,7 +558,7 @@ export class UsersPermissionsUsersRolesApi extends runtime.BaseAPI {
   async usersPermissionsRolesRolePutRaw(
     requestParameters: UsersPermissionsRolesRolePutRequest,
     initOverrides?: RequestInit | runtime.InitOverrideFunction
-  ): Promise<runtime.ApiResponse<UsersPermissionsRolesPost200Response>> {
+  ): Promise<runtime.ApiResponse<AuthForgotPasswordPost200Response>> {
     if (requestParameters.role === null || requestParameters.role === undefined) {
       throw new runtime.RequiredError(
         'role',
@@ -670,14 +582,6 @@ export class UsersPermissionsUsersRolesApi extends runtime.BaseAPI {
 
     headerParameters['Content-Type'] = 'application/json';
 
-    if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token('bearerAuth', []);
-
-      if (tokenString) {
-        headerParameters['Authorization'] = `Bearer ${tokenString}`;
-      }
-    }
     const response = await this.request(
       {
         path: `/users-permissions/roles/{role}`.replace(
@@ -695,7 +599,7 @@ export class UsersPermissionsUsersRolesApi extends runtime.BaseAPI {
     );
 
     return new runtime.JSONApiResponse(response, (jsonValue) =>
-      UsersPermissionsRolesPost200ResponseFromJSON(jsonValue)
+      AuthForgotPasswordPost200ResponseFromJSON(jsonValue)
     );
   }
 
@@ -705,7 +609,7 @@ export class UsersPermissionsUsersRolesApi extends runtime.BaseAPI {
   async usersPermissionsRolesRolePut(
     requestParameters: UsersPermissionsRolesRolePutRequest,
     initOverrides?: RequestInit | runtime.InitOverrideFunction
-  ): Promise<UsersPermissionsRolesPost200Response> {
+  ): Promise<AuthForgotPasswordPost200Response> {
     const response = await this.usersPermissionsRolesRolePutRaw(requestParameters, initOverrides);
     return await response.value();
   }
@@ -733,14 +637,6 @@ export class UsersPermissionsUsersRolesApi extends runtime.BaseAPI {
 
     headerParameters['Content-Type'] = 'application/json';
 
-    if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token('bearerAuth', []);
-
-      if (tokenString) {
-        headerParameters['Authorization'] = `Bearer ${tokenString}`;
-      }
-    }
     const response = await this.request(
       {
         path: `/users`,

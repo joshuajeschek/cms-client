@@ -17,7 +17,7 @@
  *
  * @export
  */
-export type ErrorData = Array<any> | object;
+export type ErrorData = Array<object> | object;
 
 export function ErrorDataFromJSON(json: any): ErrorData {
   return ErrorDataFromJSONTyped(json, false);
@@ -27,7 +27,7 @@ export function ErrorDataFromJSONTyped(json: any, ignoreDiscriminator: boolean):
   if (json === undefined || json === null) {
     return json;
   }
-  return { ...(Array < any > FromJSONTyped(json, true)), ...objectFromJSONTyped(json, true) };
+  return { ...(Array < object > FromJSONTyped(json, true)), ...objectFromJSONTyped(json, true) };
 }
 
 export function ErrorDataToJSON(value?: ErrorData | null): any {
@@ -38,8 +38,8 @@ export function ErrorDataToJSON(value?: ErrorData | null): any {
     return null;
   }
 
-  if (instanceOfArray<any>(value)) {
-    return Array < any > ToJSON(value as Array<any>);
+  if (instanceOfArray<object>(value)) {
+    return Array < object > ToJSON(value as Array<object>);
   }
   if (instanceOfobject(value)) {
     return objectToJSON(value as object);

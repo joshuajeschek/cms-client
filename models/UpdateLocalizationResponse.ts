@@ -13,24 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { AboutLocalizationResponseImageDataAttributesFolderDataAttributesFilesDataInnerAttributesCreatedBy } from './AboutLocalizationResponseImageDataAttributesFolderDataAttributesFilesDataInnerAttributesCreatedBy';
+import type { UpdateResponseDataObjectLocalized } from './UpdateResponseDataObjectLocalized';
 import {
-  AboutLocalizationResponseImageDataAttributesFolderDataAttributesFilesDataInnerAttributesCreatedByFromJSON,
-  AboutLocalizationResponseImageDataAttributesFolderDataAttributesFilesDataInnerAttributesCreatedByFromJSONTyped,
-  AboutLocalizationResponseImageDataAttributesFolderDataAttributesFilesDataInnerAttributesCreatedByToJSON,
-} from './AboutLocalizationResponseImageDataAttributesFolderDataAttributesFilesDataInnerAttributesCreatedBy';
-import type { AboutLocalizationResponseImageDataAttributesFolderDataAttributesParent } from './AboutLocalizationResponseImageDataAttributesFolderDataAttributesParent';
-import {
-  AboutLocalizationResponseImageDataAttributesFolderDataAttributesParentFromJSON,
-  AboutLocalizationResponseImageDataAttributesFolderDataAttributesParentFromJSONTyped,
-  AboutLocalizationResponseImageDataAttributesFolderDataAttributesParentToJSON,
-} from './AboutLocalizationResponseImageDataAttributesFolderDataAttributesParent';
-import type { AboutLocalizationResponseLocalizations } from './AboutLocalizationResponseLocalizations';
-import {
-  AboutLocalizationResponseLocalizationsFromJSON,
-  AboutLocalizationResponseLocalizationsFromJSONTyped,
-  AboutLocalizationResponseLocalizationsToJSON,
-} from './AboutLocalizationResponseLocalizations';
+  UpdateResponseDataObjectLocalizedFromJSON,
+  UpdateResponseDataObjectLocalizedFromJSONTyped,
+  UpdateResponseDataObjectLocalizedToJSON,
+} from './UpdateResponseDataObjectLocalized';
 
 /**
  *
@@ -40,70 +28,16 @@ import {
 export interface UpdateLocalizationResponse {
   /**
    *
-   * @type {number}
+   * @type {UpdateResponseDataObjectLocalized}
    * @memberof UpdateLocalizationResponse
    */
-  id?: number;
+  data?: UpdateResponseDataObjectLocalized;
   /**
    *
-   * @type {string}
+   * @type {object}
    * @memberof UpdateLocalizationResponse
    */
-  title?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof UpdateLocalizationResponse
-   */
-  content?: string;
-  /**
-   *
-   * @type {Date}
-   * @memberof UpdateLocalizationResponse
-   */
-  datetime?: Date;
-  /**
-   *
-   * @type {Date}
-   * @memberof UpdateLocalizationResponse
-   */
-  createdAt?: Date;
-  /**
-   *
-   * @type {Date}
-   * @memberof UpdateLocalizationResponse
-   */
-  updatedAt?: Date;
-  /**
-   *
-   * @type {Date}
-   * @memberof UpdateLocalizationResponse
-   */
-  publishedAt?: Date;
-  /**
-   *
-   * @type {AboutLocalizationResponseImageDataAttributesFolderDataAttributesFilesDataInnerAttributesCreatedBy}
-   * @memberof UpdateLocalizationResponse
-   */
-  createdBy?: AboutLocalizationResponseImageDataAttributesFolderDataAttributesFilesDataInnerAttributesCreatedBy;
-  /**
-   *
-   * @type {AboutLocalizationResponseImageDataAttributesFolderDataAttributesParent}
-   * @memberof UpdateLocalizationResponse
-   */
-  updatedBy?: AboutLocalizationResponseImageDataAttributesFolderDataAttributesParent;
-  /**
-   *
-   * @type {AboutLocalizationResponseLocalizations}
-   * @memberof UpdateLocalizationResponse
-   */
-  localizations?: AboutLocalizationResponseLocalizations;
-  /**
-   *
-   * @type {string}
-   * @memberof UpdateLocalizationResponse
-   */
-  locale?: string;
+  meta?: object;
 }
 
 /**
@@ -127,27 +61,10 @@ export function UpdateLocalizationResponseFromJSONTyped(
     return json;
   }
   return {
-    id: !exists(json, 'id') ? undefined : json['id'],
-    title: !exists(json, 'title') ? undefined : json['title'],
-    content: !exists(json, 'content') ? undefined : json['content'],
-    datetime: !exists(json, 'datetime') ? undefined : new Date(json['datetime']),
-    createdAt: !exists(json, 'createdAt') ? undefined : new Date(json['createdAt']),
-    updatedAt: !exists(json, 'updatedAt') ? undefined : new Date(json['updatedAt']),
-    publishedAt: !exists(json, 'publishedAt') ? undefined : new Date(json['publishedAt']),
-    createdBy: !exists(json, 'createdBy')
+    data: !exists(json, 'data')
       ? undefined
-      : AboutLocalizationResponseImageDataAttributesFolderDataAttributesFilesDataInnerAttributesCreatedByFromJSON(
-          json['createdBy']
-        ),
-    updatedBy: !exists(json, 'updatedBy')
-      ? undefined
-      : AboutLocalizationResponseImageDataAttributesFolderDataAttributesParentFromJSON(
-          json['updatedBy']
-        ),
-    localizations: !exists(json, 'localizations')
-      ? undefined
-      : AboutLocalizationResponseLocalizationsFromJSON(json['localizations']),
-    locale: !exists(json, 'locale') ? undefined : json['locale'],
+      : UpdateResponseDataObjectLocalizedFromJSON(json['data']),
+    meta: !exists(json, 'meta') ? undefined : json['meta'],
   };
 }
 
@@ -159,21 +76,7 @@ export function UpdateLocalizationResponseToJSON(value?: UpdateLocalizationRespo
     return null;
   }
   return {
-    id: value.id,
-    title: value.title,
-    content: value.content,
-    datetime: value.datetime === undefined ? undefined : value.datetime.toISOString(),
-    createdAt: value.createdAt === undefined ? undefined : value.createdAt.toISOString(),
-    updatedAt: value.updatedAt === undefined ? undefined : value.updatedAt.toISOString(),
-    publishedAt: value.publishedAt === undefined ? undefined : value.publishedAt.toISOString(),
-    createdBy:
-      AboutLocalizationResponseImageDataAttributesFolderDataAttributesFilesDataInnerAttributesCreatedByToJSON(
-        value.createdBy
-      ),
-    updatedBy: AboutLocalizationResponseImageDataAttributesFolderDataAttributesParentToJSON(
-      value.updatedBy
-    ),
-    localizations: AboutLocalizationResponseLocalizationsToJSON(value.localizations),
-    locale: value.locale,
+    data: UpdateResponseDataObjectLocalizedToJSON(value.data),
+    meta: value.meta,
   };
 }

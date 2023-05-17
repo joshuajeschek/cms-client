@@ -19,7 +19,6 @@ import type {
   ArtistLocalizationResponse,
   ArtistRequest,
   ArtistResponse,
-  GetAboutPopulateParameter,
 } from '../models';
 import {
   ArtistListResponseFromJSON,
@@ -32,8 +31,6 @@ import {
   ArtistRequestToJSON,
   ArtistResponseFromJSON,
   ArtistResponseToJSON,
-  GetAboutPopulateParameterFromJSON,
-  GetAboutPopulateParameterToJSON,
 } from '../models';
 
 export interface DeleteArtistsIdRequest {
@@ -48,7 +45,7 @@ export interface GetArtistsRequest {
   paginationStart?: number;
   paginationLimit?: number;
   fields?: string;
-  populate?: GetAboutPopulateParameter;
+  populate?: string;
   filters?: object;
   locale?: string;
 }
@@ -92,14 +89,6 @@ export class ArtistApi extends runtime.BaseAPI {
 
     const headerParameters: runtime.HTTPHeaders = {};
 
-    if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token('bearerAuth', []);
-
-      if (tokenString) {
-        headerParameters['Authorization'] = `Bearer ${tokenString}`;
-      }
-    }
     const response = await this.request(
       {
         path: `/artists/{id}`.replace(
@@ -180,14 +169,6 @@ export class ArtistApi extends runtime.BaseAPI {
 
     const headerParameters: runtime.HTTPHeaders = {};
 
-    if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token('bearerAuth', []);
-
-      if (tokenString) {
-        headerParameters['Authorization'] = `Bearer ${tokenString}`;
-      }
-    }
     const response = await this.request(
       {
         path: `/artists`,
@@ -230,14 +211,6 @@ export class ArtistApi extends runtime.BaseAPI {
 
     const headerParameters: runtime.HTTPHeaders = {};
 
-    if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token('bearerAuth', []);
-
-      if (tokenString) {
-        headerParameters['Authorization'] = `Bearer ${tokenString}`;
-      }
-    }
     const response = await this.request(
       {
         path: `/artists/{id}`.replace(
@@ -283,14 +256,6 @@ export class ArtistApi extends runtime.BaseAPI {
 
     headerParameters['Content-Type'] = 'application/json';
 
-    if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token('bearerAuth', []);
-
-      if (tokenString) {
-        headerParameters['Authorization'] = `Bearer ${tokenString}`;
-      }
-    }
     const response = await this.request(
       {
         path: `/artists`,
@@ -344,14 +309,6 @@ export class ArtistApi extends runtime.BaseAPI {
 
     headerParameters['Content-Type'] = 'application/json';
 
-    if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token('bearerAuth', []);
-
-      if (tokenString) {
-        headerParameters['Authorization'] = `Bearer ${tokenString}`;
-      }
-    }
     const response = await this.request(
       {
         path: `/artists/{id}/localizations`.replace(
@@ -407,14 +364,6 @@ export class ArtistApi extends runtime.BaseAPI {
 
     headerParameters['Content-Type'] = 'application/json';
 
-    if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token('bearerAuth', []);
-
-      if (tokenString) {
-        headerParameters['Authorization'] = `Bearer ${tokenString}`;
-      }
-    }
     const response = await this.request(
       {
         path: `/artists/{id}`.replace(

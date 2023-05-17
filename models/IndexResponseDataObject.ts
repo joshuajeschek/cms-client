@@ -13,12 +13,8 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { IndexResponseDataObjectAttributes } from './IndexResponseDataObjectAttributes';
-import {
-  IndexResponseDataObjectAttributesFromJSON,
-  IndexResponseDataObjectAttributesFromJSONTyped,
-  IndexResponseDataObjectAttributesToJSON,
-} from './IndexResponseDataObjectAttributes';
+import type { ModelIndex } from './ModelIndex';
+import { ModelIndexFromJSON, ModelIndexFromJSONTyped, ModelIndexToJSON } from './ModelIndex';
 
 /**
  *
@@ -34,10 +30,10 @@ export interface IndexResponseDataObject {
   id?: number;
   /**
    *
-   * @type {IndexResponseDataObjectAttributes}
+   * @type {ModelIndex}
    * @memberof IndexResponseDataObject
    */
-  attributes?: IndexResponseDataObjectAttributes;
+  attributes?: ModelIndex;
 }
 
 /**
@@ -62,9 +58,7 @@ export function IndexResponseDataObjectFromJSONTyped(
   }
   return {
     id: !exists(json, 'id') ? undefined : json['id'],
-    attributes: !exists(json, 'attributes')
-      ? undefined
-      : IndexResponseDataObjectAttributesFromJSON(json['attributes']),
+    attributes: !exists(json, 'attributes') ? undefined : ModelIndexFromJSON(json['attributes']),
   };
 }
 
@@ -77,6 +71,6 @@ export function IndexResponseDataObjectToJSON(value?: IndexResponseDataObject | 
   }
   return {
     id: value.id,
-    attributes: IndexResponseDataObjectAttributesToJSON(value.attributes),
+    attributes: ModelIndexToJSON(value.attributes),
   };
 }

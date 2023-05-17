@@ -13,36 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { AboutLocalizationResponseImage } from './AboutLocalizationResponseImage';
+import type { ArtistResponseDataObjectLocalized } from './ArtistResponseDataObjectLocalized';
 import {
-  AboutLocalizationResponseImageFromJSON,
-  AboutLocalizationResponseImageFromJSONTyped,
-  AboutLocalizationResponseImageToJSON,
-} from './AboutLocalizationResponseImage';
-import type { AboutLocalizationResponseImageDataAttributesFolderDataAttributesParent } from './AboutLocalizationResponseImageDataAttributesFolderDataAttributesParent';
-import {
-  AboutLocalizationResponseImageDataAttributesFolderDataAttributesParentFromJSON,
-  AboutLocalizationResponseImageDataAttributesFolderDataAttributesParentFromJSONTyped,
-  AboutLocalizationResponseImageDataAttributesFolderDataAttributesParentToJSON,
-} from './AboutLocalizationResponseImageDataAttributesFolderDataAttributesParent';
-import type { AboutLocalizationResponseLocalizations } from './AboutLocalizationResponseLocalizations';
-import {
-  AboutLocalizationResponseLocalizationsFromJSON,
-  AboutLocalizationResponseLocalizationsFromJSONTyped,
-  AboutLocalizationResponseLocalizationsToJSON,
-} from './AboutLocalizationResponseLocalizations';
-import type { ArtistLocalizationResponseArtworks } from './ArtistLocalizationResponseArtworks';
-import {
-  ArtistLocalizationResponseArtworksFromJSON,
-  ArtistLocalizationResponseArtworksFromJSONTyped,
-  ArtistLocalizationResponseArtworksToJSON,
-} from './ArtistLocalizationResponseArtworks';
-import type { ContactLinkComponent } from './ContactLinkComponent';
-import {
-  ContactLinkComponentFromJSON,
-  ContactLinkComponentFromJSONTyped,
-  ContactLinkComponentToJSON,
-} from './ContactLinkComponent';
+  ArtistResponseDataObjectLocalizedFromJSON,
+  ArtistResponseDataObjectLocalizedFromJSONTyped,
+  ArtistResponseDataObjectLocalizedToJSON,
+} from './ArtistResponseDataObjectLocalized';
 
 /**
  *
@@ -52,94 +28,16 @@ import {
 export interface ArtistLocalizationResponse {
   /**
    *
-   * @type {number}
+   * @type {ArtistResponseDataObjectLocalized}
    * @memberof ArtistLocalizationResponse
    */
-  id?: number;
+  data?: ArtistResponseDataObjectLocalized;
   /**
    *
-   * @type {string}
+   * @type {object}
    * @memberof ArtistLocalizationResponse
    */
-  name?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof ArtistLocalizationResponse
-   */
-  bio?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof ArtistLocalizationResponse
-   */
-  handle?: string;
-  /**
-   *
-   * @type {ArtistLocalizationResponseArtworks}
-   * @memberof ArtistLocalizationResponse
-   */
-  artworks?: ArtistLocalizationResponseArtworks;
-  /**
-   *
-   * @type {AboutLocalizationResponseImage}
-   * @memberof ArtistLocalizationResponse
-   */
-  picture?: AboutLocalizationResponseImage;
-  /**
-   *
-   * @type {Date}
-   * @memberof ArtistLocalizationResponse
-   */
-  birthday?: Date;
-  /**
-   *
-   * @type {Array<ContactLinkComponent>}
-   * @memberof ArtistLocalizationResponse
-   */
-  contact?: Array<ContactLinkComponent>;
-  /**
-   *
-   * @type {Date}
-   * @memberof ArtistLocalizationResponse
-   */
-  createdAt?: Date;
-  /**
-   *
-   * @type {Date}
-   * @memberof ArtistLocalizationResponse
-   */
-  updatedAt?: Date;
-  /**
-   *
-   * @type {Date}
-   * @memberof ArtistLocalizationResponse
-   */
-  publishedAt?: Date;
-  /**
-   *
-   * @type {AboutLocalizationResponseImageDataAttributesFolderDataAttributesParent}
-   * @memberof ArtistLocalizationResponse
-   */
-  createdBy?: AboutLocalizationResponseImageDataAttributesFolderDataAttributesParent;
-  /**
-   *
-   * @type {AboutLocalizationResponseImageDataAttributesFolderDataAttributesParent}
-   * @memberof ArtistLocalizationResponse
-   */
-  updatedBy?: AboutLocalizationResponseImageDataAttributesFolderDataAttributesParent;
-  /**
-   *
-   * @type {AboutLocalizationResponseLocalizations}
-   * @memberof ArtistLocalizationResponse
-   */
-  localizations?: AboutLocalizationResponseLocalizations;
-  /**
-   *
-   * @type {string}
-   * @memberof ArtistLocalizationResponse
-   */
-  locale?: string;
+  meta?: object;
 }
 
 /**
@@ -163,37 +61,10 @@ export function ArtistLocalizationResponseFromJSONTyped(
     return json;
   }
   return {
-    id: !exists(json, 'id') ? undefined : json['id'],
-    name: !exists(json, 'name') ? undefined : json['name'],
-    bio: !exists(json, 'bio') ? undefined : json['bio'],
-    handle: !exists(json, 'handle') ? undefined : json['handle'],
-    artworks: !exists(json, 'artworks')
+    data: !exists(json, 'data')
       ? undefined
-      : ArtistLocalizationResponseArtworksFromJSON(json['artworks']),
-    picture: !exists(json, 'picture')
-      ? undefined
-      : AboutLocalizationResponseImageFromJSON(json['picture']),
-    birthday: !exists(json, 'birthday') ? undefined : new Date(json['birthday']),
-    contact: !exists(json, 'contact')
-      ? undefined
-      : (json['contact'] as Array<any>).map(ContactLinkComponentFromJSON),
-    createdAt: !exists(json, 'createdAt') ? undefined : new Date(json['createdAt']),
-    updatedAt: !exists(json, 'updatedAt') ? undefined : new Date(json['updatedAt']),
-    publishedAt: !exists(json, 'publishedAt') ? undefined : new Date(json['publishedAt']),
-    createdBy: !exists(json, 'createdBy')
-      ? undefined
-      : AboutLocalizationResponseImageDataAttributesFolderDataAttributesParentFromJSON(
-          json['createdBy']
-        ),
-    updatedBy: !exists(json, 'updatedBy')
-      ? undefined
-      : AboutLocalizationResponseImageDataAttributesFolderDataAttributesParentFromJSON(
-          json['updatedBy']
-        ),
-    localizations: !exists(json, 'localizations')
-      ? undefined
-      : AboutLocalizationResponseLocalizationsFromJSON(json['localizations']),
-    locale: !exists(json, 'locale') ? undefined : json['locale'],
+      : ArtistResponseDataObjectLocalizedFromJSON(json['data']),
+    meta: !exists(json, 'meta') ? undefined : json['meta'],
   };
 }
 
@@ -205,27 +76,7 @@ export function ArtistLocalizationResponseToJSON(value?: ArtistLocalizationRespo
     return null;
   }
   return {
-    id: value.id,
-    name: value.name,
-    bio: value.bio,
-    handle: value.handle,
-    artworks: ArtistLocalizationResponseArtworksToJSON(value.artworks),
-    picture: AboutLocalizationResponseImageToJSON(value.picture),
-    birthday: value.birthday === undefined ? undefined : value.birthday.toISOString().substr(0, 10),
-    contact:
-      value.contact === undefined
-        ? undefined
-        : (value.contact as Array<any>).map(ContactLinkComponentToJSON),
-    createdAt: value.createdAt === undefined ? undefined : value.createdAt.toISOString(),
-    updatedAt: value.updatedAt === undefined ? undefined : value.updatedAt.toISOString(),
-    publishedAt: value.publishedAt === undefined ? undefined : value.publishedAt.toISOString(),
-    createdBy: AboutLocalizationResponseImageDataAttributesFolderDataAttributesParentToJSON(
-      value.createdBy
-    ),
-    updatedBy: AboutLocalizationResponseImageDataAttributesFolderDataAttributesParentToJSON(
-      value.updatedBy
-    ),
-    localizations: AboutLocalizationResponseLocalizationsToJSON(value.localizations),
-    locale: value.locale,
+    data: ArtistResponseDataObjectLocalizedToJSON(value.data),
+    meta: value.meta,
   };
 }

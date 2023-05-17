@@ -13,12 +13,8 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ArtworkResponseDataObjectAttributes } from './ArtworkResponseDataObjectAttributes';
-import {
-  ArtworkResponseDataObjectAttributesFromJSON,
-  ArtworkResponseDataObjectAttributesFromJSONTyped,
-  ArtworkResponseDataObjectAttributesToJSON,
-} from './ArtworkResponseDataObjectAttributes';
+import type { Artwork } from './Artwork';
+import { ArtworkFromJSON, ArtworkFromJSONTyped, ArtworkToJSON } from './Artwork';
 
 /**
  *
@@ -34,10 +30,10 @@ export interface ArtworkResponseDataObject {
   id?: number;
   /**
    *
-   * @type {ArtworkResponseDataObjectAttributes}
+   * @type {Artwork}
    * @memberof ArtworkResponseDataObject
    */
-  attributes?: ArtworkResponseDataObjectAttributes;
+  attributes?: Artwork;
 }
 
 /**
@@ -62,9 +58,7 @@ export function ArtworkResponseDataObjectFromJSONTyped(
   }
   return {
     id: !exists(json, 'id') ? undefined : json['id'],
-    attributes: !exists(json, 'attributes')
-      ? undefined
-      : ArtworkResponseDataObjectAttributesFromJSON(json['attributes']),
+    attributes: !exists(json, 'attributes') ? undefined : ArtworkFromJSON(json['attributes']),
   };
 }
 
@@ -77,6 +71,6 @@ export function ArtworkResponseDataObjectToJSON(value?: ArtworkResponseDataObjec
   }
   return {
     id: value.id,
-    attributes: ArtworkResponseDataObjectAttributesToJSON(value.attributes),
+    attributes: ArtworkToJSON(value.attributes),
   };
 }

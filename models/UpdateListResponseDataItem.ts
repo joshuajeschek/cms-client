@@ -13,12 +13,8 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { UpdateListResponseDataItemAttributes } from './UpdateListResponseDataItemAttributes';
-import {
-  UpdateListResponseDataItemAttributesFromJSON,
-  UpdateListResponseDataItemAttributesFromJSONTyped,
-  UpdateListResponseDataItemAttributesToJSON,
-} from './UpdateListResponseDataItemAttributes';
+import type { Update } from './Update';
+import { UpdateFromJSON, UpdateFromJSONTyped, UpdateToJSON } from './Update';
 
 /**
  *
@@ -34,10 +30,10 @@ export interface UpdateListResponseDataItem {
   id?: number;
   /**
    *
-   * @type {UpdateListResponseDataItemAttributes}
+   * @type {Update}
    * @memberof UpdateListResponseDataItem
    */
-  attributes?: UpdateListResponseDataItemAttributes;
+  attributes?: Update;
 }
 
 /**
@@ -62,9 +58,7 @@ export function UpdateListResponseDataItemFromJSONTyped(
   }
   return {
     id: !exists(json, 'id') ? undefined : json['id'],
-    attributes: !exists(json, 'attributes')
-      ? undefined
-      : UpdateListResponseDataItemAttributesFromJSON(json['attributes']),
+    attributes: !exists(json, 'attributes') ? undefined : UpdateFromJSON(json['attributes']),
   };
 }
 
@@ -77,6 +71,6 @@ export function UpdateListResponseDataItemToJSON(value?: UpdateListResponseDataI
   }
   return {
     id: value.id,
-    attributes: UpdateListResponseDataItemAttributesToJSON(value.attributes),
+    attributes: UpdateToJSON(value.attributes),
   };
 }

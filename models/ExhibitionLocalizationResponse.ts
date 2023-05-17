@@ -13,30 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { AboutLocalizationResponseImage } from './AboutLocalizationResponseImage';
+import type { ExhibitionResponseDataObjectLocalized } from './ExhibitionResponseDataObjectLocalized';
 import {
-  AboutLocalizationResponseImageFromJSON,
-  AboutLocalizationResponseImageFromJSONTyped,
-  AboutLocalizationResponseImageToJSON,
-} from './AboutLocalizationResponseImage';
-import type { AboutLocalizationResponseImageDataAttributesFolderDataAttributesParent } from './AboutLocalizationResponseImageDataAttributesFolderDataAttributesParent';
-import {
-  AboutLocalizationResponseImageDataAttributesFolderDataAttributesParentFromJSON,
-  AboutLocalizationResponseImageDataAttributesFolderDataAttributesParentFromJSONTyped,
-  AboutLocalizationResponseImageDataAttributesFolderDataAttributesParentToJSON,
-} from './AboutLocalizationResponseImageDataAttributesFolderDataAttributesParent';
-import type { AboutLocalizationResponseLocalizations } from './AboutLocalizationResponseLocalizations';
-import {
-  AboutLocalizationResponseLocalizationsFromJSON,
-  AboutLocalizationResponseLocalizationsFromJSONTyped,
-  AboutLocalizationResponseLocalizationsToJSON,
-} from './AboutLocalizationResponseLocalizations';
-import type { ArtistLocalizationResponseArtworks } from './ArtistLocalizationResponseArtworks';
-import {
-  ArtistLocalizationResponseArtworksFromJSON,
-  ArtistLocalizationResponseArtworksFromJSONTyped,
-  ArtistLocalizationResponseArtworksToJSON,
-} from './ArtistLocalizationResponseArtworks';
+  ExhibitionResponseDataObjectLocalizedFromJSON,
+  ExhibitionResponseDataObjectLocalizedFromJSONTyped,
+  ExhibitionResponseDataObjectLocalizedToJSON,
+} from './ExhibitionResponseDataObjectLocalized';
 
 /**
  *
@@ -46,88 +28,16 @@ import {
 export interface ExhibitionLocalizationResponse {
   /**
    *
-   * @type {number}
+   * @type {ExhibitionResponseDataObjectLocalized}
    * @memberof ExhibitionLocalizationResponse
    */
-  id?: number;
+  data?: ExhibitionResponseDataObjectLocalized;
   /**
    *
-   * @type {string}
+   * @type {object}
    * @memberof ExhibitionLocalizationResponse
    */
-  title?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof ExhibitionLocalizationResponse
-   */
-  description?: string;
-  /**
-   *
-   * @type {string}
-   * @memberof ExhibitionLocalizationResponse
-   */
-  handle?: string;
-  /**
-   *
-   * @type {ArtistLocalizationResponseArtworks}
-   * @memberof ExhibitionLocalizationResponse
-   */
-  artworks?: ArtistLocalizationResponseArtworks;
-  /**
-   *
-   * @type {AboutLocalizationResponseImage}
-   * @memberof ExhibitionLocalizationResponse
-   */
-  cover?: AboutLocalizationResponseImage;
-  /**
-   *
-   * @type {Date}
-   * @memberof ExhibitionLocalizationResponse
-   */
-  launch?: Date;
-  /**
-   *
-   * @type {Date}
-   * @memberof ExhibitionLocalizationResponse
-   */
-  createdAt?: Date;
-  /**
-   *
-   * @type {Date}
-   * @memberof ExhibitionLocalizationResponse
-   */
-  updatedAt?: Date;
-  /**
-   *
-   * @type {Date}
-   * @memberof ExhibitionLocalizationResponse
-   */
-  publishedAt?: Date;
-  /**
-   *
-   * @type {AboutLocalizationResponseImageDataAttributesFolderDataAttributesParent}
-   * @memberof ExhibitionLocalizationResponse
-   */
-  createdBy?: AboutLocalizationResponseImageDataAttributesFolderDataAttributesParent;
-  /**
-   *
-   * @type {AboutLocalizationResponseImageDataAttributesFolderDataAttributesParent}
-   * @memberof ExhibitionLocalizationResponse
-   */
-  updatedBy?: AboutLocalizationResponseImageDataAttributesFolderDataAttributesParent;
-  /**
-   *
-   * @type {AboutLocalizationResponseLocalizations}
-   * @memberof ExhibitionLocalizationResponse
-   */
-  localizations?: AboutLocalizationResponseLocalizations;
-  /**
-   *
-   * @type {string}
-   * @memberof ExhibitionLocalizationResponse
-   */
-  locale?: string;
+  meta?: object;
 }
 
 /**
@@ -151,34 +61,10 @@ export function ExhibitionLocalizationResponseFromJSONTyped(
     return json;
   }
   return {
-    id: !exists(json, 'id') ? undefined : json['id'],
-    title: !exists(json, 'title') ? undefined : json['title'],
-    description: !exists(json, 'description') ? undefined : json['description'],
-    handle: !exists(json, 'handle') ? undefined : json['handle'],
-    artworks: !exists(json, 'artworks')
+    data: !exists(json, 'data')
       ? undefined
-      : ArtistLocalizationResponseArtworksFromJSON(json['artworks']),
-    cover: !exists(json, 'cover')
-      ? undefined
-      : AboutLocalizationResponseImageFromJSON(json['cover']),
-    launch: !exists(json, 'launch') ? undefined : new Date(json['launch']),
-    createdAt: !exists(json, 'createdAt') ? undefined : new Date(json['createdAt']),
-    updatedAt: !exists(json, 'updatedAt') ? undefined : new Date(json['updatedAt']),
-    publishedAt: !exists(json, 'publishedAt') ? undefined : new Date(json['publishedAt']),
-    createdBy: !exists(json, 'createdBy')
-      ? undefined
-      : AboutLocalizationResponseImageDataAttributesFolderDataAttributesParentFromJSON(
-          json['createdBy']
-        ),
-    updatedBy: !exists(json, 'updatedBy')
-      ? undefined
-      : AboutLocalizationResponseImageDataAttributesFolderDataAttributesParentFromJSON(
-          json['updatedBy']
-        ),
-    localizations: !exists(json, 'localizations')
-      ? undefined
-      : AboutLocalizationResponseLocalizationsFromJSON(json['localizations']),
-    locale: !exists(json, 'locale') ? undefined : json['locale'],
+      : ExhibitionResponseDataObjectLocalizedFromJSON(json['data']),
+    meta: !exists(json, 'meta') ? undefined : json['meta'],
   };
 }
 
@@ -192,23 +78,7 @@ export function ExhibitionLocalizationResponseToJSON(
     return null;
   }
   return {
-    id: value.id,
-    title: value.title,
-    description: value.description,
-    handle: value.handle,
-    artworks: ArtistLocalizationResponseArtworksToJSON(value.artworks),
-    cover: AboutLocalizationResponseImageToJSON(value.cover),
-    launch: value.launch === undefined ? undefined : value.launch.toISOString().substr(0, 10),
-    createdAt: value.createdAt === undefined ? undefined : value.createdAt.toISOString(),
-    updatedAt: value.updatedAt === undefined ? undefined : value.updatedAt.toISOString(),
-    publishedAt: value.publishedAt === undefined ? undefined : value.publishedAt.toISOString(),
-    createdBy: AboutLocalizationResponseImageDataAttributesFolderDataAttributesParentToJSON(
-      value.createdBy
-    ),
-    updatedBy: AboutLocalizationResponseImageDataAttributesFolderDataAttributesParentToJSON(
-      value.updatedBy
-    ),
-    localizations: AboutLocalizationResponseLocalizationsToJSON(value.localizations),
-    locale: value.locale,
+    data: ExhibitionResponseDataObjectLocalizedToJSON(value.data),
+    meta: value.meta,
   };
 }

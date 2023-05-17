@@ -13,12 +13,8 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { AboutResponseDataObjectAttributes } from './AboutResponseDataObjectAttributes';
-import {
-  AboutResponseDataObjectAttributesFromJSON,
-  AboutResponseDataObjectAttributesFromJSONTyped,
-  AboutResponseDataObjectAttributesToJSON,
-} from './AboutResponseDataObjectAttributes';
+import type { About } from './About';
+import { AboutFromJSON, AboutFromJSONTyped, AboutToJSON } from './About';
 
 /**
  *
@@ -34,10 +30,10 @@ export interface AboutResponseDataObject {
   id?: number;
   /**
    *
-   * @type {AboutResponseDataObjectAttributes}
+   * @type {About}
    * @memberof AboutResponseDataObject
    */
-  attributes?: AboutResponseDataObjectAttributes;
+  attributes?: About;
 }
 
 /**
@@ -62,9 +58,7 @@ export function AboutResponseDataObjectFromJSONTyped(
   }
   return {
     id: !exists(json, 'id') ? undefined : json['id'],
-    attributes: !exists(json, 'attributes')
-      ? undefined
-      : AboutResponseDataObjectAttributesFromJSON(json['attributes']),
+    attributes: !exists(json, 'attributes') ? undefined : AboutFromJSON(json['attributes']),
   };
 }
 
@@ -77,6 +71,6 @@ export function AboutResponseDataObjectToJSON(value?: AboutResponseDataObject | 
   }
   return {
     id: value.id,
-    attributes: AboutResponseDataObjectAttributesToJSON(value.attributes),
+    attributes: AboutToJSON(value.attributes),
   };
 }

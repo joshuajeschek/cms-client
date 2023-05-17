@@ -19,7 +19,6 @@ import type {
   ExhibitionLocalizationResponse,
   ExhibitionRequest,
   ExhibitionResponse,
-  GetAboutPopulateParameter,
 } from '../models';
 import {
   ExhibitionListResponseFromJSON,
@@ -32,8 +31,6 @@ import {
   ExhibitionRequestToJSON,
   ExhibitionResponseFromJSON,
   ExhibitionResponseToJSON,
-  GetAboutPopulateParameterFromJSON,
-  GetAboutPopulateParameterToJSON,
 } from '../models';
 
 export interface DeleteExhibitionsIdRequest {
@@ -48,7 +45,7 @@ export interface GetExhibitionsRequest {
   paginationStart?: number;
   paginationLimit?: number;
   fields?: string;
-  populate?: GetAboutPopulateParameter;
+  populate?: string;
   filters?: object;
   locale?: string;
 }
@@ -92,14 +89,6 @@ export class ExhibitionApi extends runtime.BaseAPI {
 
     const headerParameters: runtime.HTTPHeaders = {};
 
-    if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token('bearerAuth', []);
-
-      if (tokenString) {
-        headerParameters['Authorization'] = `Bearer ${tokenString}`;
-      }
-    }
     const response = await this.request(
       {
         path: `/exhibitions/{id}`.replace(
@@ -180,14 +169,6 @@ export class ExhibitionApi extends runtime.BaseAPI {
 
     const headerParameters: runtime.HTTPHeaders = {};
 
-    if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token('bearerAuth', []);
-
-      if (tokenString) {
-        headerParameters['Authorization'] = `Bearer ${tokenString}`;
-      }
-    }
     const response = await this.request(
       {
         path: `/exhibitions`,
@@ -230,14 +211,6 @@ export class ExhibitionApi extends runtime.BaseAPI {
 
     const headerParameters: runtime.HTTPHeaders = {};
 
-    if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token('bearerAuth', []);
-
-      if (tokenString) {
-        headerParameters['Authorization'] = `Bearer ${tokenString}`;
-      }
-    }
     const response = await this.request(
       {
         path: `/exhibitions/{id}`.replace(
@@ -288,14 +261,6 @@ export class ExhibitionApi extends runtime.BaseAPI {
 
     headerParameters['Content-Type'] = 'application/json';
 
-    if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token('bearerAuth', []);
-
-      if (tokenString) {
-        headerParameters['Authorization'] = `Bearer ${tokenString}`;
-      }
-    }
     const response = await this.request(
       {
         path: `/exhibitions`,
@@ -351,14 +316,6 @@ export class ExhibitionApi extends runtime.BaseAPI {
 
     headerParameters['Content-Type'] = 'application/json';
 
-    if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token('bearerAuth', []);
-
-      if (tokenString) {
-        headerParameters['Authorization'] = `Bearer ${tokenString}`;
-      }
-    }
     const response = await this.request(
       {
         path: `/exhibitions/{id}/localizations`.replace(
@@ -417,14 +374,6 @@ export class ExhibitionApi extends runtime.BaseAPI {
 
     headerParameters['Content-Type'] = 'application/json';
 
-    if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token('bearerAuth', []);
-
-      if (tokenString) {
-        headerParameters['Authorization'] = `Bearer ${tokenString}`;
-      }
-    }
     const response = await this.request(
       {
         path: `/exhibitions/{id}`.replace(

@@ -13,30 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { AboutLocalizationResponseImageDataAttributesFolderDataAttributesParent } from './AboutLocalizationResponseImageDataAttributesFolderDataAttributesParent';
+import type { IndexResponseDataObjectLocalized } from './IndexResponseDataObjectLocalized';
 import {
-  AboutLocalizationResponseImageDataAttributesFolderDataAttributesParentFromJSON,
-  AboutLocalizationResponseImageDataAttributesFolderDataAttributesParentFromJSONTyped,
-  AboutLocalizationResponseImageDataAttributesFolderDataAttributesParentToJSON,
-} from './AboutLocalizationResponseImageDataAttributesFolderDataAttributesParent';
-import type { AboutLocalizationResponseLocalizations } from './AboutLocalizationResponseLocalizations';
-import {
-  AboutLocalizationResponseLocalizationsFromJSON,
-  AboutLocalizationResponseLocalizationsFromJSONTyped,
-  AboutLocalizationResponseLocalizationsToJSON,
-} from './AboutLocalizationResponseLocalizations';
-import type { IndexLocalizationResponseExhibitions } from './IndexLocalizationResponseExhibitions';
-import {
-  IndexLocalizationResponseExhibitionsFromJSON,
-  IndexLocalizationResponseExhibitionsFromJSONTyped,
-  IndexLocalizationResponseExhibitionsToJSON,
-} from './IndexLocalizationResponseExhibitions';
-import type { IndexLocalizationResponseUpdate } from './IndexLocalizationResponseUpdate';
-import {
-  IndexLocalizationResponseUpdateFromJSON,
-  IndexLocalizationResponseUpdateFromJSONTyped,
-  IndexLocalizationResponseUpdateToJSON,
-} from './IndexLocalizationResponseUpdate';
+  IndexResponseDataObjectLocalizedFromJSON,
+  IndexResponseDataObjectLocalizedFromJSONTyped,
+  IndexResponseDataObjectLocalizedToJSON,
+} from './IndexResponseDataObjectLocalized';
 
 /**
  *
@@ -46,58 +28,16 @@ import {
 export interface IndexLocalizationResponse {
   /**
    *
-   * @type {number}
+   * @type {IndexResponseDataObjectLocalized}
    * @memberof IndexLocalizationResponse
    */
-  id?: number;
+  data?: IndexResponseDataObjectLocalized;
   /**
    *
-   * @type {IndexLocalizationResponseExhibitions}
+   * @type {object}
    * @memberof IndexLocalizationResponse
    */
-  exhibitions?: IndexLocalizationResponseExhibitions;
-  /**
-   *
-   * @type {IndexLocalizationResponseUpdate}
-   * @memberof IndexLocalizationResponse
-   */
-  update?: IndexLocalizationResponseUpdate;
-  /**
-   *
-   * @type {Date}
-   * @memberof IndexLocalizationResponse
-   */
-  createdAt?: Date;
-  /**
-   *
-   * @type {Date}
-   * @memberof IndexLocalizationResponse
-   */
-  updatedAt?: Date;
-  /**
-   *
-   * @type {AboutLocalizationResponseImageDataAttributesFolderDataAttributesParent}
-   * @memberof IndexLocalizationResponse
-   */
-  createdBy?: AboutLocalizationResponseImageDataAttributesFolderDataAttributesParent;
-  /**
-   *
-   * @type {AboutLocalizationResponseImageDataAttributesFolderDataAttributesParent}
-   * @memberof IndexLocalizationResponse
-   */
-  updatedBy?: AboutLocalizationResponseImageDataAttributesFolderDataAttributesParent;
-  /**
-   *
-   * @type {AboutLocalizationResponseLocalizations}
-   * @memberof IndexLocalizationResponse
-   */
-  localizations?: AboutLocalizationResponseLocalizations;
-  /**
-   *
-   * @type {string}
-   * @memberof IndexLocalizationResponse
-   */
-  locale?: string;
+  meta?: object;
 }
 
 /**
@@ -121,29 +61,10 @@ export function IndexLocalizationResponseFromJSONTyped(
     return json;
   }
   return {
-    id: !exists(json, 'id') ? undefined : json['id'],
-    exhibitions: !exists(json, 'exhibitions')
+    data: !exists(json, 'data')
       ? undefined
-      : IndexLocalizationResponseExhibitionsFromJSON(json['exhibitions']),
-    update: !exists(json, 'update')
-      ? undefined
-      : IndexLocalizationResponseUpdateFromJSON(json['update']),
-    createdAt: !exists(json, 'createdAt') ? undefined : new Date(json['createdAt']),
-    updatedAt: !exists(json, 'updatedAt') ? undefined : new Date(json['updatedAt']),
-    createdBy: !exists(json, 'createdBy')
-      ? undefined
-      : AboutLocalizationResponseImageDataAttributesFolderDataAttributesParentFromJSON(
-          json['createdBy']
-        ),
-    updatedBy: !exists(json, 'updatedBy')
-      ? undefined
-      : AboutLocalizationResponseImageDataAttributesFolderDataAttributesParentFromJSON(
-          json['updatedBy']
-        ),
-    localizations: !exists(json, 'localizations')
-      ? undefined
-      : AboutLocalizationResponseLocalizationsFromJSON(json['localizations']),
-    locale: !exists(json, 'locale') ? undefined : json['locale'],
+      : IndexResponseDataObjectLocalizedFromJSON(json['data']),
+    meta: !exists(json, 'meta') ? undefined : json['meta'],
   };
 }
 
@@ -155,18 +76,7 @@ export function IndexLocalizationResponseToJSON(value?: IndexLocalizationRespons
     return null;
   }
   return {
-    id: value.id,
-    exhibitions: IndexLocalizationResponseExhibitionsToJSON(value.exhibitions),
-    update: IndexLocalizationResponseUpdateToJSON(value.update),
-    createdAt: value.createdAt === undefined ? undefined : value.createdAt.toISOString(),
-    updatedAt: value.updatedAt === undefined ? undefined : value.updatedAt.toISOString(),
-    createdBy: AboutLocalizationResponseImageDataAttributesFolderDataAttributesParentToJSON(
-      value.createdBy
-    ),
-    updatedBy: AboutLocalizationResponseImageDataAttributesFolderDataAttributesParentToJSON(
-      value.updatedBy
-    ),
-    localizations: AboutLocalizationResponseLocalizationsToJSON(value.localizations),
-    locale: value.locale,
+    data: IndexResponseDataObjectLocalizedToJSON(value.data),
+    meta: value.meta,
   };
 }

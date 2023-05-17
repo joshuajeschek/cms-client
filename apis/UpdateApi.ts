@@ -14,7 +14,6 @@
 
 import * as runtime from '../runtime';
 import type {
-  GetAboutPopulateParameter,
   UpdateListResponse,
   UpdateLocalizationRequest,
   UpdateLocalizationResponse,
@@ -22,8 +21,6 @@ import type {
   UpdateResponse,
 } from '../models';
 import {
-  GetAboutPopulateParameterFromJSON,
-  GetAboutPopulateParameterToJSON,
   UpdateListResponseFromJSON,
   UpdateListResponseToJSON,
   UpdateLocalizationRequestFromJSON,
@@ -48,7 +45,7 @@ export interface GetUpdatesRequest {
   paginationStart?: number;
   paginationLimit?: number;
   fields?: string;
-  populate?: GetAboutPopulateParameter;
+  populate?: string;
   filters?: object;
   locale?: string;
 }
@@ -92,14 +89,6 @@ export class UpdateApi extends runtime.BaseAPI {
 
     const headerParameters: runtime.HTTPHeaders = {};
 
-    if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token('bearerAuth', []);
-
-      if (tokenString) {
-        headerParameters['Authorization'] = `Bearer ${tokenString}`;
-      }
-    }
     const response = await this.request(
       {
         path: `/updates/{id}`.replace(
@@ -180,14 +169,6 @@ export class UpdateApi extends runtime.BaseAPI {
 
     const headerParameters: runtime.HTTPHeaders = {};
 
-    if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token('bearerAuth', []);
-
-      if (tokenString) {
-        headerParameters['Authorization'] = `Bearer ${tokenString}`;
-      }
-    }
     const response = await this.request(
       {
         path: `/updates`,
@@ -230,14 +211,6 @@ export class UpdateApi extends runtime.BaseAPI {
 
     const headerParameters: runtime.HTTPHeaders = {};
 
-    if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token('bearerAuth', []);
-
-      if (tokenString) {
-        headerParameters['Authorization'] = `Bearer ${tokenString}`;
-      }
-    }
     const response = await this.request(
       {
         path: `/updates/{id}`.replace(
@@ -283,14 +256,6 @@ export class UpdateApi extends runtime.BaseAPI {
 
     headerParameters['Content-Type'] = 'application/json';
 
-    if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token('bearerAuth', []);
-
-      if (tokenString) {
-        headerParameters['Authorization'] = `Bearer ${tokenString}`;
-      }
-    }
     const response = await this.request(
       {
         path: `/updates`,
@@ -344,14 +309,6 @@ export class UpdateApi extends runtime.BaseAPI {
 
     headerParameters['Content-Type'] = 'application/json';
 
-    if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token('bearerAuth', []);
-
-      if (tokenString) {
-        headerParameters['Authorization'] = `Bearer ${tokenString}`;
-      }
-    }
     const response = await this.request(
       {
         path: `/updates/{id}/localizations`.replace(
@@ -407,14 +364,6 @@ export class UpdateApi extends runtime.BaseAPI {
 
     headerParameters['Content-Type'] = 'application/json';
 
-    if (this.configuration && this.configuration.accessToken) {
-      const token = this.configuration.accessToken;
-      const tokenString = await token('bearerAuth', []);
-
-      if (tokenString) {
-        headerParameters['Authorization'] = `Bearer ${tokenString}`;
-      }
-    }
     const response = await this.request(
       {
         path: `/updates/{id}`.replace(
