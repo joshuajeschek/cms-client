@@ -47,99 +47,94 @@ import {
 /**
  *
  * @export
- * @interface AboutLocalizationResponse
+ * @interface AboutResponseDataObjectLocalizedAttributes
  */
-export interface AboutLocalizationResponse {
-  /**
-   *
-   * @type {number}
-   * @memberof AboutLocalizationResponse
-   */
-  id?: number;
+export interface AboutResponseDataObjectLocalizedAttributes {
   /**
    *
    * @type {string}
-   * @memberof AboutLocalizationResponse
+   * @memberof AboutResponseDataObjectLocalizedAttributes
    */
   title?: string;
   /**
    *
    * @type {string}
-   * @memberof AboutLocalizationResponse
+   * @memberof AboutResponseDataObjectLocalizedAttributes
    */
   content?: string;
   /**
    *
    * @type {AboutLocalizationResponseImage}
-   * @memberof AboutLocalizationResponse
+   * @memberof AboutResponseDataObjectLocalizedAttributes
    */
   image?: AboutLocalizationResponseImage;
   /**
    *
    * @type {Array<ContactLinkComponent>}
-   * @memberof AboutLocalizationResponse
+   * @memberof AboutResponseDataObjectLocalizedAttributes
    */
   links?: Array<ContactLinkComponent>;
   /**
    *
    * @type {Date}
-   * @memberof AboutLocalizationResponse
+   * @memberof AboutResponseDataObjectLocalizedAttributes
    */
   createdAt?: Date;
   /**
    *
    * @type {Date}
-   * @memberof AboutLocalizationResponse
+   * @memberof AboutResponseDataObjectLocalizedAttributes
    */
   updatedAt?: Date;
   /**
    *
    * @type {AboutLocalizationResponseImageDataAttributesFolderDataAttributesFilesDataInnerAttributesCreatedBy}
-   * @memberof AboutLocalizationResponse
+   * @memberof AboutResponseDataObjectLocalizedAttributes
    */
   createdBy?: AboutLocalizationResponseImageDataAttributesFolderDataAttributesFilesDataInnerAttributesCreatedBy;
   /**
    *
    * @type {AboutLocalizationResponseImageDataAttributesFolderDataAttributesParent}
-   * @memberof AboutLocalizationResponse
+   * @memberof AboutResponseDataObjectLocalizedAttributes
    */
   updatedBy?: AboutLocalizationResponseImageDataAttributesFolderDataAttributesParent;
   /**
    *
    * @type {AboutLocalizationResponseLocalizations}
-   * @memberof AboutLocalizationResponse
+   * @memberof AboutResponseDataObjectLocalizedAttributes
    */
   localizations?: AboutLocalizationResponseLocalizations;
   /**
    *
    * @type {string}
-   * @memberof AboutLocalizationResponse
+   * @memberof AboutResponseDataObjectLocalizedAttributes
    */
   locale?: string;
 }
 
 /**
- * Check if a given object implements the AboutLocalizationResponse interface.
+ * Check if a given object implements the AboutResponseDataObjectLocalizedAttributes interface.
  */
-export function instanceOfAboutLocalizationResponse(value: object): boolean {
+export function instanceOfAboutResponseDataObjectLocalizedAttributes(value: object): boolean {
   let isInstance = true;
 
   return isInstance;
 }
 
-export function AboutLocalizationResponseFromJSON(json: any): AboutLocalizationResponse {
-  return AboutLocalizationResponseFromJSONTyped(json, false);
+export function AboutResponseDataObjectLocalizedAttributesFromJSON(
+  json: any
+): AboutResponseDataObjectLocalizedAttributes {
+  return AboutResponseDataObjectLocalizedAttributesFromJSONTyped(json, false);
 }
 
-export function AboutLocalizationResponseFromJSONTyped(
+export function AboutResponseDataObjectLocalizedAttributesFromJSONTyped(
   json: any,
   ignoreDiscriminator: boolean
-): AboutLocalizationResponse {
+): AboutResponseDataObjectLocalizedAttributes {
   if (json === undefined || json === null) {
     return json;
   }
   return {
-    id: !exists(json, 'id') ? undefined : json['id'],
     title: !exists(json, 'title') ? undefined : json['title'],
     content: !exists(json, 'content') ? undefined : json['content'],
     image: !exists(json, 'image')
@@ -167,7 +162,9 @@ export function AboutLocalizationResponseFromJSONTyped(
   };
 }
 
-export function AboutLocalizationResponseToJSON(value?: AboutLocalizationResponse | null): any {
+export function AboutResponseDataObjectLocalizedAttributesToJSON(
+  value?: AboutResponseDataObjectLocalizedAttributes | null
+): any {
   if (value === undefined) {
     return undefined;
   }
@@ -175,7 +172,6 @@ export function AboutLocalizationResponseToJSON(value?: AboutLocalizationRespons
     return null;
   }
   return {
-    id: value.id,
     title: value.title,
     content: value.content,
     image: AboutLocalizationResponseImageToJSON(value.image),

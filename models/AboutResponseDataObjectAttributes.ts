@@ -88,12 +88,6 @@ export interface AboutResponseDataObjectAttributes {
   updatedAt?: Date;
   /**
    *
-   * @type {Date}
-   * @memberof AboutResponseDataObjectAttributes
-   */
-  publishedAt?: Date;
-  /**
-   *
    * @type {AboutLocalizationResponseImageDataAttributesFolderDataAttributesFilesDataInnerAttributesCreatedBy}
    * @memberof AboutResponseDataObjectAttributes
    */
@@ -151,7 +145,6 @@ export function AboutResponseDataObjectAttributesFromJSONTyped(
       : (json['links'] as Array<any>).map(ContactLinkComponentFromJSON),
     createdAt: !exists(json, 'createdAt') ? undefined : new Date(json['createdAt']),
     updatedAt: !exists(json, 'updatedAt') ? undefined : new Date(json['updatedAt']),
-    publishedAt: !exists(json, 'publishedAt') ? undefined : new Date(json['publishedAt']),
     createdBy: !exists(json, 'createdBy')
       ? undefined
       : AboutLocalizationResponseImageDataAttributesFolderDataAttributesFilesDataInnerAttributesCreatedByFromJSON(
@@ -188,7 +181,6 @@ export function AboutResponseDataObjectAttributesToJSON(
         : (value.links as Array<any>).map(ContactLinkComponentToJSON),
     createdAt: value.createdAt === undefined ? undefined : value.createdAt.toISOString(),
     updatedAt: value.updatedAt === undefined ? undefined : value.updatedAt.toISOString(),
-    publishedAt: value.publishedAt === undefined ? undefined : value.publishedAt.toISOString(),
     createdBy:
       AboutLocalizationResponseImageDataAttributesFolderDataAttributesFilesDataInnerAttributesCreatedByToJSON(
         value.createdBy

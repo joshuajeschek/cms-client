@@ -14,7 +14,6 @@
 
 import * as runtime from '../runtime';
 import type {
-  AboutListResponse,
   AboutLocalizationRequest,
   AboutLocalizationResponse,
   AboutRequest,
@@ -22,8 +21,6 @@ import type {
   GetAboutPopulateParameter,
 } from '../models';
 import {
-  AboutListResponseFromJSON,
-  AboutListResponseToJSON,
   AboutLocalizationRequestFromJSON,
   AboutLocalizationRequestToJSON,
   AboutLocalizationResponseFromJSON,
@@ -107,7 +104,7 @@ export class AboutApi extends runtime.BaseAPI {
   async getAboutRaw(
     requestParameters: GetAboutRequest,
     initOverrides?: RequestInit | runtime.InitOverrideFunction
-  ): Promise<runtime.ApiResponse<AboutListResponse>> {
+  ): Promise<runtime.ApiResponse<AboutResponse>> {
     const queryParameters: any = {};
 
     if (requestParameters.sort !== undefined) {
@@ -170,9 +167,7 @@ export class AboutApi extends runtime.BaseAPI {
       initOverrides
     );
 
-    return new runtime.JSONApiResponse(response, (jsonValue) =>
-      AboutListResponseFromJSON(jsonValue)
-    );
+    return new runtime.JSONApiResponse(response, (jsonValue) => AboutResponseFromJSON(jsonValue));
   }
 
   /**
@@ -180,7 +175,7 @@ export class AboutApi extends runtime.BaseAPI {
   async getAbout(
     requestParameters: GetAboutRequest = {},
     initOverrides?: RequestInit | runtime.InitOverrideFunction
-  ): Promise<AboutListResponse> {
+  ): Promise<AboutResponse> {
     const response = await this.getAboutRaw(requestParameters, initOverrides);
     return await response.value();
   }

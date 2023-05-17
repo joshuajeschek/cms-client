@@ -1,13 +1,5 @@
 /* tslint:disable */
 /* eslint-disable */
-export * from './AboutListResponse';
-export * from './AboutListResponseDataItem';
-export * from './AboutListResponseDataItemAttributes';
-export * from './AboutListResponseDataItemAttributesLocalizations';
-export * from './AboutListResponseDataItemLocalized';
-export * from './AboutListResponseDataItemLocalizedAttributes';
-export * from './AboutListResponseMeta';
-export * from './AboutListResponseMetaPagination';
 export * from './AboutLocalizationRequest';
 export * from './AboutLocalizationRequestImage';
 export * from './AboutLocalizationResponse';
@@ -40,12 +32,15 @@ export * from './AboutResponseDataObject';
 export * from './AboutResponseDataObjectAttributes';
 export * from './AboutResponseDataObjectAttributesLocalizations';
 export * from './AboutResponseDataObjectLocalized';
+export * from './AboutResponseDataObjectLocalizedAttributes';
 export * from './ArtistListResponse';
 export * from './ArtistListResponseDataItem';
 export * from './ArtistListResponseDataItemAttributes';
 export * from './ArtistListResponseDataItemAttributesLocalizations';
 export * from './ArtistListResponseDataItemLocalized';
 export * from './ArtistListResponseDataItemLocalizedAttributes';
+export * from './ArtistListResponseMeta';
+export * from './ArtistListResponseMetaPagination';
 export * from './ArtistLocalizationRequest';
 export * from './ArtistLocalizationResponse';
 export * from './ArtistLocalizationResponseArtworks';

@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { AboutListResponseMeta } from './AboutListResponseMeta';
+import type { ArtistListResponseMeta } from './ArtistListResponseMeta';
 import {
-  AboutListResponseMetaFromJSON,
-  AboutListResponseMetaFromJSONTyped,
-  AboutListResponseMetaToJSON,
-} from './AboutListResponseMeta';
+  ArtistListResponseMetaFromJSON,
+  ArtistListResponseMetaFromJSONTyped,
+  ArtistListResponseMetaToJSON,
+} from './ArtistListResponseMeta';
 import type { ExhibitionListResponseDataItem } from './ExhibitionListResponseDataItem';
 import {
   ExhibitionListResponseDataItemFromJSON,
@@ -40,10 +40,10 @@ export interface ExhibitionListResponse {
   data?: Array<ExhibitionListResponseDataItem>;
   /**
    *
-   * @type {AboutListResponseMeta}
+   * @type {ArtistListResponseMeta}
    * @memberof ExhibitionListResponse
    */
-  meta?: AboutListResponseMeta;
+  meta?: ArtistListResponseMeta;
 }
 
 /**
@@ -70,7 +70,7 @@ export function ExhibitionListResponseFromJSONTyped(
     data: !exists(json, 'data')
       ? undefined
       : (json['data'] as Array<any>).map(ExhibitionListResponseDataItemFromJSON),
-    meta: !exists(json, 'meta') ? undefined : AboutListResponseMetaFromJSON(json['meta']),
+    meta: !exists(json, 'meta') ? undefined : ArtistListResponseMetaFromJSON(json['meta']),
   };
 }
 
@@ -86,6 +86,6 @@ export function ExhibitionListResponseToJSON(value?: ExhibitionListResponse | nu
       value.data === undefined
         ? undefined
         : (value.data as Array<any>).map(ExhibitionListResponseDataItemToJSON),
-    meta: AboutListResponseMetaToJSON(value.meta),
+    meta: ArtistListResponseMetaToJSON(value.meta),
   };
 }
