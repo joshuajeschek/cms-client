@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ArtistLocalizationRequestArtworksInner } from './ArtistLocalizationRequestArtworksInner';
+import type { AboutLocalizationRequestImage } from './AboutLocalizationRequestImage';
 import {
-  ArtistLocalizationRequestArtworksInnerFromJSON,
-  ArtistLocalizationRequestArtworksInnerFromJSONTyped,
-  ArtistLocalizationRequestArtworksInnerToJSON,
-} from './ArtistLocalizationRequestArtworksInner';
+  AboutLocalizationRequestImageFromJSON,
+  AboutLocalizationRequestImageFromJSONTyped,
+  AboutLocalizationRequestImageToJSON,
+} from './AboutLocalizationRequestImage';
 
 /**
  *
@@ -40,16 +40,16 @@ export interface ArtworkLocalizationRequest {
   description?: string;
   /**
    *
-   * @type {Array<ArtistLocalizationRequestArtworksInner>}
+   * @type {Array<AboutLocalizationRequestImage>}
    * @memberof ArtworkLocalizationRequest
    */
-  artists?: Array<ArtistLocalizationRequestArtworksInner>;
+  artists?: Array<AboutLocalizationRequestImage>;
   /**
    *
-   * @type {Array<ArtistLocalizationRequestArtworksInner>}
+   * @type {Array<AboutLocalizationRequestImage>}
    * @memberof ArtworkLocalizationRequest
    */
-  media?: Array<ArtistLocalizationRequestArtworksInner>;
+  media?: Array<AboutLocalizationRequestImage>;
   /**
    *
    * @type {Date}
@@ -70,10 +70,10 @@ export interface ArtworkLocalizationRequest {
   handle: string;
   /**
    *
-   * @type {Array<ArtistLocalizationRequestArtworksInner>}
+   * @type {Array<AboutLocalizationRequestImage>}
    * @memberof ArtworkLocalizationRequest
    */
-  exhibitions?: Array<ArtistLocalizationRequestArtworksInner>;
+  exhibitions?: Array<AboutLocalizationRequestImage>;
   /**
    *
    * @type {string}
@@ -110,16 +110,16 @@ export function ArtworkLocalizationRequestFromJSONTyped(
     description: !exists(json, 'description') ? undefined : json['description'],
     artists: !exists(json, 'artists')
       ? undefined
-      : (json['artists'] as Array<any>).map(ArtistLocalizationRequestArtworksInnerFromJSON),
+      : (json['artists'] as Array<any>).map(AboutLocalizationRequestImageFromJSON),
     media: !exists(json, 'media')
       ? undefined
-      : (json['media'] as Array<any>).map(ArtistLocalizationRequestArtworksInnerFromJSON),
+      : (json['media'] as Array<any>).map(AboutLocalizationRequestImageFromJSON),
     creationDate: !exists(json, 'creationDate') ? undefined : new Date(json['creationDate']),
     originalTitle: !exists(json, 'originalTitle') ? undefined : json['originalTitle'],
     handle: json['handle'],
     exhibitions: !exists(json, 'exhibitions')
       ? undefined
-      : (json['exhibitions'] as Array<any>).map(ArtistLocalizationRequestArtworksInnerFromJSON),
+      : (json['exhibitions'] as Array<any>).map(AboutLocalizationRequestImageFromJSON),
     locale: json['locale'],
   };
 }
@@ -137,11 +137,11 @@ export function ArtworkLocalizationRequestToJSON(value?: ArtworkLocalizationRequ
     artists:
       value.artists === undefined
         ? undefined
-        : (value.artists as Array<any>).map(ArtistLocalizationRequestArtworksInnerToJSON),
+        : (value.artists as Array<any>).map(AboutLocalizationRequestImageToJSON),
     media:
       value.media === undefined
         ? undefined
-        : (value.media as Array<any>).map(ArtistLocalizationRequestArtworksInnerToJSON),
+        : (value.media as Array<any>).map(AboutLocalizationRequestImageToJSON),
     creationDate:
       value.creationDate === undefined ? undefined : value.creationDate.toISOString().substr(0, 10),
     originalTitle: value.originalTitle,
@@ -149,7 +149,7 @@ export function ArtworkLocalizationRequestToJSON(value?: ArtworkLocalizationRequ
     exhibitions:
       value.exhibitions === undefined
         ? undefined
-        : (value.exhibitions as Array<any>).map(ArtistLocalizationRequestArtworksInnerToJSON),
+        : (value.exhibitions as Array<any>).map(AboutLocalizationRequestImageToJSON),
     locale: value.locale,
   };
 }

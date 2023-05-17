@@ -13,18 +13,18 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributesFolderDataAttributesFilesDataInnerAttributesCreatedBy } from './ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributesFolderDataAttributesFilesDataInnerAttributesCreatedBy';
+import type { AboutLocalizationResponseImageDataAttributesFolderDataAttributesFilesDataInnerAttributesCreatedBy } from './AboutLocalizationResponseImageDataAttributesFolderDataAttributesFilesDataInnerAttributesCreatedBy';
 import {
-  ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributesFolderDataAttributesFilesDataInnerAttributesCreatedByFromJSON,
-  ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributesFolderDataAttributesFilesDataInnerAttributesCreatedByFromJSONTyped,
-  ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributesFolderDataAttributesFilesDataInnerAttributesCreatedByToJSON,
-} from './ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributesFolderDataAttributesFilesDataInnerAttributesCreatedBy';
-import type { ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributesFolderDataAttributesParent } from './ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributesFolderDataAttributesParent';
+  AboutLocalizationResponseImageDataAttributesFolderDataAttributesFilesDataInnerAttributesCreatedByFromJSON,
+  AboutLocalizationResponseImageDataAttributesFolderDataAttributesFilesDataInnerAttributesCreatedByFromJSONTyped,
+  AboutLocalizationResponseImageDataAttributesFolderDataAttributesFilesDataInnerAttributesCreatedByToJSON,
+} from './AboutLocalizationResponseImageDataAttributesFolderDataAttributesFilesDataInnerAttributesCreatedBy';
+import type { AboutLocalizationResponseImageDataAttributesFolderDataAttributesParent } from './AboutLocalizationResponseImageDataAttributesFolderDataAttributesParent';
 import {
-  ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributesFolderDataAttributesParentFromJSON,
-  ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributesFolderDataAttributesParentFromJSONTyped,
-  ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributesFolderDataAttributesParentToJSON,
-} from './ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributesFolderDataAttributesParent';
+  AboutLocalizationResponseImageDataAttributesFolderDataAttributesParentFromJSON,
+  AboutLocalizationResponseImageDataAttributesFolderDataAttributesParentFromJSONTyped,
+  AboutLocalizationResponseImageDataAttributesFolderDataAttributesParentToJSON,
+} from './AboutLocalizationResponseImageDataAttributesFolderDataAttributesParent';
 import type { UpdateResponseDataObjectAttributesLocalizations } from './UpdateResponseDataObjectAttributesLocalizations';
 import {
   UpdateResponseDataObjectAttributesLocalizationsFromJSON,
@@ -76,16 +76,16 @@ export interface UpdateResponseDataObjectAttributes {
   publishedAt?: Date;
   /**
    *
-   * @type {ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributesFolderDataAttributesFilesDataInnerAttributesCreatedBy}
+   * @type {AboutLocalizationResponseImageDataAttributesFolderDataAttributesFilesDataInnerAttributesCreatedBy}
    * @memberof UpdateResponseDataObjectAttributes
    */
-  createdBy?: ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributesFolderDataAttributesFilesDataInnerAttributesCreatedBy;
+  createdBy?: AboutLocalizationResponseImageDataAttributesFolderDataAttributesFilesDataInnerAttributesCreatedBy;
   /**
    *
-   * @type {ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributesFolderDataAttributesParent}
+   * @type {AboutLocalizationResponseImageDataAttributesFolderDataAttributesParent}
    * @memberof UpdateResponseDataObjectAttributes
    */
-  updatedBy?: ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributesFolderDataAttributesParent;
+  updatedBy?: AboutLocalizationResponseImageDataAttributesFolderDataAttributesParent;
   /**
    *
    * @type {UpdateResponseDataObjectAttributesLocalizations}
@@ -131,12 +131,12 @@ export function UpdateResponseDataObjectAttributesFromJSONTyped(
     publishedAt: !exists(json, 'publishedAt') ? undefined : new Date(json['publishedAt']),
     createdBy: !exists(json, 'createdBy')
       ? undefined
-      : ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributesFolderDataAttributesFilesDataInnerAttributesCreatedByFromJSON(
+      : AboutLocalizationResponseImageDataAttributesFolderDataAttributesFilesDataInnerAttributesCreatedByFromJSON(
           json['createdBy']
         ),
     updatedBy: !exists(json, 'updatedBy')
       ? undefined
-      : ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributesFolderDataAttributesParentFromJSON(
+      : AboutLocalizationResponseImageDataAttributesFolderDataAttributesParentFromJSON(
           json['updatedBy']
         ),
     localizations: !exists(json, 'localizations')
@@ -163,13 +163,12 @@ export function UpdateResponseDataObjectAttributesToJSON(
     updatedAt: value.updatedAt === undefined ? undefined : value.updatedAt.toISOString(),
     publishedAt: value.publishedAt === undefined ? undefined : value.publishedAt.toISOString(),
     createdBy:
-      ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributesFolderDataAttributesFilesDataInnerAttributesCreatedByToJSON(
+      AboutLocalizationResponseImageDataAttributesFolderDataAttributesFilesDataInnerAttributesCreatedByToJSON(
         value.createdBy
       ),
-    updatedBy:
-      ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributesFolderDataAttributesParentToJSON(
-        value.updatedBy
-      ),
+    updatedBy: AboutLocalizationResponseImageDataAttributesFolderDataAttributesParentToJSON(
+      value.updatedBy
+    ),
     localizations: UpdateResponseDataObjectAttributesLocalizationsToJSON(value.localizations),
     locale: value.locale,
   };

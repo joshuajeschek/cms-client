@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributes } from './ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributes';
+import type { AboutLocalizationResponseImageDataAttributes } from './AboutLocalizationResponseImageDataAttributes';
 import {
-  ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributesFromJSON,
-  ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributesFromJSONTyped,
-  ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributesToJSON,
-} from './ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributes';
+  AboutLocalizationResponseImageDataAttributesFromJSON,
+  AboutLocalizationResponseImageDataAttributesFromJSONTyped,
+  AboutLocalizationResponseImageDataAttributesToJSON,
+} from './AboutLocalizationResponseImageDataAttributes';
 
 /**
  *
@@ -34,10 +34,10 @@ export interface UploadFileResponseDataObject {
   id?: number;
   /**
    *
-   * @type {ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributes}
+   * @type {AboutLocalizationResponseImageDataAttributes}
    * @memberof UploadFileResponseDataObject
    */
-  attributes?: ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributes;
+  attributes?: AboutLocalizationResponseImageDataAttributes;
 }
 
 /**
@@ -64,9 +64,7 @@ export function UploadFileResponseDataObjectFromJSONTyped(
     id: !exists(json, 'id') ? undefined : json['id'],
     attributes: !exists(json, 'attributes')
       ? undefined
-      : ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributesFromJSON(
-          json['attributes']
-        ),
+      : AboutLocalizationResponseImageDataAttributesFromJSON(json['attributes']),
   };
 }
 
@@ -81,9 +79,6 @@ export function UploadFileResponseDataObjectToJSON(
   }
   return {
     id: value.id,
-    attributes:
-      ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributesToJSON(
-        value.attributes
-      ),
+    attributes: AboutLocalizationResponseImageDataAttributesToJSON(value.attributes),
   };
 }

@@ -14,7 +14,7 @@
 
 import * as runtime from '../runtime';
 import type {
-  GetArtistsPopulateParameter,
+  GetAboutPopulateParameter,
   UpdateListResponse,
   UpdateLocalizationRequest,
   UpdateLocalizationResponse,
@@ -22,8 +22,8 @@ import type {
   UpdateResponse,
 } from '../models';
 import {
-  GetArtistsPopulateParameterFromJSON,
-  GetArtistsPopulateParameterToJSON,
+  GetAboutPopulateParameterFromJSON,
+  GetAboutPopulateParameterToJSON,
   UpdateListResponseFromJSON,
   UpdateListResponseToJSON,
   UpdateLocalizationRequestFromJSON,
@@ -48,7 +48,7 @@ export interface GetUpdatesRequest {
   paginationStart?: number;
   paginationLimit?: number;
   fields?: string;
-  populate?: GetArtistsPopulateParameter;
+  populate?: GetAboutPopulateParameter;
   filters?: object;
   locale?: string;
 }

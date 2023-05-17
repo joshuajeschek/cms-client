@@ -14,13 +14,13 @@
 
 import * as runtime from '../runtime';
 import type {
-  GetArtistsPopulateParameter,
+  GetAboutPopulateParameter,
   UploadFileListResponse,
   UploadFileResponse,
 } from '../models';
 import {
-  GetArtistsPopulateParameterFromJSON,
-  GetArtistsPopulateParameterToJSON,
+  GetAboutPopulateParameterFromJSON,
+  GetAboutPopulateParameterToJSON,
   UploadFileListResponseFromJSON,
   UploadFileListResponseToJSON,
   UploadFileResponseFromJSON,
@@ -39,7 +39,7 @@ export interface GetUploadFilesRequest {
   paginationStart?: number;
   paginationLimit?: number;
   fields?: string;
-  populate?: GetArtistsPopulateParameter;
+  populate?: GetAboutPopulateParameter;
   filters?: object;
   locale?: string;
 }

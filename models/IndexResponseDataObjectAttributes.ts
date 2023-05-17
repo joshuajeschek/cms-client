@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributesFolderDataAttributesParent } from './ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributesFolderDataAttributesParent';
+import type { AboutLocalizationResponseImageDataAttributesFolderDataAttributesParent } from './AboutLocalizationResponseImageDataAttributesFolderDataAttributesParent';
 import {
-  ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributesFolderDataAttributesParentFromJSON,
-  ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributesFolderDataAttributesParentFromJSONTyped,
-  ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributesFolderDataAttributesParentToJSON,
-} from './ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributesFolderDataAttributesParent';
+  AboutLocalizationResponseImageDataAttributesFolderDataAttributesParentFromJSON,
+  AboutLocalizationResponseImageDataAttributesFolderDataAttributesParentFromJSONTyped,
+  AboutLocalizationResponseImageDataAttributesFolderDataAttributesParentToJSON,
+} from './AboutLocalizationResponseImageDataAttributesFolderDataAttributesParent';
 import type { IndexLocalizationResponseExhibitions } from './IndexLocalizationResponseExhibitions';
 import {
   IndexLocalizationResponseExhibitionsFromJSON,
@@ -70,16 +70,16 @@ export interface IndexResponseDataObjectAttributes {
   updatedAt?: Date;
   /**
    *
-   * @type {ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributesFolderDataAttributesParent}
+   * @type {AboutLocalizationResponseImageDataAttributesFolderDataAttributesParent}
    * @memberof IndexResponseDataObjectAttributes
    */
-  createdBy?: ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributesFolderDataAttributesParent;
+  createdBy?: AboutLocalizationResponseImageDataAttributesFolderDataAttributesParent;
   /**
    *
-   * @type {ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributesFolderDataAttributesParent}
+   * @type {AboutLocalizationResponseImageDataAttributesFolderDataAttributesParent}
    * @memberof IndexResponseDataObjectAttributes
    */
-  updatedBy?: ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributesFolderDataAttributesParent;
+  updatedBy?: AboutLocalizationResponseImageDataAttributesFolderDataAttributesParent;
   /**
    *
    * @type {IndexResponseDataObjectAttributesLocalizations}
@@ -127,12 +127,12 @@ export function IndexResponseDataObjectAttributesFromJSONTyped(
     updatedAt: !exists(json, 'updatedAt') ? undefined : new Date(json['updatedAt']),
     createdBy: !exists(json, 'createdBy')
       ? undefined
-      : ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributesFolderDataAttributesParentFromJSON(
+      : AboutLocalizationResponseImageDataAttributesFolderDataAttributesParentFromJSON(
           json['createdBy']
         ),
     updatedBy: !exists(json, 'updatedBy')
       ? undefined
-      : ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributesFolderDataAttributesParentFromJSON(
+      : AboutLocalizationResponseImageDataAttributesFolderDataAttributesParentFromJSON(
           json['updatedBy']
         ),
     localizations: !exists(json, 'localizations')
@@ -156,14 +156,12 @@ export function IndexResponseDataObjectAttributesToJSON(
     update: IndexLocalizationResponseUpdateToJSON(value.update),
     createdAt: value.createdAt === undefined ? undefined : value.createdAt.toISOString(),
     updatedAt: value.updatedAt === undefined ? undefined : value.updatedAt.toISOString(),
-    createdBy:
-      ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributesFolderDataAttributesParentToJSON(
-        value.createdBy
-      ),
-    updatedBy:
-      ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributesFolderDataAttributesParentToJSON(
-        value.updatedBy
-      ),
+    createdBy: AboutLocalizationResponseImageDataAttributesFolderDataAttributesParentToJSON(
+      value.createdBy
+    ),
+    updatedBy: AboutLocalizationResponseImageDataAttributesFolderDataAttributesParentToJSON(
+      value.updatedBy
+    ),
     localizations: IndexResponseDataObjectAttributesLocalizationsToJSON(value.localizations),
     locale: value.locale,
   };

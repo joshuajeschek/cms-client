@@ -37,6 +37,12 @@ export interface ContactLinkComponent {
    * @memberof ContactLinkComponent
    */
   platform?: ContactLinkComponentPlatformEnum;
+  /**
+   *
+   * @type {string}
+   * @memberof ContactLinkComponent
+   */
+  url?: string;
 }
 
 /**
@@ -55,6 +61,7 @@ export const ContactLinkComponentPlatformEnum = {
   Discord: 'discord',
   Twitch: 'twitch',
   Github: 'github',
+  Paypal: 'paypal',
 } as const;
 export type ContactLinkComponentPlatformEnum =
   (typeof ContactLinkComponentPlatformEnum)[keyof typeof ContactLinkComponentPlatformEnum];
@@ -83,6 +90,7 @@ export function ContactLinkComponentFromJSONTyped(
     id: !exists(json, 'id') ? undefined : json['id'],
     handle: !exists(json, 'handle') ? undefined : json['handle'],
     platform: !exists(json, 'platform') ? undefined : json['platform'],
+    url: !exists(json, 'url') ? undefined : json['url'],
   };
 }
 
@@ -97,5 +105,6 @@ export function ContactLinkComponentToJSON(value?: ContactLinkComponent | null):
     id: value.id,
     handle: value.handle,
     platform: value.platform,
+    url: value.url,
   };
 }

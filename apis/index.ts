@@ -1,5 +1,6 @@
 /* tslint:disable */
 /* eslint-disable */
+export * from './AboutApi';
 export * from './ArtistApi';
 export * from './ArtworkApi';
 export * from './ExhibitionApi';

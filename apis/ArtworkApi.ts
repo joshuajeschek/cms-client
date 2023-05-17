@@ -19,7 +19,7 @@ import type {
   ArtworkLocalizationResponse,
   ArtworkRequest,
   ArtworkResponse,
-  GetArtistsPopulateParameter,
+  GetAboutPopulateParameter,
 } from '../models';
 import {
   ArtworkListResponseFromJSON,
@@ -32,8 +32,8 @@ import {
   ArtworkRequestToJSON,
   ArtworkResponseFromJSON,
   ArtworkResponseToJSON,
-  GetArtistsPopulateParameterFromJSON,
-  GetArtistsPopulateParameterToJSON,
+  GetAboutPopulateParameterFromJSON,
+  GetAboutPopulateParameterToJSON,
 } from '../models';
 
 export interface DeleteArtworksIdRequest {
@@ -48,7 +48,7 @@ export interface GetArtworksRequest {
   paginationStart?: number;
   paginationLimit?: number;
   fields?: string;
-  populate?: GetArtistsPopulateParameter;
+  populate?: GetAboutPopulateParameter;
   filters?: object;
   locale?: string;
 }

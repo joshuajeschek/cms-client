@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureData } from './ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureData';
+import type { AboutLocalizationResponseImageData } from './AboutLocalizationResponseImageData';
 import {
-  ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataFromJSON,
-  ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataFromJSONTyped,
-  ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataToJSON,
-} from './ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureData';
+  AboutLocalizationResponseImageDataFromJSON,
+  AboutLocalizationResponseImageDataFromJSONTyped,
+  AboutLocalizationResponseImageDataToJSON,
+} from './AboutLocalizationResponseImageData';
 
 /**
  *
@@ -28,10 +28,10 @@ import {
 export interface ArtistLocalizationResponseArtworksDataInnerAttributesMedia {
   /**
    *
-   * @type {Array<ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureData>}
+   * @type {Array<AboutLocalizationResponseImageData>}
    * @memberof ArtistLocalizationResponseArtworksDataInnerAttributesMedia
    */
-  data?: Array<ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureData>;
+  data?: Array<AboutLocalizationResponseImageData>;
 }
 
 /**
@@ -61,9 +61,7 @@ export function ArtistLocalizationResponseArtworksDataInnerAttributesMediaFromJS
   return {
     data: !exists(json, 'data')
       ? undefined
-      : (json['data'] as Array<any>).map(
-          ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataFromJSON
-        ),
+      : (json['data'] as Array<any>).map(AboutLocalizationResponseImageDataFromJSON),
   };
 }
 
@@ -80,8 +78,6 @@ export function ArtistLocalizationResponseArtworksDataInnerAttributesMediaToJSON
     data:
       value.data === undefined
         ? undefined
-        : (value.data as Array<any>).map(
-            ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataToJSON
-          ),
+        : (value.data as Array<any>).map(AboutLocalizationResponseImageDataToJSON),
   };
 }

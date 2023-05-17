@@ -37,6 +37,12 @@ export interface ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDat
    * @memberof ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesContactInner
    */
   platform?: ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesContactInnerPlatformEnum;
+  /**
+   *
+   * @type {string}
+   * @memberof ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesContactInner
+   */
+  url?: string;
 }
 
 /**
@@ -56,6 +62,7 @@ export const ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInn
     Discord: 'discord',
     Twitch: 'twitch',
     Github: 'github',
+    Paypal: 'paypal',
   } as const;
 export type ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesContactInnerPlatformEnum =
   (typeof ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesContactInnerPlatformEnum)[keyof typeof ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesContactInnerPlatformEnum];
@@ -91,6 +98,7 @@ export function ArtistLocalizationResponseArtworksDataInnerAttributesArtistsData
     id: !exists(json, 'id') ? undefined : json['id'],
     handle: !exists(json, 'handle') ? undefined : json['handle'],
     platform: !exists(json, 'platform') ? undefined : json['platform'],
+    url: !exists(json, 'url') ? undefined : json['url'],
   };
 }
 
@@ -107,5 +115,6 @@ export function ArtistLocalizationResponseArtworksDataInnerAttributesArtistsData
     id: value.id,
     handle: value.handle,
     platform: value.platform,
+    url: value.url,
   };
 }

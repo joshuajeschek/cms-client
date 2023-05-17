@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ArtistLocalizationRequestArtworksInner } from './ArtistLocalizationRequestArtworksInner';
+import type { AboutLocalizationRequestImage } from './AboutLocalizationRequestImage';
 import {
-  ArtistLocalizationRequestArtworksInnerFromJSON,
-  ArtistLocalizationRequestArtworksInnerFromJSONTyped,
-  ArtistLocalizationRequestArtworksInnerToJSON,
-} from './ArtistLocalizationRequestArtworksInner';
+  AboutLocalizationRequestImageFromJSON,
+  AboutLocalizationRequestImageFromJSONTyped,
+  AboutLocalizationRequestImageToJSON,
+} from './AboutLocalizationRequestImage';
 
 /**
  *
@@ -46,16 +46,16 @@ export interface ExhibitionRequestData {
   handle: string;
   /**
    *
-   * @type {Array<ArtistLocalizationRequestArtworksInner>}
+   * @type {Array<AboutLocalizationRequestImage>}
    * @memberof ExhibitionRequestData
    */
-  artworks?: Array<ArtistLocalizationRequestArtworksInner>;
+  artworks?: Array<AboutLocalizationRequestImage>;
   /**
    *
-   * @type {ArtistLocalizationRequestArtworksInner}
+   * @type {AboutLocalizationRequestImage}
    * @memberof ExhibitionRequestData
    */
-  cover?: ArtistLocalizationRequestArtworksInner;
+  cover?: AboutLocalizationRequestImage;
   /**
    *
    * @type {Date}
@@ -98,10 +98,10 @@ export function ExhibitionRequestDataFromJSONTyped(
     handle: json['handle'],
     artworks: !exists(json, 'artworks')
       ? undefined
-      : (json['artworks'] as Array<any>).map(ArtistLocalizationRequestArtworksInnerFromJSON),
+      : (json['artworks'] as Array<any>).map(AboutLocalizationRequestImageFromJSON),
     cover: !exists(json, 'cover')
       ? undefined
-      : ArtistLocalizationRequestArtworksInnerFromJSON(json['cover']),
+      : AboutLocalizationRequestImageFromJSON(json['cover']),
     launch: !exists(json, 'launch') ? undefined : new Date(json['launch']),
     locale: !exists(json, 'locale') ? undefined : json['locale'],
   };
@@ -121,8 +121,8 @@ export function ExhibitionRequestDataToJSON(value?: ExhibitionRequestData | null
     artworks:
       value.artworks === undefined
         ? undefined
-        : (value.artworks as Array<any>).map(ArtistLocalizationRequestArtworksInnerToJSON),
-    cover: ArtistLocalizationRequestArtworksInnerToJSON(value.cover),
+        : (value.artworks as Array<any>).map(AboutLocalizationRequestImageToJSON),
+    cover: AboutLocalizationRequestImageToJSON(value.cover),
     launch: value.launch === undefined ? undefined : value.launch.toISOString().substr(0, 10),
     locale: value.locale,
   };

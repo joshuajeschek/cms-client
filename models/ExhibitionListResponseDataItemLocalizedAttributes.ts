@@ -13,30 +13,30 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import type { AboutLocalizationResponseImage } from './AboutLocalizationResponseImage';
+import {
+  AboutLocalizationResponseImageFromJSON,
+  AboutLocalizationResponseImageFromJSONTyped,
+  AboutLocalizationResponseImageToJSON,
+} from './AboutLocalizationResponseImage';
+import type { AboutLocalizationResponseImageDataAttributesFolderDataAttributesParent } from './AboutLocalizationResponseImageDataAttributesFolderDataAttributesParent';
+import {
+  AboutLocalizationResponseImageDataAttributesFolderDataAttributesParentFromJSON,
+  AboutLocalizationResponseImageDataAttributesFolderDataAttributesParentFromJSONTyped,
+  AboutLocalizationResponseImageDataAttributesFolderDataAttributesParentToJSON,
+} from './AboutLocalizationResponseImageDataAttributesFolderDataAttributesParent';
+import type { AboutLocalizationResponseLocalizations } from './AboutLocalizationResponseLocalizations';
+import {
+  AboutLocalizationResponseLocalizationsFromJSON,
+  AboutLocalizationResponseLocalizationsFromJSONTyped,
+  AboutLocalizationResponseLocalizationsToJSON,
+} from './AboutLocalizationResponseLocalizations';
 import type { ArtistLocalizationResponseArtworks } from './ArtistLocalizationResponseArtworks';
 import {
   ArtistLocalizationResponseArtworksFromJSON,
   ArtistLocalizationResponseArtworksFromJSONTyped,
   ArtistLocalizationResponseArtworksToJSON,
 } from './ArtistLocalizationResponseArtworks';
-import type { ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesLocalizations } from './ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesLocalizations';
-import {
-  ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesLocalizationsFromJSON,
-  ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesLocalizationsFromJSONTyped,
-  ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesLocalizationsToJSON,
-} from './ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesLocalizations';
-import type { ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPicture } from './ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPicture';
-import {
-  ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureFromJSON,
-  ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureFromJSONTyped,
-  ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureToJSON,
-} from './ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPicture';
-import type { ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributesFolderDataAttributesParent } from './ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributesFolderDataAttributesParent';
-import {
-  ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributesFolderDataAttributesParentFromJSON,
-  ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributesFolderDataAttributesParentFromJSONTyped,
-  ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributesFolderDataAttributesParentToJSON,
-} from './ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributesFolderDataAttributesParent';
 
 /**
  *
@@ -70,10 +70,10 @@ export interface ExhibitionListResponseDataItemLocalizedAttributes {
   artworks?: ArtistLocalizationResponseArtworks;
   /**
    *
-   * @type {ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPicture}
+   * @type {AboutLocalizationResponseImage}
    * @memberof ExhibitionListResponseDataItemLocalizedAttributes
    */
-  cover?: ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPicture;
+  cover?: AboutLocalizationResponseImage;
   /**
    *
    * @type {Date}
@@ -100,22 +100,22 @@ export interface ExhibitionListResponseDataItemLocalizedAttributes {
   publishedAt?: Date;
   /**
    *
-   * @type {ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributesFolderDataAttributesParent}
+   * @type {AboutLocalizationResponseImageDataAttributesFolderDataAttributesParent}
    * @memberof ExhibitionListResponseDataItemLocalizedAttributes
    */
-  createdBy?: ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributesFolderDataAttributesParent;
+  createdBy?: AboutLocalizationResponseImageDataAttributesFolderDataAttributesParent;
   /**
    *
-   * @type {ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributesFolderDataAttributesParent}
+   * @type {AboutLocalizationResponseImageDataAttributesFolderDataAttributesParent}
    * @memberof ExhibitionListResponseDataItemLocalizedAttributes
    */
-  updatedBy?: ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributesFolderDataAttributesParent;
+  updatedBy?: AboutLocalizationResponseImageDataAttributesFolderDataAttributesParent;
   /**
    *
-   * @type {ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesLocalizations}
+   * @type {AboutLocalizationResponseLocalizations}
    * @memberof ExhibitionListResponseDataItemLocalizedAttributes
    */
-  localizations?: ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesLocalizations;
+  localizations?: AboutLocalizationResponseLocalizations;
   /**
    *
    * @type {string}
@@ -157,28 +157,24 @@ export function ExhibitionListResponseDataItemLocalizedAttributesFromJSONTyped(
       : ArtistLocalizationResponseArtworksFromJSON(json['artworks']),
     cover: !exists(json, 'cover')
       ? undefined
-      : ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureFromJSON(
-          json['cover']
-        ),
+      : AboutLocalizationResponseImageFromJSON(json['cover']),
     launch: !exists(json, 'launch') ? undefined : new Date(json['launch']),
     createdAt: !exists(json, 'createdAt') ? undefined : new Date(json['createdAt']),
     updatedAt: !exists(json, 'updatedAt') ? undefined : new Date(json['updatedAt']),
     publishedAt: !exists(json, 'publishedAt') ? undefined : new Date(json['publishedAt']),
     createdBy: !exists(json, 'createdBy')
       ? undefined
-      : ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributesFolderDataAttributesParentFromJSON(
+      : AboutLocalizationResponseImageDataAttributesFolderDataAttributesParentFromJSON(
           json['createdBy']
         ),
     updatedBy: !exists(json, 'updatedBy')
       ? undefined
-      : ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributesFolderDataAttributesParentFromJSON(
+      : AboutLocalizationResponseImageDataAttributesFolderDataAttributesParentFromJSON(
           json['updatedBy']
         ),
     localizations: !exists(json, 'localizations')
       ? undefined
-      : ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesLocalizationsFromJSON(
-          json['localizations']
-        ),
+      : AboutLocalizationResponseLocalizationsFromJSON(json['localizations']),
     locale: !exists(json, 'locale') ? undefined : json['locale'],
   };
 }
@@ -197,26 +193,18 @@ export function ExhibitionListResponseDataItemLocalizedAttributesToJSON(
     description: value.description,
     handle: value.handle,
     artworks: ArtistLocalizationResponseArtworksToJSON(value.artworks),
-    cover:
-      ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureToJSON(
-        value.cover
-      ),
+    cover: AboutLocalizationResponseImageToJSON(value.cover),
     launch: value.launch === undefined ? undefined : value.launch.toISOString().substr(0, 10),
     createdAt: value.createdAt === undefined ? undefined : value.createdAt.toISOString(),
     updatedAt: value.updatedAt === undefined ? undefined : value.updatedAt.toISOString(),
     publishedAt: value.publishedAt === undefined ? undefined : value.publishedAt.toISOString(),
-    createdBy:
-      ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributesFolderDataAttributesParentToJSON(
-        value.createdBy
-      ),
-    updatedBy:
-      ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesPictureDataAttributesFolderDataAttributesParentToJSON(
-        value.updatedBy
-      ),
-    localizations:
-      ArtistLocalizationResponseArtworksDataInnerAttributesArtistsDataInnerAttributesLocalizationsToJSON(
-        value.localizations
-      ),
+    createdBy: AboutLocalizationResponseImageDataAttributesFolderDataAttributesParentToJSON(
+      value.createdBy
+    ),
+    updatedBy: AboutLocalizationResponseImageDataAttributesFolderDataAttributesParentToJSON(
+      value.updatedBy
+    ),
+    localizations: AboutLocalizationResponseLocalizationsToJSON(value.localizations),
     locale: value.locale,
   };
 }

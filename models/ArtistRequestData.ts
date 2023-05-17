@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ArtistLocalizationRequestArtworksInner } from './ArtistLocalizationRequestArtworksInner';
+import type { AboutLocalizationRequestImage } from './AboutLocalizationRequestImage';
 import {
-  ArtistLocalizationRequestArtworksInnerFromJSON,
-  ArtistLocalizationRequestArtworksInnerFromJSONTyped,
-  ArtistLocalizationRequestArtworksInnerToJSON,
-} from './ArtistLocalizationRequestArtworksInner';
+  AboutLocalizationRequestImageFromJSON,
+  AboutLocalizationRequestImageFromJSONTyped,
+  AboutLocalizationRequestImageToJSON,
+} from './AboutLocalizationRequestImage';
 import type { ContactLinkComponent } from './ContactLinkComponent';
 import {
   ContactLinkComponentFromJSON,
@@ -52,16 +52,16 @@ export interface ArtistRequestData {
   handle: string;
   /**
    *
-   * @type {Array<ArtistLocalizationRequestArtworksInner>}
+   * @type {Array<AboutLocalizationRequestImage>}
    * @memberof ArtistRequestData
    */
-  artworks?: Array<ArtistLocalizationRequestArtworksInner>;
+  artworks?: Array<AboutLocalizationRequestImage>;
   /**
    *
-   * @type {ArtistLocalizationRequestArtworksInner}
+   * @type {AboutLocalizationRequestImage}
    * @memberof ArtistRequestData
    */
-  picture?: ArtistLocalizationRequestArtworksInner;
+  picture?: AboutLocalizationRequestImage;
   /**
    *
    * @type {Date}
@@ -110,10 +110,10 @@ export function ArtistRequestDataFromJSONTyped(
     handle: json['handle'],
     artworks: !exists(json, 'artworks')
       ? undefined
-      : (json['artworks'] as Array<any>).map(ArtistLocalizationRequestArtworksInnerFromJSON),
+      : (json['artworks'] as Array<any>).map(AboutLocalizationRequestImageFromJSON),
     picture: !exists(json, 'picture')
       ? undefined
-      : ArtistLocalizationRequestArtworksInnerFromJSON(json['picture']),
+      : AboutLocalizationRequestImageFromJSON(json['picture']),
     birthday: !exists(json, 'birthday') ? undefined : new Date(json['birthday']),
     contact: !exists(json, 'contact')
       ? undefined
@@ -136,8 +136,8 @@ export function ArtistRequestDataToJSON(value?: ArtistRequestData | null): any {
     artworks:
       value.artworks === undefined
         ? undefined
-        : (value.artworks as Array<any>).map(ArtistLocalizationRequestArtworksInnerToJSON),
-    picture: ArtistLocalizationRequestArtworksInnerToJSON(value.picture),
+        : (value.artworks as Array<any>).map(AboutLocalizationRequestImageToJSON),
+    picture: AboutLocalizationRequestImageToJSON(value.picture),
     birthday: value.birthday === undefined ? undefined : value.birthday.toISOString().substr(0, 10),
     contact:
       value.contact === undefined

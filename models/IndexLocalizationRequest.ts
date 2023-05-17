@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ArtistLocalizationRequestArtworksInner } from './ArtistLocalizationRequestArtworksInner';
+import type { AboutLocalizationRequestImage } from './AboutLocalizationRequestImage';
 import {
-  ArtistLocalizationRequestArtworksInnerFromJSON,
-  ArtistLocalizationRequestArtworksInnerFromJSONTyped,
-  ArtistLocalizationRequestArtworksInnerToJSON,
-} from './ArtistLocalizationRequestArtworksInner';
+  AboutLocalizationRequestImageFromJSON,
+  AboutLocalizationRequestImageFromJSONTyped,
+  AboutLocalizationRequestImageToJSON,
+} from './AboutLocalizationRequestImage';
 
 /**
  *
@@ -28,16 +28,16 @@ import {
 export interface IndexLocalizationRequest {
   /**
    *
-   * @type {Array<ArtistLocalizationRequestArtworksInner>}
+   * @type {Array<AboutLocalizationRequestImage>}
    * @memberof IndexLocalizationRequest
    */
-  exhibitions?: Array<ArtistLocalizationRequestArtworksInner>;
+  exhibitions?: Array<AboutLocalizationRequestImage>;
   /**
    *
-   * @type {ArtistLocalizationRequestArtworksInner}
+   * @type {AboutLocalizationRequestImage}
    * @memberof IndexLocalizationRequest
    */
-  update?: ArtistLocalizationRequestArtworksInner;
+  update?: AboutLocalizationRequestImage;
   /**
    *
    * @type {string}
@@ -70,10 +70,10 @@ export function IndexLocalizationRequestFromJSONTyped(
   return {
     exhibitions: !exists(json, 'exhibitions')
       ? undefined
-      : (json['exhibitions'] as Array<any>).map(ArtistLocalizationRequestArtworksInnerFromJSON),
+      : (json['exhibitions'] as Array<any>).map(AboutLocalizationRequestImageFromJSON),
     update: !exists(json, 'update')
       ? undefined
-      : ArtistLocalizationRequestArtworksInnerFromJSON(json['update']),
+      : AboutLocalizationRequestImageFromJSON(json['update']),
     locale: json['locale'],
   };
 }
@@ -89,8 +89,8 @@ export function IndexLocalizationRequestToJSON(value?: IndexLocalizationRequest 
     exhibitions:
       value.exhibitions === undefined
         ? undefined
-        : (value.exhibitions as Array<any>).map(ArtistLocalizationRequestArtworksInnerToJSON),
-    update: ArtistLocalizationRequestArtworksInnerToJSON(value.update),
+        : (value.exhibitions as Array<any>).map(AboutLocalizationRequestImageToJSON),
+    update: AboutLocalizationRequestImageToJSON(value.update),
     locale: value.locale,
   };
 }
