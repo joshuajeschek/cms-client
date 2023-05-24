@@ -123,7 +123,7 @@ export function ExhibitionRequestDataToJSON(value?: ExhibitionRequestData | null
         ? undefined
         : (value.artworks as Array<any>).map(AboutLocalizationRequestImageToJSON),
     cover: AboutLocalizationRequestImageToJSON(value.cover),
-    launch: value.launch === undefined ? undefined : value.launch.toISOString().substr(0, 10),
+    launch: value.launch === undefined ? undefined : value.launch.toISOString(),
     locale: value.locale,
   };
 }

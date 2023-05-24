@@ -181,7 +181,7 @@ export function ExhibitionToJSON(value?: Exhibition | null): any {
     handle: value.handle,
     artworks: ArtistArtworksToJSON(value.artworks),
     cover: ArtistArtworksDataInnerAttributesExhibitionsDataInnerAttributesCoverToJSON(value.cover),
-    launch: value.launch === undefined ? undefined : value.launch.toISOString().substr(0, 10),
+    launch: value.launch === undefined ? undefined : value.launch.toISOString(),
     createdAt: value.createdAt === undefined ? undefined : value.createdAt.toISOString(),
     updatedAt: value.updatedAt === undefined ? undefined : value.updatedAt.toISOString(),
     publishedAt: value.publishedAt === undefined ? undefined : value.publishedAt.toISOString(),
