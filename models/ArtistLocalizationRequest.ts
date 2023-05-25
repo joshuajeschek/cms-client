@@ -76,6 +76,12 @@ export interface ArtistLocalizationRequest {
   contact?: Array<ContactLinkComponent>;
   /**
    *
+   * @type {number}
+   * @memberof ArtistLocalizationRequest
+   */
+  priority: number;
+  /**
+   *
    * @type {string}
    * @memberof ArtistLocalizationRequest
    */
@@ -89,6 +95,7 @@ export function instanceOfArtistLocalizationRequest(value: object): boolean {
   let isInstance = true;
   isInstance = isInstance && 'name' in value;
   isInstance = isInstance && 'handle' in value;
+  isInstance = isInstance && 'priority' in value;
   isInstance = isInstance && 'locale' in value;
 
   return isInstance;
@@ -119,6 +126,7 @@ export function ArtistLocalizationRequestFromJSONTyped(
     contact: !exists(json, 'contact')
       ? undefined
       : (json['contact'] as Array<any>).map(ContactLinkComponentFromJSON),
+    priority: json['priority'],
     locale: json['locale'],
   };
 }
@@ -144,6 +152,7 @@ export function ArtistLocalizationRequestToJSON(value?: ArtistLocalizationReques
       value.contact === undefined
         ? undefined
         : (value.contact as Array<any>).map(ContactLinkComponentToJSON),
+    priority: value.priority,
     locale: value.locale,
   };
 }

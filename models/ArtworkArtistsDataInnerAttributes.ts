@@ -94,6 +94,12 @@ export interface ArtworkArtistsDataInnerAttributes {
   contact?: Array<ArtistArtworksDataInnerAttributesArtistsDataInnerAttributesContactInner>;
   /**
    *
+   * @type {number}
+   * @memberof ArtworkArtistsDataInnerAttributes
+   */
+  priority?: number;
+  /**
+   *
    * @type {Date}
    * @memberof ArtworkArtistsDataInnerAttributes
    */
@@ -176,6 +182,7 @@ export function ArtworkArtistsDataInnerAttributesFromJSONTyped(
       : (json['contact'] as Array<any>).map(
           ArtistArtworksDataInnerAttributesArtistsDataInnerAttributesContactInnerFromJSON
         ),
+    priority: !exists(json, 'priority') ? undefined : json['priority'],
     createdAt: !exists(json, 'createdAt') ? undefined : new Date(json['createdAt']),
     updatedAt: !exists(json, 'updatedAt') ? undefined : new Date(json['updatedAt']),
     publishedAt: !exists(json, 'publishedAt') ? undefined : new Date(json['publishedAt']),
@@ -218,6 +225,7 @@ export function ArtworkArtistsDataInnerAttributesToJSON(
         : (value.contact as Array<any>).map(
             ArtistArtworksDataInnerAttributesArtistsDataInnerAttributesContactInnerToJSON
           ),
+    priority: value.priority,
     createdAt: value.createdAt === undefined ? undefined : value.createdAt.toISOString(),
     updatedAt: value.updatedAt === undefined ? undefined : value.updatedAt.toISOString(),
     publishedAt: value.publishedAt === undefined ? undefined : value.publishedAt.toISOString(),

@@ -94,6 +94,12 @@ export interface Artist {
   contact?: Array<ContactLinkComponent>;
   /**
    *
+   * @type {number}
+   * @memberof Artist
+   */
+  priority: number;
+  /**
+   *
    * @type {Date}
    * @memberof Artist
    */
@@ -143,6 +149,7 @@ export function instanceOfArtist(value: object): boolean {
   let isInstance = true;
   isInstance = isInstance && 'name' in value;
   isInstance = isInstance && 'handle' in value;
+  isInstance = isInstance && 'priority' in value;
 
   return isInstance;
 }
@@ -169,6 +176,7 @@ export function ArtistFromJSONTyped(json: any, ignoreDiscriminator: boolean): Ar
     contact: !exists(json, 'contact')
       ? undefined
       : (json['contact'] as Array<any>).map(ContactLinkComponentFromJSON),
+    priority: json['priority'],
     createdAt: !exists(json, 'createdAt') ? undefined : new Date(json['createdAt']),
     updatedAt: !exists(json, 'updatedAt') ? undefined : new Date(json['updatedAt']),
     publishedAt: !exists(json, 'publishedAt') ? undefined : new Date(json['publishedAt']),
@@ -205,6 +213,7 @@ export function ArtistToJSON(value?: Artist | null): any {
       value.contact === undefined
         ? undefined
         : (value.contact as Array<any>).map(ContactLinkComponentToJSON),
+    priority: value.priority,
     createdAt: value.createdAt === undefined ? undefined : value.createdAt.toISOString(),
     updatedAt: value.updatedAt === undefined ? undefined : value.updatedAt.toISOString(),
     publishedAt: value.publishedAt === undefined ? undefined : value.publishedAt.toISOString(),
