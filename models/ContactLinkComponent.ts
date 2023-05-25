@@ -51,6 +51,7 @@ export interface ContactLinkComponent {
 export const ContactLinkComponentPlatformEnum = {
   Generic: 'generic',
   Email: 'email',
+  Website: 'website',
   Facebook: 'facebook',
   Youtube: 'youtube',
   Instagram: 'instagram',

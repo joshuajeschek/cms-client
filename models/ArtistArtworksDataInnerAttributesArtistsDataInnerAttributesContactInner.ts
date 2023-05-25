@@ -51,6 +51,7 @@ export interface ArtistArtworksDataInnerAttributesArtistsDataInnerAttributesCont
 export const ArtistArtworksDataInnerAttributesArtistsDataInnerAttributesContactInnerPlatformEnum = {
   Generic: 'generic',
   Email: 'email',
+  Website: 'website',
   Facebook: 'facebook',
   Youtube: 'youtube',
   Instagram: 'instagram',
