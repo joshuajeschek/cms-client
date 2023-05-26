@@ -79,8 +79,25 @@ export interface ArtworkLocalizationRequest {
    * @type {string}
    * @memberof ArtworkLocalizationRequest
    */
+  creationDateAccuracy?: ArtworkLocalizationRequestCreationDateAccuracyEnum;
+  /**
+   *
+   * @type {string}
+   * @memberof ArtworkLocalizationRequest
+   */
   locale: string;
 }
+
+/**
+ * @export
+ */
+export const ArtworkLocalizationRequestCreationDateAccuracyEnum = {
+  Year: 'year',
+  Month: 'month',
+  Day: 'day',
+} as const;
+export type ArtworkLocalizationRequestCreationDateAccuracyEnum =
+  (typeof ArtworkLocalizationRequestCreationDateAccuracyEnum)[keyof typeof ArtworkLocalizationRequestCreationDateAccuracyEnum];
 
 /**
  * Check if a given object implements the ArtworkLocalizationRequest interface.
@@ -120,6 +137,9 @@ export function ArtworkLocalizationRequestFromJSONTyped(
     exhibitions: !exists(json, 'exhibitions')
       ? undefined
       : (json['exhibitions'] as Array<any>).map(AboutLocalizationRequestImageFromJSON),
+    creationDateAccuracy: !exists(json, 'creationDateAccuracy')
+      ? undefined
+      : json['creationDateAccuracy'],
     locale: json['locale'],
   };
 }
@@ -150,6 +170,7 @@ export function ArtworkLocalizationRequestToJSON(value?: ArtworkLocalizationRequ
       value.exhibitions === undefined
         ? undefined
         : (value.exhibitions as Array<any>).map(AboutLocalizationRequestImageToJSON),
+    creationDateAccuracy: value.creationDateAccuracy,
     locale: value.locale,
   };
 }

@@ -100,6 +100,12 @@ export interface Artwork {
   exhibitions?: AboutImageDataAttributesRelated;
   /**
    *
+   * @type {string}
+   * @memberof Artwork
+   */
+  creationDateAccuracy?: ArtworkCreationDateAccuracyEnum;
+  /**
+   *
    * @type {Date}
    * @memberof Artwork
    */
@@ -143,6 +149,17 @@ export interface Artwork {
 }
 
 /**
+ * @export
+ */
+export const ArtworkCreationDateAccuracyEnum = {
+  Year: 'year',
+  Month: 'month',
+  Day: 'day',
+} as const;
+export type ArtworkCreationDateAccuracyEnum =
+  (typeof ArtworkCreationDateAccuracyEnum)[keyof typeof ArtworkCreationDateAccuracyEnum];
+
+/**
  * Check if a given object implements the Artwork interface.
  */
 export function instanceOfArtwork(value: object): boolean {
@@ -174,6 +191,9 @@ export function ArtworkFromJSONTyped(json: any, ignoreDiscriminator: boolean): A
     exhibitions: !exists(json, 'exhibitions')
       ? undefined
       : AboutImageDataAttributesRelatedFromJSON(json['exhibitions']),
+    creationDateAccuracy: !exists(json, 'creationDateAccuracy')
+      ? undefined
+      : json['creationDateAccuracy'],
     createdAt: !exists(json, 'createdAt') ? undefined : new Date(json['createdAt']),
     updatedAt: !exists(json, 'updatedAt') ? undefined : new Date(json['updatedAt']),
     publishedAt: !exists(json, 'publishedAt') ? undefined : new Date(json['publishedAt']),
@@ -207,6 +227,7 @@ export function ArtworkToJSON(value?: Artwork | null): any {
     originalTitle: value.originalTitle,
     handle: value.handle,
     exhibitions: AboutImageDataAttributesRelatedToJSON(value.exhibitions),
+    creationDateAccuracy: value.creationDateAccuracy,
     createdAt: value.createdAt === undefined ? undefined : value.createdAt.toISOString(),
     updatedAt: value.updatedAt === undefined ? undefined : value.updatedAt.toISOString(),
     publishedAt: value.publishedAt === undefined ? undefined : value.publishedAt.toISOString(),

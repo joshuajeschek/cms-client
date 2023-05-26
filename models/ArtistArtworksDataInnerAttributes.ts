@@ -100,6 +100,12 @@ export interface ArtistArtworksDataInnerAttributes {
   exhibitions?: ArtistArtworksDataInnerAttributesExhibitions;
   /**
    *
+   * @type {string}
+   * @memberof ArtistArtworksDataInnerAttributes
+   */
+  creationDateAccuracy?: ArtistArtworksDataInnerAttributesCreationDateAccuracyEnum;
+  /**
+   *
    * @type {Date}
    * @memberof ArtistArtworksDataInnerAttributes
    */
@@ -143,6 +149,17 @@ export interface ArtistArtworksDataInnerAttributes {
 }
 
 /**
+ * @export
+ */
+export const ArtistArtworksDataInnerAttributesCreationDateAccuracyEnum = {
+  Year: 'year',
+  Month: 'month',
+  Day: 'day',
+} as const;
+export type ArtistArtworksDataInnerAttributesCreationDateAccuracyEnum =
+  (typeof ArtistArtworksDataInnerAttributesCreationDateAccuracyEnum)[keyof typeof ArtistArtworksDataInnerAttributesCreationDateAccuracyEnum];
+
+/**
  * Check if a given object implements the ArtistArtworksDataInnerAttributes interface.
  */
 export function instanceOfArtistArtworksDataInnerAttributes(value: object): boolean {
@@ -179,6 +196,9 @@ export function ArtistArtworksDataInnerAttributesFromJSONTyped(
     exhibitions: !exists(json, 'exhibitions')
       ? undefined
       : ArtistArtworksDataInnerAttributesExhibitionsFromJSON(json['exhibitions']),
+    creationDateAccuracy: !exists(json, 'creationDateAccuracy')
+      ? undefined
+      : json['creationDateAccuracy'],
     createdAt: !exists(json, 'createdAt') ? undefined : new Date(json['createdAt']),
     updatedAt: !exists(json, 'updatedAt') ? undefined : new Date(json['updatedAt']),
     publishedAt: !exists(json, 'publishedAt') ? undefined : new Date(json['publishedAt']),
@@ -216,6 +236,7 @@ export function ArtistArtworksDataInnerAttributesToJSON(
     originalTitle: value.originalTitle,
     handle: value.handle,
     exhibitions: ArtistArtworksDataInnerAttributesExhibitionsToJSON(value.exhibitions),
+    creationDateAccuracy: value.creationDateAccuracy,
     createdAt: value.createdAt === undefined ? undefined : value.createdAt.toISOString(),
     updatedAt: value.updatedAt === undefined ? undefined : value.updatedAt.toISOString(),
     publishedAt: value.publishedAt === undefined ? undefined : value.publishedAt.toISOString(),

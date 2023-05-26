@@ -100,6 +100,12 @@ export interface ArtworkArtistsDataInnerAttributesArtworksDataInnerAttributes {
   exhibitions?: ArtistArtworksDataInnerAttributesExhibitions;
   /**
    *
+   * @type {string}
+   * @memberof ArtworkArtistsDataInnerAttributesArtworksDataInnerAttributes
+   */
+  creationDateAccuracy?: ArtworkArtistsDataInnerAttributesArtworksDataInnerAttributesCreationDateAccuracyEnum;
+  /**
+   *
    * @type {Date}
    * @memberof ArtworkArtistsDataInnerAttributesArtworksDataInnerAttributes
    */
@@ -143,6 +149,18 @@ export interface ArtworkArtistsDataInnerAttributesArtworksDataInnerAttributes {
 }
 
 /**
+ * @export
+ */
+export const ArtworkArtistsDataInnerAttributesArtworksDataInnerAttributesCreationDateAccuracyEnum =
+  {
+    Year: 'year',
+    Month: 'month',
+    Day: 'day',
+  } as const;
+export type ArtworkArtistsDataInnerAttributesArtworksDataInnerAttributesCreationDateAccuracyEnum =
+  (typeof ArtworkArtistsDataInnerAttributesArtworksDataInnerAttributesCreationDateAccuracyEnum)[keyof typeof ArtworkArtistsDataInnerAttributesArtworksDataInnerAttributesCreationDateAccuracyEnum];
+
+/**
  * Check if a given object implements the ArtworkArtistsDataInnerAttributesArtworksDataInnerAttributes interface.
  */
 export function instanceOfArtworkArtistsDataInnerAttributesArtworksDataInnerAttributes(
@@ -181,6 +199,9 @@ export function ArtworkArtistsDataInnerAttributesArtworksDataInnerAttributesFrom
     exhibitions: !exists(json, 'exhibitions')
       ? undefined
       : ArtistArtworksDataInnerAttributesExhibitionsFromJSON(json['exhibitions']),
+    creationDateAccuracy: !exists(json, 'creationDateAccuracy')
+      ? undefined
+      : json['creationDateAccuracy'],
     createdAt: !exists(json, 'createdAt') ? undefined : new Date(json['createdAt']),
     updatedAt: !exists(json, 'updatedAt') ? undefined : new Date(json['updatedAt']),
     publishedAt: !exists(json, 'publishedAt') ? undefined : new Date(json['publishedAt']),
@@ -218,6 +239,7 @@ export function ArtworkArtistsDataInnerAttributesArtworksDataInnerAttributesToJS
     originalTitle: value.originalTitle,
     handle: value.handle,
     exhibitions: ArtistArtworksDataInnerAttributesExhibitionsToJSON(value.exhibitions),
+    creationDateAccuracy: value.creationDateAccuracy,
     createdAt: value.createdAt === undefined ? undefined : value.createdAt.toISOString(),
     updatedAt: value.updatedAt === undefined ? undefined : value.updatedAt.toISOString(),
     publishedAt: value.publishedAt === undefined ? undefined : value.publishedAt.toISOString(),
